@@ -1,12 +1,3 @@
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
 .App-header {
     background-color: #282c34;
     display: flex;
@@ -41,15 +32,17 @@
     min-height: 120px;
     transition: background-color 250ms ease-in;
     background-color: lightgray;
-    padding: 1em;
+    padding: 1em 1em 48px;
     flex: 1 0 100%;
 }
 
-.app-team-droppable.app-dnd-drag {
+.app-team-droppable.app-dnd-dragover {
     background-color: lightgreen;
 }
 
 .app-team-title {
+    text-align: center;
+    font-size: 1.2rem;
     background-color: black;
     color: white;
     padding: 1em;
@@ -61,18 +54,27 @@
     flex: 0 0 100%;
 }
 
+.app-team-id-playerPool > .app-team-droppable {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.app-team-id-playerPool > .app-team-droppable .app-player {
+    width: auto;
+    margin-right: 1em;
+}
+
 
 /* Player */
 .app-player {
-
+    width: 240px;
 }
 
 .app-player-draggable {
     font-size: 1.2rem;
     border: 1px solid #bbb;
     background-color: #fff;
-    transition: background-color 250ms ease-in;
-    max-width: 180px;
+    transition: background-color,width 250ms ease-in;
     margin-bottom: .8rem;
     border-radius: .5rem;
     box-shadow: #aaa 2px 2px 8px;
@@ -84,7 +86,7 @@
 
 .app-player-content {
     min-height: 48px;
-    padding: 0 10px;
+    padding: 0 .6em;
     display: flex;
     align-items: center;
 }
