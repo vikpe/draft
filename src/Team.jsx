@@ -11,11 +11,17 @@ class Team extends React.Component {
         <Droppable droppableId={this.props.team.name}>
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-                <div style={{padding: "10px", backgroundColor: "#eee", minHeight: "120px"}}>
-              {this.props.players.map((player, index) => (
-                <Player key={player.name} player={player} index={index} />
-              ))}
-              {provided.placeholder}
+              <div
+                style={{
+                  padding: "10px",
+                  backgroundColor: "#eee",
+                  minHeight: "120px",
+                }}
+              >
+                {this.props.players.map((player, index) => (
+                  <Player key={player.name} player={player} index={index} />
+                ))}
+                {provided.placeholder}
               </div>
             </div>
           )}

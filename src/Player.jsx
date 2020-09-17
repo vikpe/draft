@@ -11,8 +11,13 @@ class Player extends React.Component {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            <div style={{ border: "1px solid red", padding: "10px", backgroundColor: "#fff" }}>
-              <img src={`/flags/48/${this.props.player.country_code.toUpperCase()}.png`} /> {this.props.player.name}
+            <div className="app-player">
+              <img
+                src={`/flags/48/${this.props.player.country_code.toUpperCase()}.png`}
+                width={24}
+                className="app-player-flag"
+              />{" "}
+              {this.props.player.name}
             </div>
           </div>
         )}
