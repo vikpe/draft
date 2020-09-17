@@ -2,37 +2,37 @@ import React from "react";
 import Player from "./Player";
 import { Droppable } from "react-beautiful-dnd";
 
+const getDroppableClassName = (snapshot) => {
+  const classNames = ["app-team-droppable"];
+
+  if (snapshot.isDraggingOver) {
+    classNames.push("app-dnd-drag");
+  }
+
+  return classNames.join(" ");
+};
+
 const getListStyle = (isDraggingOver) => ({
   background: isDraggingOver ? "lightgreen" : "lightgrey",
 });
 
-const defaultStlye = {
-  padding: "10px",
-  minHeight: "120px",
-  transition: "background-color 250ms ease-in",
-};
-
 class Team extends React.Component {
   render() {
-    console.log("render..");
     return (
-      <div>
-        <h2>{this.props.team.name}</h2>
+      <div className={`app-team app-team-id-${this.props.team.id}`}>
+        <div className="app-team-title">{this.props.team.name}</div>
 
-        <Droppable droppableId={this.props.team.name}>
+        <Droppable droppableId={this.props.team.id}>
           {(provided, snapshot) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
-              <div
-                style={{
-                  ...defaultStlye,
-                  ...getListStyle(snapshot.isDraggingOver),
-                }}
-              >
-                {this.props.players.map((player, index) => (
-                  <Player key={player.name} player={player} index={index} />
-                ))}
-                {provided.placeholder}
-              </div>
+            <div
+              className={getDroppableClassName(snapshot)}
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {this.props.players.map((player, index) => (
+                <Player key={player.name} player={player} index={index} />
+              ))}
+              {provided.placeholder}
             </div>
           )}
         </Droppable>

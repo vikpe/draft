@@ -18,24 +18,80 @@
     padding: 1em 0;
 }
 
+/* Team container */
+.app-teams-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    user-select: none;
+    background-color: #000;
+}
 
-h2 {
-    background-color: #bbb;
+/* Team */
+.app-team {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 1px;
+    border-radius: 5px;
+}
+
+.app-team-droppable {
+    min-width: 320px;
+    min-height: 120px;
+    transition: background-color 250ms ease-in;
+    background-color: lightgray;
+    padding: 1em;
+    flex: 1 0 100%;
+}
+
+.app-team-droppable.app-dnd-drag {
+    background-color: lightgreen;
+}
+
+.app-team-title {
+    background-color: black;
+    color: white;
     padding: 1em;
     margin: 0;
 }
 
+/* Player pool */
+.app-team-id-playerPool {
+    flex: 0 0 100%;
+}
+
+
+/* Player */
 .app-player {
+
+}
+
+.app-player-draggable {
     font-size: 1.2rem;
-    border: 1px solid #aaa;
-    padding: 10px;
+    border: 1px solid #bbb;
     background-color: #fff;
+    transition: background-color 250ms ease-in;
+    max-width: 180px;
+    margin-bottom: .8rem;
+    border-radius: .5rem;
+    box-shadow: #aaa 2px 2px 8px;
+}
+
+.app-player-draggable.app-dnd-drag {
+    background-color: yellow !important;
+}
+
+.app-player-content {
+    min-height: 48px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
-    margin-bottom: .4em;
-    user-select: none;
 }
 
 .app-player-flag {
     margin-right: .5rem;
 }
+
+
+

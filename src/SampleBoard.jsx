@@ -5,15 +5,28 @@ import { DragDropContext } from "react-beautiful-dnd";
 import Team from "./Team";
 
 const teams = {
-  "Team Red": {
+  red: {
+    id: "red",
     name: "Team Red",
     playerNames: [],
   },
-  "Team Blue": {
+  blue: {
+    id: "blue",
     name: "Team Blue",
     playerNames: [],
   },
-  "Player Pool": {
+  orange: {
+    id: "orange",
+    name: "Team Orange",
+    playerNames: [],
+  },
+  yellow: {
+    id: "yellow",
+    name: "Team Yellow",
+    playerNames: [],
+  },
+  playerPool: {
+    id: "playerPool",
     name: "Player Pool",
     playerNames: [],
   },
@@ -32,7 +45,7 @@ const players = {
   Shaka: { name: "Shaka", country_code: "se" },
 };
 
-teams["Player Pool"].playerNames = Object.keys(players);
+teams.playerPool.playerNames = Object.keys(players);
 
 const defaultData = { teams, players };
 
@@ -113,23 +126,14 @@ class SampleBoard extends React.Component {
   render() {
     const playersByTeam = (team) =>
       team.playerNames.map((playerId) => this.state.players[playerId]);
-    const numberOfTeams = Object.keys(this.state.teams).length;
-    const draftTeams = Object.values(this.state.teams).slice(
-      0,
-      numberOfTeams - 1,
-    );
-    const playerPool = this.state.teams["Player Pool"];
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        {draftTeams.map((team) => (
-          <Team key={team.name} team={team} players={playersByTeam(team)} />
-        ))}
-        <Team
-          key={playerPool.name}
-          team={playerPool}
-          players={playersByTeam(playerPool)}
-        />
+        <div className="app-teams-container">
+          {Object.values(this.state.teams).map((team) => (
+            <Team key={team.id} team={team} players={playersByTeam(team)} />
+          ))}
+        </div>
       </DragDropContext>
     );
   }
