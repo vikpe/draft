@@ -12,10 +12,6 @@ const getDroppableClassName = (snapshot) => {
   return classNames.join(" ");
 };
 
-const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? "lightgreen" : "lightgrey",
-});
-
 class Team extends React.Component {
   render() {
     const isPlayerPool = this.props.team.id === "playerPool";
