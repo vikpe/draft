@@ -131,6 +131,7 @@ function SampleBoard() {
                                 border: '4px solid red',
                                 flexDirection: 'column',
                                 alignItems: 'center',
+                                minWidth: '400px',
                                 flexGrow: '1',
                                 ...column.style,
                             }}
