@@ -2,20 +2,30 @@ import React from "react";
 import Player from "./Player";
 import { Droppable } from "react-beautiful-dnd";
 
+const getListStyle = (isDraggingOver) => ({
+  background: isDraggingOver ? "lightgreen" : "lightgrey",
+});
+
+const defaultStlye = {
+  padding: "10px",
+  minHeight: "120px",
+  transition: "background-color 250ms ease-in",
+};
+
 class Team extends React.Component {
   render() {
+    console.log("render..");
     return (
       <div>
         <h2>{this.props.team.name}</h2>
 
         <Droppable droppableId={this.props.team.name}>
-          {(provided) => (
+          {(provided, snapshot) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
               <div
                 style={{
-                  padding: "10px",
-                  backgroundColor: "#eee",
-                  minHeight: "120px",
+                  ...defaultStlye,
+                  ...getListStyle(snapshot.isDraggingOver),
                 }}
               >
                 {this.props.players.map((player, index) => (
