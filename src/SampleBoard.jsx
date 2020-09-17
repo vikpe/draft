@@ -111,15 +111,25 @@ class SampleBoard extends React.Component {
   };
 
   render() {
+    const playersByTeam = (team) =>
+      team.playerNames.map((playerId) => this.state.players[playerId]);
+    const numberOfTeams = Object.keys(this.state.teams).length;
+    const draftTeams = Object.values(this.state.teams).slice(
+      0,
+      numberOfTeams - 1,
+    );
+    const playerPool = this.state.teams["Player Pool"];
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        {Object.values(this.state.teams).map((team) => {
-          const players = team.playerNames.map(
-            (playerId) => this.state.players[playerId],
-          );
-
-          return <Team key={team.name} team={team} players={players} />;
-        })}
+        {draftTeams.map((team) => (
+          <Team key={team.name} team={team} players={playersByTeam(team)} />
+        ))}
+        <Team
+          key={playerPool.name}
+          team={playerPool}
+          players={playersByTeam(playerPool)}
+        />
       </DragDropContext>
     );
   }
