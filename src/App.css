@@ -49,6 +49,11 @@
     margin: 0;
 }
 
+.app-team-highlight .app-team-title {
+    background-color: #468;
+    color: #fff;
+}
+
 /* Player pool */
 .app-team-id-playerPool {
     flex: 0 0 100%;

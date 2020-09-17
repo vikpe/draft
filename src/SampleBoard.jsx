@@ -13,7 +13,7 @@ teams.playerPool = {
 };
 teams.playerPool.playerNames = Object.keys(players);
 
-const defaultData = { teams, players };
+const defaultData = { teams, players, pickIndex: 0 };
 
 const getInitialData = () => {
   return defaultData;
@@ -83,6 +83,8 @@ class SampleBoard extends React.Component {
       );
       sourceTeam.playerNames = moveResult.source;
       destTeam.playerNames = moveResult.destination;
+
+      this.state.pickIndex += 1;
     }
 
     this.setState(this.state);
@@ -92,14 +94,23 @@ class SampleBoard extends React.Component {
   render() {
     const playersByTeam = (team) =>
       team.playerNames.map((playerId) => this.state.players[playerId]);
+    const teamToPickIndex =
+      this.state.pickIndex % (Object.values(this.state.teams).length - 1);
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="app-teams-container">
-          {Object.values(this.state.teams).map((team) => (
-            <Team key={team.id} team={team} players={playersByTeam(team)} />
+          {Object.values(this.state.teams).map((team, index) => (
+            <Team
+              key={team.id}
+              team={team}
+              players={playersByTeam(team)}
+              highlight={teamToPickIndex === index}
+            />
           ))}
         </div>
+        <div>{this.state.pickIndex}</div>
+        <div>{teamToPickIndex}</div>
       </DragDropContext>
     );
   }
