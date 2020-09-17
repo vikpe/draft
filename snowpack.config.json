@@ -1,4 +1,8 @@
 {
   "extends": "@snowpack/app-scripts-react",
-  "plugins": []
+  "plugins": [],
+  "scripts": {
+    "mount:static": "mount static --to /"
+  }
 }
+
