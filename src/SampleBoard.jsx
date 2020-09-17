@@ -1,173 +1,96 @@
-import React, { useState } from 'react';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import React from "react";
 
-const players = [
-    { name: 'XantoM', country_code: 'se' },
-    { name: 'bps', country_code: 'se' },
-    { name: 'Milton', country_code: 'fi' },
-    { name: 'henu', country_code: 'fi' },
-    { name: 'mm', country_code: 'se' },
-    { name: 'HangTime', country_code: 'uk' },
-    { name: 'lordlame', country_code: 'ie' },
-    { name: 'ok98', country_code: 'se' },
-    { name: 'ParadokS', country_code: 'dk' },
-    { name: 'Shaka', country_code: 'se' },
-];
+import { DragDropContext } from "react-beautiful-dnd";
 
-const columnsFromBackend = {
-    ['teamRed']: {
-        name: 'Red',
-        items: [],
-    },
-    ['teamYellow']: {
-        name: 'Yellow',
-        items: [],
-    },
-    ['teamBlue']: {
-        name: 'Blue',
-        items: [],
-    },
-    ['teamOrange']: {
-        name: 'Orange',
-        items: [],
-    },
-    ['playerPool']: {
-        name: 'Player Pool',
-        items: players,
-        style: {
-            'width': '100%',
-        },
-    },
+import Team from "./Team";
+
+const teams = {
+  PlayerPool: {
+    name: "PlayerPool",
+    playerNames: [],
+  },
 };
 
-const onDragEnd = (result, columns, setColumns) => {
-    if (!result.destination) return;
-    const { source, destination } = result;
+const players = {
+  XantoM: { name: "XantoM", country_code: "se" },
+  bps: { name: "bps", country_code: "se" },
+  Milton: { name: "Milton", country_code: "fi" },
+  henu: { name: "henu", country_code: "fi" },
+  mm: { name: "mm", country_code: "se" },
+  HangTime: { name: "HangTime", country_code: "uk" },
+  lordlame: { name: "lordlame", country_code: "ie" },
+  ok98: { name: "ok98", country_code: "se" },
+  ParadokS: { name: "ParadokS", country_code: "dk" },
+  Shaka: { name: "Shaka", country_code: "se" },
+};
 
-    if (source.droppableId !== destination.droppableId) {
-        const sourceColumn = columns[source.droppableId];
-        const destColumn = columns[destination.droppableId];
-        const sourceItems = [...sourceColumn.items];
-        const destItems = [...destColumn.items];
-        const [removed] = sourceItems.splice(source.index, 1);
-        destItems.splice(destination.index, 0, removed);
-        setColumns({
-            ...columns,
-            [source.droppableId]: {
-                ...sourceColumn,
-                items: sourceItems,
-            },
-            [destination.droppableId]: {
-                ...destColumn,
-                items: destItems,
-            },
-        });
-    } else {
-        const column = columns[source.droppableId];
-        const copiedItems = [...column.items];
-        const [removed] = copiedItems.splice(source.index, 1);
-        copiedItems.splice(destination.index, 0, removed);
-        setColumns({
-            ...columns,
-            [source.droppableId]: {
-                ...column,
-                items: copiedItems,
-            },
-        });
+teams.PlayerPool.playerNames = Object.keys(players);
+
+const defaultData = { teams, players };
+
+const getInitialData = () => {
+  const localData = localStorage.getItem("draft");
+
+  if (localData) {
+    return JSON.parse(localData);
+  } else {
+    return defaultData;
+  }
+};
+
+const shouldReorderState = (destination, source) => {
+  return !(
+    !destination ||
+    (destination.droppableId === source.droppableId &&
+      destination.index === source.index)
+  );
+};
+
+class SampleBoard extends React.Component {
+  state = getInitialData();
+
+  onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!shouldReorderState(destination, source)) {
+      return;
     }
-};
 
-const renderItem = (item, index) => {
+    const team = this.state.teams[source.droppableId];
+    const newPlayerNames = Array.from(team.playerNames);
+    newPlayerNames.splice(source.index, 1);
+    newPlayerNames.splice(destination.index, 0, draggableId);
+
+    const newTeam = {
+      ...team,
+      playerNames: newPlayerNames,
+    };
+
+    const newState = {
+      ...this.state,
+      teams: {
+        ...this.state.teams,
+        [newTeam.name]: newTeam,
+      },
+    };
+
+    this.setState(newState);
+    localStorage.setItem("draft", JSON.stringify(newState));
+  };
+
+  render() {
     return (
-        <Draggable
-            key={item.name}
-            draggableId={item.name}
-            index={index}
-        >
-            {(
-                provided,
-                snapshot) => {
-                return (
-                    <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={{
-                            userSelect: 'none',
-                            padding: 16,
-                            margin: '8px',
-                            minHeight: '18px',
-                            borderRadius: '10px',
-                            width: '120px',
-                            backgroundColor: snapshot.isDragging
-                                ? '#061B2A'
-                                : '#456C86',
-                            color: 'white',
-                            ...provided.draggableProps.style,
-                        }}
-                    >
-                        [{item.country_code}] {item.name}
-                    </div>
-                );
-            }}
-        </Draggable>
-    );
-};
+      <DragDropContext onDragEnd={this.onDragEnd}>
+        {Object.values(this.state.teams).map((team) => {
+          const players = team.playerNames.map(
+            (playerId) => this.state.players[playerId],
+          );
 
-function SampleBoard() {
-    const [columns, setColumns] = useState(columnsFromBackend);
-    return (
-        <div style={{
-            display: 'flex',
-            flexFlow: 'row wrap',
-        }}>
-            <DragDropContext
-                onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
-            >
-                {Object.entries(columns).map(([columnId, column], index) => {
-                    return (
-                        <div
-                            style={{
-                                border: '4px solid red',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                minWidth: '400px',
-                                flexGrow: '1',
-                                ...column.style,
-                            }}
-                            key={columnId}
-                        >
-
-                            <div>
-                                <h2>{column.name} ({column.items.length})</h2>
-                                <Droppable droppableId={columnId}
-                                           key={columnId}>
-                                    {(provided, snapshot) => {
-                                        return (
-                                            <div
-                                                {...provided.droppableProps}
-                                                ref={provided.innerRef}
-                                                style={{
-                                                    background: snapshot.isDraggingOver
-                                                        ? 'lightblue'
-                                                        : 'lightgrey',
-                                                    padding: "4px 4px 64px 4px",
-                                                    minHeight: 66,
-                                                }}
-                                            >
-                                                {column.items.map(renderItem)}
-                                                {provided.placeholder}
-                                            </div>
-                                        );
-                                    }}
-                                </Droppable>
-                            </div>
-                        </div>
-                    );
-                })}
-            </DragDropContext>
-        </div>
+          return <Team key={team.name} team={team} players={players} />;
+        })}
+      </DragDropContext>
     );
+  }
 }
 
 export default SampleBoard;
