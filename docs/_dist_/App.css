@@ -1,5 +1,5 @@
 .app-header {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, #306), #000 url(/static/img/getquad_logo.png) no-repeat;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, #306), #000 url(static/img/getquad_logo.png) no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
