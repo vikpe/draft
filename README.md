@@ -1,6 +1,12 @@
 # draft
 > Single page web app for drafting
 
+## Install/getting started
+1. Clone repo
+2. `yarn install`
+3. `yarn start --reload` - will serve app @ `http://localhost:8080`
+
+
 ## Editing players and teams
 Edit `src/data.js`
 
@@ -28,7 +34,7 @@ export const players = {
 ```
 
 ## Development
-Start development server at localhost, live-reloading changes.
+Start development server at `http://localhost:8080`, live-reloading changes.
 ```bash
 yarn start --reload
 ```
