@@ -1,12 +1,11 @@
-.App-header {
-    background-color: #282c34;
+.app-header {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, #306), #000 url(/static/img/getquad_logo.png) no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: white;
-    padding: 1em 0;
+    height: 100px;
 }
 
 /* Team container */
@@ -79,7 +78,7 @@
     font-size: 1.2rem;
     border: 1px solid #bbb;
     background-color: #fff;
-    transition: background-color,width 250ms ease-in;
+    transition: background-color, width 250ms ease-in;
     margin-bottom: .8rem;
     border-radius: .5rem;
     box-shadow: #aaa 2px 2px 8px;
