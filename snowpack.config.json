@@ -5,6 +5,9 @@
   ],
   "scripts": {
     "mount:static": "mount static --to /"
+  },
+  "buildOptions": {
+    "clean": true
   }
 }
 

@@ -1,0 +1,104 @@
+.App-header {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 1em 0;
+}
+
+/* Team container */
+.app-teams-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    user-select: none;
+    background-color: #000;
+}
+
+/* Team */
+.app-team {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 1px;
+    border-radius: 5px;
+}
+
+.app-team-droppable {
+    min-width: 320px;
+    min-height: 120px;
+    transition: background-color 250ms ease-in;
+    background-color: lightgray;
+    padding: 1em 1em 48px;
+    flex: 1 0 100%;
+}
+
+.app-team-droppable.app-dnd-dragover {
+    background-color: lightgreen;
+}
+
+.app-team-title {
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    margin: 0;
+}
+
+.app-team-highlight .app-team-title {
+    background-color: #468;
+    color: #fff;
+}
+
+/* Player pool */
+.app-team-id-playerPool {
+    flex: 0 0 100%;
+}
+
+.app-team-id-playerPool > .app-team-droppable {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.app-team-id-playerPool > .app-team-droppable .app-player {
+    width: auto;
+    margin-right: 1em;
+}
+
+
+/* Player */
+.app-player {
+    width: 240px;
+}
+
+.app-player-draggable {
+    font-size: 1.2rem;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    transition: background-color,width 250ms ease-in;
+    margin-bottom: .8rem;
+    border-radius: .5rem;
+    box-shadow: #aaa 2px 2px 8px;
+}
+
+.app-player-draggable.app-dnd-drag {
+    background-color: yellow !important;
+}
+
+.app-player-content {
+    min-height: 48px;
+    padding: 0 .6em;
+    display: flex;
+    align-items: center;
+}
+
+.app-player-flag {
+    margin-right: .5rem;
+}
+
+
+
