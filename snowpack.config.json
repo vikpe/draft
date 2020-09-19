@@ -5,7 +5,7 @@
     "mount:static": "mount static --to /"
   },
   "buildOptions": {
-    "baseUrl": "https://vikpe.org/draft/",
+    "baseUrl": "https://vikpe.org/draft",
     "clean": true
   }
 }
