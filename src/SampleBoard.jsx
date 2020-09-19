@@ -16,7 +16,6 @@ teams.playerPool.playerNames = Object.keys(players);
 const defaultData = { teams, players, pickIndex: 0 };
 
 const getInitialData = () => {
-  return defaultData;
   const localData = localStorage.getItem("draft");
 
   if (localData) {
@@ -88,7 +87,7 @@ class SampleBoard extends React.Component {
     }
 
     this.setState(this.state);
-    // localStorage.setItem("draft", JSON.stringify(this.state));
+    localStorage.setItem("draft", JSON.stringify(this.state));
   };
 
   render() {
