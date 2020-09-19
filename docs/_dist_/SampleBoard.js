@@ -17,7 +17,6 @@ const defaultData = {
 };
 
 const getInitialData = () => {
-  return defaultData;
   const localData = localStorage.getItem("draft");
 
   if (localData) {
@@ -77,7 +76,8 @@ class SampleBoard extends React.Component {
         this.state.pickIndex += 1;
       }
 
-      this.setState(this.state); // localStorage.setItem("draft", JSON.stringify(this.state));
+      this.setState(this.state);
+      localStorage.setItem("draft", JSON.stringify(this.state));
     });
   }
 
