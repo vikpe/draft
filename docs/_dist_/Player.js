@@ -26,7 +26,7 @@ class Player extends React.Component {
     }, provided.draggableProps, provided.dragHandleProps), /*#__PURE__*/React.createElement("div", {
       className: "app-player-content"
     }, /*#__PURE__*/React.createElement("img", {
-      src: `/flags/48/${this.props.player.country_code.toUpperCase()}.png`,
+      src: `flags/48/${this.props.player.country_code.toUpperCase()}.png`,
       width: 32,
       className: "app-player-flag"
     }), " ", this.props.player.name))));
