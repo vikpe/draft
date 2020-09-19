@@ -34,6 +34,7 @@ yarn start --reload
 ```
 
 ## Production
+Bundle and output build to `build/`.
 ```bash
 yarn build
 ```
