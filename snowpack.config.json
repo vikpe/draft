@@ -2,7 +2,7 @@
   "extends": "@snowpack/app-scripts-react",
   "plugins": [["@snowpack/plugin-webpack"]],
   "scripts": {
-    "mount:static": "mount static --to /"
+    "mount:static": "mount static --to /static"
   },
   "buildOptions": {
     "baseUrl": "https://vikpe.org/draft",
