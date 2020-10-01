@@ -17,6 +17,7 @@ const defaultData = {
 };
 
 const getInitialData = () => {
+  return defaultData;
   const localData = localStorage.getItem("draft");
 
   if (localData) {
@@ -85,8 +86,11 @@ class SampleBoard extends React.Component {
     const playersByTeam = team => team.playerNames.map(playerId => this.state.players[playerId]);
 
     const teamToPickIndex = this.state.pickIndex % (Object.values(this.state.teams).length - 1);
+    const draftStatus = this.state.teams["playerPool"].playerNames.length > 0 ? "in-progress" : "completed";
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
+    }, /*#__PURE__*/React.createElement("div", {
+      className: `app-draft app-draft-status-${draftStatus}`
     }, /*#__PURE__*/React.createElement("div", {
       className: "app-teams-container"
     }, Object.values(this.state.teams).map((team, index) => /*#__PURE__*/React.createElement(Team, {
@@ -94,7 +98,7 @@ class SampleBoard extends React.Component {
       team: team,
       players: playersByTeam(team),
       highlight: teamToPickIndex === index
-    }))), /*#__PURE__*/React.createElement("div", null, this.state.pickIndex), /*#__PURE__*/React.createElement("div", null, teamToPickIndex));
+    })))));
   }
 
 }

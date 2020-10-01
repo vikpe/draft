@@ -14,7 +14,6 @@
     flex-flow: row wrap;
     align-items: stretch;
     user-select: none;
-    background-color: #000;
 }
 
 /* Team */
@@ -23,14 +22,18 @@
     display: flex;
     flex-flow: column nowrap;
     margin: 1px;
-    border-radius: 5px;
+    background-color: black;
+    border: 10px solid black;
+}
+
+.app-draft-status-in-progress .app-team {
+    opacity: 60%;
 }
 
 .app-team-droppable {
     min-width: 320px;
     min-height: 120px;
     transition: background-color 250ms ease-in;
-    background-color: lightgray;
     padding: 1em 1em 48px;
     flex: 1 0 100%;
 }
@@ -40,23 +43,43 @@
 }
 
 .app-team-title {
-    text-align: center;
-    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 96px;
     background-color: black;
-    transition: background-color 250ms ease-in;
+    transition: background-color, border, opacity 250ms ease-in;
     color: white;
-    padding: 1em;
-    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+.app-draft-status-in-progress .app-team-highlight {
+    opacity: 100%;
+    border: 10px solid yellow;
 }
 
 .app-team-highlight .app-team-title {
-    background-color: #468;
-    color: #fff;
+    /*animation: alternateOpacity 500ms alternate infinite ease-in-out;*/
 }
+
+
+@keyframes alternateOpacity {
+    from {
+        opacity: 100%
+    }
+    to {
+        opacity: 75%
+    }
+}
+
 
 /* Player pool */
 .app-team-id-playerPool {
     flex: 0 0 100%;
+    opacity: 100% !important;
 }
 
 .app-team-id-playerPool > .app-team-droppable {
@@ -67,6 +90,10 @@
 .app-team-id-playerPool > .app-team-droppable .app-player {
     width: auto;
     margin-right: 1em;
+}
+
+.app-team-id-playerPool .app-team-droppable.app-dnd-dragover {
+    background: black;
 }
 
 
@@ -101,4 +128,28 @@
 }
 
 
+/* Custom Teams/Themes */
+.app-team-theme .app-team-title {
+    background: no-repeat center center;
+    background-size: cover;
+    min-height: 250px;
+    color: transparent;
+}
 
+.app-team-theme-666 {
+    background-color: darkred;
+}
+
+.app-team-theme-666 .app-team-title {
+    background-color: #280909;
+    background-image: url(static/img/team_666.jpg);
+}
+
+.app-team-theme-777 {
+    background-color: darkblue;
+}
+
+.app-team-theme-777 .app-team-title {
+    background-color: #0e1a34;
+    background-image: url(static/img/team_777.jpg);
+}
