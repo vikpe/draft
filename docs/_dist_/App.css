@@ -103,13 +103,14 @@
 }
 
 .app-player-draggable {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: #345;
     border: 1px solid #bbb;
     background-color: #fff;
     transition: background-color, width 250ms ease-in;
     margin-bottom: .8rem;
     border-radius: .5rem;
-    box-shadow: #aaa 2px 2px 8px;
+    box-shadow: #666 2px 2px 8px;
 }
 
 .app-player-draggable.app-dnd-drag {

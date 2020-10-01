@@ -1,5 +1,5 @@
 
-const code = "body {\n    background: black;\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n";
+const code = "@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');\n\nbody {\n    background: black;\n    margin: 0;\n    font-family: 'Boogaloo', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n";
 
 const styleEl = document.createElement("style");
 const codeEl = document.createTextNode(code);
