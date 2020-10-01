@@ -16,6 +16,8 @@ teams.playerPool.playerNames = Object.keys(players);
 const defaultData = { teams, players, pickIndex: 0 };
 
 const getInitialData = () => {
+  return defaultData;
+
   const localData = localStorage.getItem("draft");
 
   if (localData) {
