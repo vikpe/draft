@@ -1,23 +1,15 @@
 export const teams = {
-  red: {
-    id: "red",
-    name: "Team Red",
+  777: {
+    id: "777",
+    name: "777",
     playerNames: [],
+    theme: "777",
   },
-  blue: {
-    id: "blue",
-    name: "Team Blue",
+  666: {
+    id: "666",
+    name: "666",
     playerNames: [],
-  },
-  orange: {
-    id: "orange",
-    name: "Team Orange",
-    playerNames: [],
-  },
-  yellow: {
-    id: "yellow",
-    name: "Team Yellow",
-    playerNames: [],
+    theme: "666",
   },
 };
 
