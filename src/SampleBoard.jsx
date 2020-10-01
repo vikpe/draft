@@ -98,20 +98,25 @@ class SampleBoard extends React.Component {
     const teamToPickIndex =
       this.state.pickIndex % (Object.values(this.state.teams).length - 1);
 
+    const draftStatus =
+      this.state.teams["playerPool"].playerNames.length > 0
+        ? "in-progress"
+        : "completed";
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className="app-teams-container">
-          {Object.values(this.state.teams).map((team, index) => (
-            <Team
-              key={team.id}
-              team={team}
-              players={playersByTeam(team)}
-              highlight={teamToPickIndex === index}
-            />
-          ))}
+        <div className={`app-draft app-draft-status-${draftStatus}`}>
+          <div className="app-teams-container">
+            {Object.values(this.state.teams).map((team, index) => (
+              <Team
+                key={team.id}
+                team={team}
+                players={playersByTeam(team)}
+                highlight={teamToPickIndex === index}
+              />
+            ))}
+          </div>
         </div>
-        <div>{this.state.pickIndex}</div>
-        <div>{teamToPickIndex}</div>
       </DragDropContext>
     );
   }

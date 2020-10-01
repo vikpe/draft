@@ -19,6 +19,10 @@ const getClassNames = (props) => {
     classNames.push("app-team-highlight");
   }
 
+  if (props.team.hasOwnProperty("theme")) {
+    classNames.push(`app-team-theme app-team-theme-${props.team.id}`);
+  }
+
   return classNames.join(" ");
 };
 
