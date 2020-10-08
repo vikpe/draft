@@ -102,13 +102,6 @@
     width: 240px;
 }
 
-.app-player-captain .app-player-content:after {
-    margin-left: auto;
-    font-size: 1.2em;
-    content: '\2605'; /* Star in UTF8 */
-    color: goldenrod;
-}
-
 .app-player-draggable {
     font-size: 1.5rem;
     color: #345;
@@ -142,6 +135,13 @@
     background-size: cover;
     min-height: 250px;
     color: transparent;
+}
+
+.app-team-theme .app-player:first-child .app-player-content:after {
+    margin-left: auto;
+    font-size: 1.2em;
+    content: '\2605'; /* Star in UTF8 */
+    color: goldenrod;
 }
 
 .app-team-theme-666 {

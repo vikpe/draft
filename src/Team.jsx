@@ -43,12 +43,7 @@ class Team extends React.Component {
               {...provided.droppableProps}
             >
               {this.props.players.map((player, index) => (
-                <Player
-                  key={player.name}
-                  player={player}
-                  index={index}
-                  isCaptain={player.name === this.props.team.captain}
-                />
+                <Player key={player.name} player={player} index={index} />
               ))}
               {provided.placeholder}
             </div>
