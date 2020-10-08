@@ -3,8 +3,8 @@
     "start": "snowpack dev",
     "build": "snowpack build && rm -rf docs/* && cp -r build/* docs",
     "test": "jest",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
+    "lint": "prettier --check \"src/**/*.{js,jsx,css}\""
   },
   "dependencies": {
     "@babel/plugin-syntax-class-properties": "^7.10.4",
