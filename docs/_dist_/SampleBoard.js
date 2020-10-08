@@ -4,6 +4,17 @@ import React from "../web_modules/react.js";
 import { DragDropContext } from "../web_modules/react-beautiful-dnd.js";
 import Team from "./Team.js";
 import { teams, players } from "./data.js";
+
+const sortTeams = (a, b) => {
+  if (a.sortOrder < b.sortOrder) {
+    return -1;
+  } else if (a.sortOrder > b.sortOrder) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
+
 teams.playerPool = {
   id: "playerPool",
   name: "Player Pool",
@@ -87,13 +98,14 @@ class SampleBoard extends React.Component {
 
     const teamToPickIndex = this.state.pickIndex % (Object.values(this.state.teams).length - 1);
     const draftStatus = this.state.teams["playerPool"].playerNames.length > 0 ? "in-progress" : "completed";
+    let sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
     }, /*#__PURE__*/React.createElement("div", {
       className: `app-draft app-draft-status-${draftStatus}`
     }, /*#__PURE__*/React.createElement("div", {
       className: "app-teams-container"
-    }, Object.values(this.state.teams).map((team, index) => /*#__PURE__*/React.createElement(Team, {
+    }, sortedTeams.map((team, index) => /*#__PURE__*/React.createElement(Team, {
       key: team.id,
       team: team,
       players: playersByTeam(team),

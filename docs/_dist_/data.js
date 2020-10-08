@@ -3,13 +3,15 @@ export const teams = {
     id: "777",
     name: "777",
     playerNames: [],
-    theme: "777"
+    theme: "777",
+    sortOrder: 1
   },
   666: {
     id: "666",
     name: "666",
     playerNames: [],
-    theme: "666"
+    theme: "666",
+    sortOrder: 2
   }
 };
 export const players = {
