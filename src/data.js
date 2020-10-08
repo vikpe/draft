@@ -5,6 +5,7 @@ export const teams = {
     captain: "bps",
     playerNames: [],
     theme: "777",
+    sortOrder: 1,
   },
   666: {
     id: "666",
@@ -12,6 +13,7 @@ export const teams = {
     captain: "Milton",
     playerNames: [],
     theme: "666",
+    sortOrder: 2,
   },
 };
 

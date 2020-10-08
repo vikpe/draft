@@ -6,6 +6,16 @@ import Team from "./Team";
 
 import { teams, players } from "./data";
 
+const sortTeams = (a, b) => {
+  if (a.sortOrder < b.sortOrder) {
+    return -1;
+  } else if (a.sortOrder > b.sortOrder) {
+    return 1;
+  } else {
+    return 0;
+  }
+};
+
 teams.playerPool = {
   id: "playerPool",
   name: "Player Pool",
@@ -103,11 +113,12 @@ class SampleBoard extends React.Component {
         ? "in-progress"
         : "completed";
 
+    let sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`app-draft app-draft-status-${draftStatus}`}>
           <div className="app-teams-container">
-            {Object.values(this.state.teams).map((team, index) => (
+            {sortedTeams.map((team, index) => (
               <Team
                 key={team.id}
                 team={team}
