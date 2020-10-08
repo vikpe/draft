@@ -102,15 +102,22 @@
     width: 240px;
 }
 
+.app-player-captain .app-player-content:after {
+    margin-left: auto;
+    font-size: 1.2em;
+    content: '\2605'; /* Star in UTF8 */
+    color: goldenrod;
+}
+
 .app-player-draggable {
     font-size: 1.5rem;
     color: #345;
-    border: 1px solid #bbb;
+    border: 2px solid white;
     background-color: #fff;
     transition: background-color, width 250ms ease-in;
     margin-bottom: .8rem;
     border-radius: .5rem;
-    box-shadow: #666 2px 2px 8px;
+    box-shadow: #444 2px 2px 8px;
 }
 
 .app-player-draggable.app-dnd-drag {
@@ -146,6 +153,10 @@
     background-image: url(static/img/team_666.jpg);
 }
 
+.app-team-theme-666 .app-player-content {
+    background: linear-gradient(180deg, white, #fcc);
+}
+
 .app-team-theme-777 {
     background-color: darkblue;
 }
@@ -153,4 +164,8 @@
 .app-team-theme-777 .app-team-title {
     background-color: #0e1a34;
     background-image: url(static/img/team_777.jpg);
+}
+
+.app-team-theme-777 .app-player-content {
+    background: linear-gradient(180deg, white, skyblue);
 }

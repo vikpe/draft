@@ -2,12 +2,14 @@ export const teams = {
   777: {
     id: "777",
     name: "777",
+    captain: "bps",
     playerNames: [],
     theme: "777",
   },
   666: {
     id: "666",
     name: "666",
+    captain: "Milton",
     playerNames: [],
     theme: "666",
   },

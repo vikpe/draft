@@ -11,10 +11,20 @@ const getDraggableClassName = (snapshot) => {
   return classNames.join(" ");
 };
 
+const getPlayerClassName = (props) => {
+  const classNames = ["app-player"];
+
+  if (props.isCaptain) {
+    classNames.push("app-player-captain");
+  }
+
+  return classNames.join(" ");
+};
+
 class Player extends React.Component {
   render() {
     return (
-      <div className="app-player">
+      <div className={getPlayerClassName(this.props)}>
         <Draggable
           draggableId={this.props.player.name}
           index={this.props.index}
