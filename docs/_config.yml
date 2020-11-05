@@ -1,0 +1,5 @@
+include: [
+  "__snowpack__",
+  "_dist_",
+  "static",
+]
