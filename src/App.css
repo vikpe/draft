@@ -22,7 +22,6 @@
   flex: 1 0 auto;
   display: flex;
   flex-flow: column nowrap;
-  margin: 1px;
   background-color: black;
   border: 10px solid black;
 }
@@ -35,7 +34,7 @@
   min-width: 320px;
   min-height: 120px;
   transition: background-color 250ms ease-in;
-  padding: 1em 1em 48px;
+  padding: 1em 1em 24px;
   flex: 1 0 100%;
 }
 
@@ -62,18 +61,6 @@
   border: 10px solid yellow;
 }
 
-.app-team-highlight .app-team-title {
-  /*animation: alternateOpacity 500ms alternate infinite ease-in-out;*/
-}
-
-@keyframes alternateOpacity {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 75%;
-  }
-}
 
 /* Player pool */
 .app-team-id-playerPool {
@@ -97,6 +84,7 @@
 
 /* Player */
 .app-player {
+  cursor: grabbing !important;
   width: 240px;
 }
 
