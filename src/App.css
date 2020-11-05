@@ -15,6 +15,7 @@
   flex-flow: row wrap;
   align-items: stretch;
   user-select: none;
+  overflow: hidden;
 }
 
 /* Team */
@@ -38,10 +39,6 @@
   flex: 1 0 100%;
 }
 
-.app-team-droppable.app-dnd-dragover {
-  background-color: lightgreen;
-}
-
 .app-team-title {
   display: flex;
   justify-content: center;
@@ -63,8 +60,8 @@
 
 /* Player pool */
 .app-team-id-playerPool {
-  margin-top: 1.5em;
-  flex: 0 0 100%;
+  margin: 1.5em auto 0;
+  flex: 0 0 94%;
   opacity: 100% !important;
 }
 
