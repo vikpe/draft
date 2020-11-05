@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build && rm -rf docs && mkdir docs && cp -r build/* docs",
+    "build": "snowpack build && rm -rf docs && mkdir docs && cp -r build/* docs && cp public/_config.yml docs",
     "publish": "yarn run build && git add -A && git commit -m 'Build site' && git push",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
