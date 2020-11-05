@@ -46,7 +46,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 96px;
   background-color: black;
   transition: background-color, border, opacity 250ms ease-in;
   color: white;
@@ -64,6 +63,7 @@
 
 /* Player pool */
 .app-team-id-playerPool {
+  margin-top: 1.5em;
   flex: 0 0 100%;
   opacity: 100% !important;
 }
@@ -84,12 +84,11 @@
 
 /* Player */
 .app-player {
-  cursor: grabbing !important;
   width: 240px;
 }
 
 .app-player-draggable {
-  cursor: grabbing;
+  cursor: grabbing !important;
   font-size: 1.5rem;
   color: #345;
   border: 2px solid white;
@@ -118,8 +117,8 @@
 /* Custom Teams/Themes */
 .app-team-theme .app-team-title {
   background: no-repeat center center;
-  background-size: cover;
-  min-height: 250px;
+  background-size: contain;
+  min-height: 180px;
   color: transparent;
 }
 
