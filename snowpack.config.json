@@ -1,6 +1,8 @@
 {
   "extends": "@snowpack/app-scripts-react",
-  "plugins": [["@snowpack/plugin-webpack"]],
+  "plugins": [
+    "@snowpack/plugin-react-refresh"
+  ],
   "scripts": {
     "mount:static": "mount static --to /static"
   },
