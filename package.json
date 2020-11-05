@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build && rm -rf docs/* && cp -r build/* docs",
+    "build": "snowpack build && rm -rf docs && mkdir docs && cp -r build/* docs",
     "publish": "yarn run build && git add -A && git commit -m 'Build site' && git push",
     "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
@@ -17,9 +17,6 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@snowpack/app-scripts-react": "^1.12.6",
     "@snowpack/plugin-webpack": "^2.1.0",
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.1",
-    "jest": "^26.6.3",
     "prettier": "^2.1.2",
     "snowpack": "^2.16.1"
   }
