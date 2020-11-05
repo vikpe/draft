@@ -15,6 +15,7 @@
   flex-flow: row wrap;
   align-items: stretch;
   user-select: none;
+  overflow: hidden;
 }
 
 /* Team */
@@ -22,7 +23,6 @@
   flex: 1 0 auto;
   display: flex;
   flex-flow: column nowrap;
-  margin: 1px;
   background-color: black;
   border: 10px solid black;
 }
@@ -35,19 +35,14 @@
   min-width: 320px;
   min-height: 120px;
   transition: background-color 250ms ease-in;
-  padding: 1em 1em 48px;
+  padding: 1em 1em 24px;
   flex: 1 0 100%;
-}
-
-.app-team-droppable.app-dnd-dragover {
-  background-color: lightgreen;
 }
 
 .app-team-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 96px;
   background-color: black;
   transition: background-color, border, opacity 250ms ease-in;
   color: white;
@@ -62,22 +57,11 @@
   border: 10px solid yellow;
 }
 
-.app-team-highlight .app-team-title {
-  /*animation: alternateOpacity 500ms alternate infinite ease-in-out;*/
-}
-
-@keyframes alternateOpacity {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 75%;
-  }
-}
 
 /* Player pool */
 .app-team-id-playerPool {
-  flex: 0 0 100%;
+  margin: 1.5em auto 0;
+  flex: 0 0 94%;
   opacity: 100% !important;
 }
 
@@ -101,7 +85,7 @@
 }
 
 .app-player-draggable {
-  cursor: grabbing;
+  cursor: grabbing !important;
   font-size: 1.5rem;
   color: #345;
   border: 2px solid white;
@@ -130,8 +114,8 @@
 /* Custom Teams/Themes */
 .app-team-theme .app-team-title {
   background: no-repeat center center;
-  background-size: cover;
-  min-height: 250px;
+  background-size: contain;
+  min-height: 180px;
   color: transparent;
 }
 

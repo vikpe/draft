@@ -15,10 +15,6 @@ export const teams = {
   }
 };
 export const players = {
-  XantoM: {
-    name: "XantoM",
-    country_code: "se"
-  },
   bps: {
     name: "bps",
     country_code: "se"
@@ -27,88 +23,84 @@ export const players = {
     name: "Milton",
     country_code: "fi"
   },
-  henu: {
-    name: "henu",
-    country_code: "fi"
-  },
-  mm: {
-    name: "mm",
+  XantoM: {
+    name: "XantoM",
     country_code: "se"
   },
-  HangTime: {
-    name: "HangTime",
+  Raket: {
+    name: "Raket",
+    country_code: "se"
+  },
+  Greco: {
+    name: "Greco",
+    country_code: "se"
+  },
+  Grisling: {
+    name: "Grisling",
+    country_code: "se"
+  },
+  Phrenic: {
+    name: "Phrenic",
+    country_code: "se"
+  },
+  Sae: {
+    name: "Sae",
     country_code: "gb"
   },
-  lordlame: {
-    name: "lordlame",
+  Hangtime: {
+    name: "Hangtime",
+    country_code: "gb"
+  },
+  BogoJoker: {
+    name: "BogoJoker",
+    country_code: "us"
+  },
+  Sane: {
+    name: "Sane",
+    country_code: "us"
+  },
+  Diki: {
+    name: "Diki",
+    country_code: "fi"
+  },
+  Creature: {
+    name: "Creature",
+    country_code: "fi"
+  },
+  BLooD_DoG: {
+    name: "BLooD_DoG",
+    country_code: "ca"
+  },
+  Gor: {
+    name: "Gor",
+    country_code: "ru"
+  },
+  Glad: {
+    name: "Glad",
+    country_code: "ru"
+  },
+  Wimpeeh: {
+    name: "Wimpeeh",
+    country_code: "ru"
+  },
+  Blixem: {
+    name: "Blixem",
+    country_code: "nl"
+  },
+  Nigve: {
+    name: "Nigve",
+    country_code: "no"
+  },
+  Insane: {
+    name: "Insane",
+    country_code: "pl"
+  },
+  Zero: {
+    name: "Zero",
+    country_code: "hu"
+  },
+  LordLame: {
+    name: "LordLame",
     country_code: "ie"
-  },
-  ok98: {
-    name: "ok98",
-    country_code: "se"
-  },
-  ParadokS: {
-    name: "ParadokS",
-    country_code: "dk"
-  },
-  Shaka: {
-    name: "Shaka",
-    country_code: "se"
-  },
-  Shaka1: {
-    name: "Shaka1",
-    country_code: "se"
-  },
-  Shaka2: {
-    name: "Shaka2",
-    country_code: "se"
-  },
-  Shaka3: {
-    name: "Shaka3",
-    country_code: "se"
-  },
-  Shaka4: {
-    name: "Shaka4",
-    country_code: "se"
-  },
-  Shaka5: {
-    name: "Shaka5",
-    country_code: "se"
-  },
-  Shaka6: {
-    name: "Shaka6",
-    country_code: "se"
-  },
-  Shaka7: {
-    name: "Shaka7",
-    country_code: "se"
-  },
-  Shaka8: {
-    name: "Shaka8",
-    country_code: "se"
-  },
-  Shaka9: {
-    name: "Shaka9",
-    country_code: "se"
-  },
-  Shaka10: {
-    name: "Shaka10",
-    country_code: "se"
-  },
-  Shaka11: {
-    name: "Shaka11",
-    country_code: "se"
-  },
-  Shaka12: {
-    name: "Shaka12",
-    country_code: "se"
-  },
-  Shaka13: {
-    name: "Shaka13",
-    country_code: "se"
-  },
-  Shaka14: {
-    name: "Shaka14",
-    country_code: "se"
   }
 };
