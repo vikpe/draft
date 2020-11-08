@@ -77,7 +77,7 @@ export const players = {
   },
   Wimpeeh: {
     name: "Wimpeeh",
-    country_code: "ru"
+    country_code: "nl"
   },
   Shaka: {
     name: "Shaka",
