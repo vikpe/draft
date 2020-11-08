@@ -35,6 +35,10 @@ export const players = {
     name: "Nigve",
     country_code: "no"
   },
+  Bulat: {
+    name: "Bulat",
+    country_code: "ru"
+  },
   LordLame: {
     name: "LordLame",
     country_code: "ie"
@@ -58,6 +62,10 @@ export const players = {
   Sae: {
     name: "Sae",
     country_code: "gb"
+  },
+  mm: {
+    name: "mm",
+    country_code: "se"
   },
   Zero: {
     name: "Zero",
