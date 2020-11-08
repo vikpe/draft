@@ -1,5 +1,4 @@
 body {
-    height: 1024px;
     overflow: hidden;
 }
 
@@ -7,7 +6,6 @@ body {
     background: linear-gradient(to right, blue, rgba(0, 0, 0, 0) 50%, red),
     #000 url(static/img/allstar_logo.png) no-repeat center top;
     padding: 32px;
-    height: 1024px;
 }
 
 /* Team container */
@@ -51,11 +49,12 @@ body {
 
 /* Player pool */
 .app-team-id-playerPool {
-    margin: 80px auto 0;
+    margin-top: 80px;
     opacity: 100% !important;
-    padding: 32px;
+    padding: 32px 32px 16px;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 1em;
+    flex: 0 1 100%;
 }
 
 .app-team-id-playerPool > .app-team-title {
