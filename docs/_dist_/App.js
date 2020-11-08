@@ -5,9 +5,7 @@ import SampleBoard from "./SampleBoard.js";
 function App() {
   return /*#__PURE__*/React.createElement("div", {
     className: "app"
-  }, /*#__PURE__*/React.createElement("header", {
-    className: "app-header"
-  }), /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement(SampleBoard, null)));
+  }, /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement(SampleBoard, null)));
 }
 
 export default App;
