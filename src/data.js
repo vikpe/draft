@@ -31,7 +31,7 @@ export const players = {
   mm: { name: "mm", country_code: "se" },
   Zero: { name: "Zero", country_code: "hu" },
   Hangtime: { name: "Hangtime", country_code: "gb" },
-  Wimpeeh: { name: "Wimpeeh", country_code: "ru" },
+  Wimpeeh: { name: "Wimpeeh", country_code: "nl" },
   Shaka: { name: "Shaka", country_code: "se" },
   Creature: { name: "Creature", country_code: "fi" },
   Raket: { name: "Raket", country_code: "se" },
