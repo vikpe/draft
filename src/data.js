@@ -13,6 +13,34 @@ export const teams = {
     theme: "666",
     sortOrder: 2,
   },
+  555: {
+    id: "555",
+    name: "555",
+    playerNames: [],
+    theme: "777",
+    sortOrder: 3,
+  },
+  444: {
+    id: "444",
+    name: "444",
+    playerNames: [],
+    theme: "666",
+    sortOrder: 4,
+  },
+  333: {
+    id: "333",
+    name: "333",
+    playerNames: [],
+    theme: "777",
+    sortOrder: 5,
+  },
+  222: {
+    id: "222",
+    name: "222",
+    playerNames: [],
+    theme: "666",
+    sortOrder: 6,
+  },
 };
 
 export const players = {

@@ -3,8 +3,7 @@ body {
 }
 
 .app {
-    background: linear-gradient(to right, blue, rgba(0, 0, 0, 0) 50%, red),
-    #000 url(static/img/allstar_logo.png) no-repeat center top;
+    background: linear-gradient(to right, blue, blue 17%, red 33.5%, orange 50%, green 66.5%, purple 83%, darkslateblue);
     padding: 32px;
 }
 
@@ -20,10 +19,11 @@ body {
 /* Team */
 .app-team {
     flex-flow: column nowrap;
+    transition: background-color 250ms ease-in;
 }
 
-.app-draft-status-in-progress .app-team {
-    opacity: 75%;
+.app-draft-status-in-progress .app-team-title {
+    opacity: 50%;
 }
 
 .app-team-droppable {
@@ -35,29 +35,32 @@ body {
 }
 
 .app-team-title {
-    transition: background-color, border, opacity 250ms ease-in;
+    transition: opacity 250ms ease-in;
     color: white;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
 
-.app-draft-status-in-progress .app-team-highlight {
+.app-draft-status-in-progress .app-team-highlight .app-team-title {
     opacity: 100%;
+}
+
+.app-draft-status-in-progress .app-team-highlight {
     border-color: yellow;
 }
 
 /* Player pool */
 .app-team-id-playerPool {
     margin-top: 80px;
-    opacity: 100% !important;
     padding: 32px 32px 16px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 1em;
     flex: 0 1 100%;
 }
 
 .app-team-id-playerPool > .app-team-title {
+    opacity: 100% !important;
     margin-bottom: .5em;
 }
 
@@ -105,7 +108,7 @@ body {
 
 /* Custom Teams/Themes */
 .app-team-theme {
-    flex: 0 0 28%;
+    flex: 0 0 15%;
     min-height: 560px;
     overflow: hidden;
     display: flex;
@@ -113,6 +116,10 @@ body {
     border: 5px solid black;
     box-shadow: 0 0 12px black;
     border-radius: 1em;
+}
+
+.app-team-theme .app-team-droppable.app-dnd-dragover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .app-team-theme .app-team-title {
@@ -131,7 +138,7 @@ body {
 }
 
 .app-team-theme-666 {
-  background-color: darkred;
+    background-color: darkred;
 }
 
 .app-team-theme-666 .app-team-title {
