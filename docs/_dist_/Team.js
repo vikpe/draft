@@ -22,7 +22,7 @@ const getClassNames = props => {
   }
 
   if (props.team.hasOwnProperty("theme")) {
-    classNames.push(`app-team-theme app-team-theme-${props.team.id}`);
+    classNames.push(`app-team-theme app-team-theme-${props.team.theme}`);
   }
 
   return classNames.join(" ");
