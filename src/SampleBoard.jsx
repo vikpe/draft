@@ -115,7 +115,8 @@ class SampleBoard extends React.Component {
       this.state.teams["playerPool"].playerNames.length;
 
     const pickLimit = Object.values(this.state.teams).length * 6;
-    const draftStatus = pickedPlayerCount <= pickLimit ? "in-progress" : "completed";
+    const draftStatus =
+      pickedPlayerCount <= pickLimit ? "in-progress" : "completed";
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
 
     return (
