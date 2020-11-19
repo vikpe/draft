@@ -1,164 +1,185 @@
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .app {
-    background: linear-gradient(to right, blue, blue 17%, red 33.5%, orange 50%, green 66.5%, purple 83%, darkslateblue);
-    padding: 32px;
+  background: linear-gradient(
+    to bottom,
+    rebeccapurple,
+    darkmagenta,
+    rebeccapurple
+  );
+  padding: 32px;
 }
 
 /* Team container */
 .app-teams-container {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: stretch;
-    user-select: none;
-    justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  user-select: none;
+  justify-content: space-between;
 }
 
 /* Team */
 .app-team {
-    flex-flow: column nowrap;
-    transition: background-color 250ms ease-in;
+  flex-flow: column nowrap;
+  transition: background-color 250ms ease-in;
 }
 
 .app-draft-status-in-progress .app-team-title {
-    opacity: 50%;
+  opacity: 50%;
 }
 
 .app-team-droppable {
-    min-width: 320px;
-    min-height: 120px;
-    transition: background-color 250ms ease-in;
-    padding: 1em 1em 24px;
-    flex: 1 0 100%;
+  min-width: 320px;
+  min-height: 120px;
+  transition: background-color 250ms ease-in;
+  padding: 1em 1em 24px;
+  flex: 1 0 100%;
 }
 
 .app-team-title {
-    transition: opacity 250ms ease-in;
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
+  transition: opacity 250ms ease-in;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .app-draft-status-in-progress .app-team-highlight .app-team-title {
-    opacity: 100%;
+  opacity: 100%;
 }
 
 .app-draft-status-in-progress .app-team-highlight {
-    border-color: yellow;
+  border-color: yellow;
 }
 
 /* Player pool */
 .app-team-id-playerPool {
-    margin-top: 80px;
-    padding: 32px 32px 16px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 1em;
-    flex: 0 1 100%;
+  margin-top: 40px;
+  padding: 32px 32px 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 1em;
+  min-height: 300px;
+  flex: 0 1 100%;
 }
 
 .app-team-id-playerPool > .app-team-title {
-    opacity: 100% !important;
-    margin-bottom: .5em;
+  opacity: 100% !important;
+  margin-bottom: 0.5em;
 }
 
 .app-team-id-playerPool > .app-team-droppable {
-    display: flex;
-    flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .app-team-id-playerPool > .app-team-droppable .app-player {
-    width: auto;
-    margin-right: .6em;
+  width: auto;
+  margin-right: 0.6em;
 }
 
 /* Player */
 .app-player {
-    width: 240px;
+  width: 200px;
 }
 
 .app-player-draggable {
-    cursor: grabbing !important;
-    font-size: 1.5rem;
-    color: #345;
-    border: 2px solid white;
-    background-color: #fff;
-    transition: background-color, width 250ms ease-in;
-    margin-bottom: 0.6rem;
-    border-radius: 0.5rem;
-    box-shadow: #444 2px 2px 8px;
+  cursor: grabbing !important;
+  font-size: 1.5rem;
+  color: #345;
+  border: 2px solid white;
+  background-color: #fff;
+  transition: background-color, width 250ms ease-in;
+  margin-bottom: 0.6rem;
+  border-radius: 0.5rem;
+  box-shadow: #444 2px 2px 8px;
 }
 
 .app-player-draggable.app-dnd-drag {
-    background-color: yellow !important;
+  background-color: yellow !important;
 }
 
 .app-player-content {
-    min-height: 42px;
-    padding: 0 0.5em;
-    display: flex;
-    align-items: center;
+  min-height: 42px;
+  padding: 0 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 .app-player-flag {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 /* Custom Teams/Themes */
 .app-team-theme {
-    flex: 0 0 15%;
-    min-height: 560px;
-    overflow: hidden;
-    display: flex;
-    flex-flow: column nowrap;
-    border: 5px solid black;
-    box-shadow: 0 0 12px black;
-    border-radius: 1em;
+  flex: 0 0 13%;
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 5px solid black;
+  box-shadow: 0 0 12px black;
+  border-radius: 1em;
+
+  background-size: 2500%;
+  background-position: -200px 0;
+  background-blend-mode: color;
 }
 
 .app-team-theme .app-team-droppable.app-dnd-dragover {
-    background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .app-team-theme .app-team-title {
-    background: no-repeat center center;
-    background-size: contain;
-    min-height: 140px;
-    color: transparent;
-    border-bottom: 2px solid black;
+  background: no-repeat center center;
+  background-size: cover;
+  height: 74px;
+  color: transparent;
 }
 
 .app-team-theme .app-player:first-child .app-player-content:after {
-    margin-left: auto;
-    font-size: 1.2em;
-    content: "\2605"; /* Star in UTF8 */
-    color: goldenrod;
+  margin-left: auto;
+  font-size: 1.2em;
+  content: "\2605"; /* Star in UTF8 */
+  color: goldenrod;
 }
 
-.app-team-theme-666 {
-    background-color: darkred;
+.app-team-theme .app-player-content {
+  background: linear-gradient(180deg, white, #ccc);
 }
 
-.app-team-theme-666 .app-team-title {
-    background-color: #280909;
-    background-image: url(static/img/team_666.jpg);
+.app-team-theme-Rotfish,
+.app-team-theme-Rotfish .app-team-title {
+  background-image: url(static/img/Getquad_squad1.png);
+}
+.app-team-theme-Spawn,
+.app-team-theme-Spawn .app-team-title {
+  background-image: url(static/img/Getquad_squad2.png);
 }
 
-.app-team-theme-666 .app-player-content {
-    background: linear-gradient(180deg, white, #fcc);
+.app-team-theme-Enforcer,
+.app-team-theme-Enforcer .app-team-title {
+  background-image: url(static/img/Getquad_squad3.png);
 }
 
-.app-team-theme-777 {
-    background-color: darkblue;
+.app-team-theme-Shambler,
+.app-team-theme-Shambler .app-team-title {
+  background-image: url(static/img/Getquad_squad4.png);
 }
 
-.app-team-theme-777 .app-team-title {
-    background-color: #0e1a34;
-    background-image: url(static/img/team_777.jpg);
+.app-team-theme-Fiend,
+.app-team-theme-Fiend .app-team-title {
+  background-image: url(static/img/Getquad_squad5.png);
 }
 
-.app-team-theme-777 .app-player-content {
-    background: linear-gradient(180deg, white, skyblue);
+.app-team-theme-Zombie,
+.app-team-theme-Zombie .app-team-title {
+  background-image: url(static/img/Getquad_squad6.png);
+}
+
+.app-team-theme-Ogre,
+.app-team-theme-Ogre .app-team-title {
+  background-image: url(static/img/Getquad_squad7.png);
 }

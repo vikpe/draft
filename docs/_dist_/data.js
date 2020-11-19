@@ -1,45 +1,61 @@
+/*
+Squad 1/seed1 - Rotfish - Creature
+Squad 2/seed2 - Spawn - Nigve
+Squad 3 - Enforcer - Blixem
+Squad 4 - Shambler - Raket
+Squad 5 - Fiend - Wimpeeh
+Squad 6 - Zombie - Hangtime
+Squad 7 - Ogre - Diki
+ */
 export const teams = {
-  777: {
-    id: "777",
-    name: "777",
+  Rotfish: {
+    id: "Rotfish",
+    name: "Rotfish",
     playerNames: [],
-    theme: "777",
+    theme: "Rotfish",
     sortOrder: 1
   },
-  666: {
-    id: "666",
-    name: "666",
+  Spawn: {
+    id: "Spawn",
+    name: "Spawn",
     playerNames: [],
-    theme: "666",
+    theme: "Spawn",
     sortOrder: 2
   },
-  555: {
-    id: "555",
-    name: "555",
+  Enforcer: {
+    id: "Enforcer",
+    name: "Enforcer",
     playerNames: [],
-    theme: "777",
+    theme: "Enforcer",
     sortOrder: 3
   },
-  444: {
-    id: "444",
-    name: "444",
+  Shambler: {
+    id: "Shambler",
+    name: "Shambler",
     playerNames: [],
-    theme: "666",
+    theme: "Shambler",
     sortOrder: 4
   },
-  333: {
-    id: "333",
-    name: "333",
+  Fiend: {
+    id: "Fiend",
+    name: "Fiend",
     playerNames: [],
-    theme: "777",
+    theme: "Fiend",
     sortOrder: 5
   },
-  222: {
-    id: "222",
-    name: "222",
+  Zombie: {
+    id: "Zombie",
+    name: "Zombie",
     playerNames: [],
-    theme: "666",
+    theme: "Zombie",
     sortOrder: 6
+  },
+  Ogre: {
+    id: "Ogre",
+    name: "Ogre",
+    playerNames: [],
+    theme: "Ogre",
+    sortOrder: 7
   }
 };
 export const players = {
