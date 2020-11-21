@@ -112,17 +112,17 @@ class SampleBoard extends React.Component {
     const pickedPlayerCount =
       Object.values(this.state.teams)
         .map((t) => t.playerNames.length)
-        .reduce((accumulator, currentValue) => accumulator + currentValue) -
+        .reduce((accumulator, currentValue) => accumulator + currentValue, 0) -
       this.state.teams["playerPool"].playerNames.length;
 
     const numberOfTeams = Object.values(this.state.teams).length - 1;
     const pickLimit = numberOfTeams * (4 + 1);
     const draftStatus =
-      pickedPlayerCount < pickLimit ? "in-progress" : "completed";
+      pickedPlayerCount === pickLimit ? "completed" : "in-progress";
 
     let indexOfTeamToPick = -1;
 
-    if ("in-progress" === draftStatus) {
+    if (pickedPlayerCount < pickLimit) {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
     }
 
