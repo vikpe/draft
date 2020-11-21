@@ -4,7 +4,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 
 import Team from "./Team";
 
-import { teams, players } from "./data";
+import { pickOrder, players, teams } from "./data";
 
 const sortTeams = (a, b) => {
   if (a.sortOrder < b.sortOrder) {
@@ -105,8 +105,8 @@ class SampleBoard extends React.Component {
   render() {
     const playersByTeam = (team) =>
       team.playerNames.map((playerId) => this.state.players[playerId]);
-    const teamToPickIndex =
-      this.state.pickIndex % (Object.values(this.state.teams).length - 1);
+    const indexOfTeamToPick =
+      pickOrder[this.state.pickIndex % pickOrder.length] - 1;
 
     const pickedPlayerCount =
       Object.values(this.state.teams)
@@ -114,21 +114,22 @@ class SampleBoard extends React.Component {
         .reduce((accumulator, currentValue) => accumulator + currentValue) -
       this.state.teams["playerPool"].playerNames.length;
 
-    const pickLimit = Object.values(this.state.teams).length * 6;
+    const numberOfTeams = Object.values(this.state.teams).length - 1;
+    const pickLimit = numberOfTeams * (1);
     const draftStatus =
-      pickedPlayerCount <= pickLimit ? "in-progress" : "completed";
+      pickedPlayerCount < pickLimit ? "in-progress" : "completed";
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`app-draft app-draft-status-${draftStatus}`}>
           <div className="app-teams-container">
-            {sortedTeams.map((team, index) => (
+            {sortedTeams.map((team, teamIndex) => (
               <Team
                 key={team.id}
                 team={team}
                 players={playersByTeam(team)}
-                highlight={teamToPickIndex === index}
+                highlight={indexOfTeamToPick === teamIndex}
               />
             ))}
           </div>
