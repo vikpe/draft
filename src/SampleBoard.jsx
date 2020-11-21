@@ -2,6 +2,8 @@ import React from "react";
 
 import { DragDropContext } from "react-beautiful-dnd";
 
+import cloneDeep from "lodash.clonedeep";
+
 import Team from "./Team";
 
 import { pickOrder, players, teams } from "./data";
@@ -26,17 +28,16 @@ teams.playerPool = {
   playerNames: Object.keys(players).filter((p) => !playersInTeams.includes(p)),
 };
 
-const defaultData = { teams, players, pickIndex: 0 };
+const getDefaultData = () => cloneDeep({ teams, players, pickIndex: 0 });
 
 const getInitialData = () => {
-  return defaultData;
-
+  return getDefaultData();
   const localData = localStorage.getItem("draft");
 
   if (localData) {
     return JSON.parse(localData);
   } else {
-    return defaultData;
+    return getDefaultData();
   }
 };
 
@@ -70,9 +71,22 @@ const move = (source, destination, droppableSource, droppableDestination) => {
 
 class SampleBoard extends React.Component {
   state = getInitialData();
+  stateHistory = [];
+
+  setAndSaveState = (newState) => {
+    this.setState(newState);
+    localStorage.setItem("draft", JSON.stringify(newState));
+  };
+
+  handleUndoClick = () => {
+    const lastState = this.stateHistory.pop();
+    this.setAndSaveState(lastState);
+  };
 
   onDragEnd = (result) => {
     const { destination, source } = result;
+
+    this.stateHistory.push(cloneDeep(this.state));
 
     if (!shouldReorderState(destination, source)) {
       return;
@@ -101,8 +115,7 @@ class SampleBoard extends React.Component {
       this.state.pickIndex += 1;
     }
 
-    this.setState(this.state);
-    localStorage.setItem("draft", JSON.stringify(this.state));
+    this.setAndSaveState(this.state);
   };
 
   render() {
@@ -128,8 +141,25 @@ class SampleBoard extends React.Component {
 
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
 
+    const pickRound = 1 + Math.floor(this.state.pickIndex / numberOfTeams);
+    const pickNumber = 1 + (this.state.pickIndex % numberOfTeams);
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
+        <div className={"app-controls"}>
+          Round <span style={{color: "cyan"}}>{pickRound}</span>, pick <span style={{color: "cyan"}}>{pickNumber}</span>
+          {this.stateHistory.length > 0 && (
+            <span>
+              &nbsp;&nbsp;&nbsp;
+              <a
+                href="#"
+                onClick={this.handleUndoClick}
+              >
+                Undo last action
+              </a>
+            </span>
+          )}
+        </div>
         <div className={`app-draft app-draft-status-${draftStatus}`}>
           <div className="app-teams-container">
             {sortedTeams.map((team, teamIndex) => (
