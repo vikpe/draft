@@ -147,14 +147,12 @@ class SampleBoard extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={"app-controls"}>
-          Round <span style={{color: "cyan"}}>{pickRound}</span>, pick <span style={{color: "cyan"}}>{pickNumber}</span>
+          Round <span style={{ color: "cyan" }}>{pickRound}</span>, pick{" "}
+          <span style={{ color: "cyan" }}>{pickNumber}</span>
           {this.stateHistory.length > 0 && (
             <span>
               &nbsp;&nbsp;&nbsp;
-              <a
-                href="#"
-                onClick={this.handleUndoClick}
-              >
+              <a href="#" onClick={this.handleUndoClick}>
                 Undo last pick
               </a>
             </span>
