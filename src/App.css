@@ -11,6 +11,10 @@
 
 .app-controls a {
   color: darkmagenta;
+  text-decoration: none;
+}
+.app-controls a:hover {
+  color: magenta;
 }
 
 .app-controls .app-text-highlight {
