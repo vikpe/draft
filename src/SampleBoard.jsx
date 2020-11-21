@@ -16,12 +16,14 @@ const sortTeams = (a, b) => {
   }
 };
 
-const playersInTeams = Object.values(teams).map(t => t.playerNames).reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
+const playersInTeams = Object.values(teams)
+  .map((t) => t.playerNames)
+  .reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
 
 teams.playerPool = {
   id: "playerPool",
   name: "Player Pool",
-  playerNames: Object.keys(players).filter(p => !playersInTeams.includes(p))
+  playerNames: Object.keys(players).filter((p) => !playersInTeams.includes(p)),
 };
 
 const defaultData = { teams, players, pickIndex: 0 };
@@ -106,8 +108,6 @@ class SampleBoard extends React.Component {
   render() {
     const playersByTeam = (team) =>
       team.playerNames.map((playerId) => this.state.players[playerId]);
-    const indexOfTeamToPick =
-      pickOrder[this.state.pickIndex % pickOrder.length];
 
     const pickedPlayerCount =
       Object.values(this.state.teams)
@@ -119,6 +119,13 @@ class SampleBoard extends React.Component {
     const pickLimit = numberOfTeams * (4 + 1);
     const draftStatus =
       pickedPlayerCount < pickLimit ? "in-progress" : "completed";
+
+    let indexOfTeamToPick = -1;
+
+    if ("in-progress" === draftStatus) {
+      indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
+    }
+
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
 
     return (
