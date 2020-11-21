@@ -131,7 +131,7 @@ class SampleBoard extends React.Component {
       style: {
         color: "cyan"
       }
-    }, pickRound), ", pick ", /*#__PURE__*/React.createElement("span", {
+    }, pickRound), ", pick", " ", /*#__PURE__*/React.createElement("span", {
       style: {
         color: "cyan"
       }
