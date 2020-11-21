@@ -2,6 +2,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 import React from "../web_modules/react.js";
 import { DragDropContext } from "../web_modules/react-beautiful-dnd.js";
+import cloneDeep from "../web_modules/lodash.clonedeep.js";
 import Team from "./Team.js";
 import { pickOrder, players, teams } from "./data.js";
 
@@ -21,20 +22,21 @@ teams.playerPool = {
   name: "Player Pool",
   playerNames: Object.keys(players).filter(p => !playersInTeams.includes(p))
 };
-const defaultData = {
+
+const getDefaultData = () => cloneDeep({
   teams,
   players,
   pickIndex: 0
-};
+});
 
 const getInitialData = () => {
-  return defaultData;
+  return getDefaultData();
   const localData = localStorage.getItem("draft");
 
   if (localData) {
     return JSON.parse(localData);
   } else {
-    return defaultData;
+    return getDefaultData();
   }
 };
 
@@ -66,11 +68,24 @@ class SampleBoard extends React.Component {
 
     _defineProperty(this, "state", getInitialData());
 
+    _defineProperty(this, "stateHistory", []);
+
+    _defineProperty(this, "setAndSaveState", newState => {
+      this.setState(newState);
+      localStorage.setItem("draft", JSON.stringify(newState));
+    });
+
+    _defineProperty(this, "handleUndoClick", () => {
+      const lastState = this.stateHistory.pop();
+      this.setAndSaveState(lastState);
+    });
+
     _defineProperty(this, "onDragEnd", result => {
       const {
         destination,
         source
       } = result;
+      this.stateHistory.push(cloneDeep(this.state));
 
       if (!shouldReorderState(destination, source)) {
         return;
@@ -88,28 +103,42 @@ class SampleBoard extends React.Component {
         this.state.pickIndex += 1;
       }
 
-      this.setState(this.state);
-      localStorage.setItem("draft", JSON.stringify(this.state));
+      this.setAndSaveState(this.state);
     });
   }
 
   render() {
     const playersByTeam = team => team.playerNames.map(playerId => this.state.players[playerId]);
 
-    const pickedPlayerCount = Object.values(this.state.teams).map(t => t.playerNames.length).reduce((accumulator, currentValue) => accumulator + currentValue) - this.state.teams["playerPool"].playerNames.length;
+    const pickedPlayerCount = Object.values(this.state.teams).map(t => t.playerNames.length).reduce((accumulator, currentValue) => accumulator + currentValue, 0) - this.state.teams["playerPool"].playerNames.length;
     const numberOfTeams = Object.values(this.state.teams).length - 1;
     const pickLimit = numberOfTeams * (4 + 1);
-    const draftStatus = pickedPlayerCount < pickLimit ? "in-progress" : "completed";
+    const draftStatus = pickedPlayerCount === pickLimit ? "completed" : "in-progress";
     let indexOfTeamToPick = -1;
 
-    if ("in-progress" === draftStatus) {
+    if (pickedPlayerCount < pickLimit) {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
     }
 
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
+    const pickRound = 1 + Math.floor(this.state.pickIndex / numberOfTeams);
+    const pickNumber = 1 + this.state.pickIndex % numberOfTeams;
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
     }, /*#__PURE__*/React.createElement("div", {
+      className: "app-controls"
+    }, "Round ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "cyan"
+      }
+    }, pickRound), ", pick ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "cyan"
+      }
+    }, pickNumber), this.stateHistory.length > 0 && /*#__PURE__*/React.createElement("span", null, "\xA0\xA0\xA0", /*#__PURE__*/React.createElement("a", {
+      href: "#",
+      onClick: this.handleUndoClick
+    }, "Undo last pick"))), /*#__PURE__*/React.createElement("div", {
       className: `app-draft app-draft-status-${draftStatus}`
     }, /*#__PURE__*/React.createElement("div", {
       className: "app-teams-container"

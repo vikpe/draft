@@ -1,5 +1,24 @@
+/* App */
 .app {
-  padding: 32px;
+  padding: 16px 32px 0;
+}
+
+.app-controls {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.app-controls a {
+  color: darkmagenta;
+  text-decoration: none;
+}
+.app-controls a:hover {
+  color: magenta;
+}
+
+.app-controls .app-text-highlight {
+  color: cyan;
 }
 
 /* Team container */
@@ -111,7 +130,7 @@
 /* Custom Teams/Themes */
 .app-team-theme {
   flex: 0 0 13%;
-  min-height: 560px;
+  min-height: 540px;
   overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
