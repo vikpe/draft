@@ -1,6 +1,6 @@
 import React from "../web_modules/react.js";
 import {DragDropContext} from "../web_modules/react-beautiful-dnd.js";
-import cloneDeep from "../web_modules/lodash.clonedeep.js";
+import {deepCopy} from "./util.js";
 import Team2 from "./Team.js";
 import {pickOrder, players, teams} from "./data.js";
 const sortTeams = (a, b) => {
@@ -18,7 +18,7 @@ teams.playerPool = {
   name: "Player Pool",
   playerNames: Object.keys(players).filter((p) => !playersInTeams.includes(p))
 };
-const getDefaultData = () => cloneDeep({teams, players, pickIndex: 0});
+const getDefaultData = () => deepCopy({teams, players, pickIndex: 0});
 const getInitialData = () => {
   return getDefaultData();
   const localData = localStorage.getItem("draft");
@@ -60,7 +60,7 @@ class SampleBoard extends React.Component {
   };
   onDragEnd = (result) => {
     const {destination, source} = result;
-    this.stateHistory.push(cloneDeep(this.state));
+    this.stateHistory.push(deepCopy(this.state));
     if (!shouldReorderState(destination, source)) {
       return;
     }
