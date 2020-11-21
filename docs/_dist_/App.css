@@ -1,14 +1,4 @@
-body {
-  overflow: hidden;
-}
-
 .app {
-  background: linear-gradient(
-    to bottom,
-    rebeccapurple,
-    darkmagenta,
-    rebeccapurple
-  );
   padding: 32px;
 }
 
@@ -52,7 +42,8 @@ body {
 }
 
 .app-draft-status-in-progress .app-team-highlight {
-  border-color: yellow;
+  border-color: cyan;
+  background-color: rgba(0, 255, 255, 0.4);
 }
 
 /* Player pool */
@@ -63,6 +54,11 @@ body {
   border-radius: 1em;
   min-height: 300px;
   flex: 0 1 100%;
+}
+
+.app-draft-status-completed .app-team-id-playerPool > .app-team-title,
+.app-draft-status-completed .app-team-id-playerPool .app-player {
+  opacity: 0.3 !important;
 }
 
 .app-team-id-playerPool > .app-team-title {
@@ -122,14 +118,14 @@ body {
   border: 5px solid black;
   box-shadow: 0 0 12px black;
   border-radius: 1em;
+}
 
-  background-size: 2500%;
-  background-position: -200px 0;
-  background-blend-mode: color;
+.app-team-theme .app-team-droppable {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .app-team-theme .app-team-droppable.app-dnd-dragover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .app-team-theme .app-team-title {
@@ -150,36 +146,30 @@ body {
   background: linear-gradient(180deg, white, #ccc);
 }
 
-.app-team-theme-Rotfish,
 .app-team-theme-Rotfish .app-team-title {
   background-image: url(static/img/Getquad_squad1.png);
 }
-.app-team-theme-Spawn,
+
 .app-team-theme-Spawn .app-team-title {
   background-image: url(static/img/Getquad_squad2.png);
 }
 
-.app-team-theme-Enforcer,
 .app-team-theme-Enforcer .app-team-title {
   background-image: url(static/img/Getquad_squad3.png);
 }
 
-.app-team-theme-Shambler,
 .app-team-theme-Shambler .app-team-title {
   background-image: url(static/img/Getquad_squad4.png);
 }
 
-.app-team-theme-Fiend,
 .app-team-theme-Fiend .app-team-title {
   background-image: url(static/img/Getquad_squad5.png);
 }
 
-.app-team-theme-Zombie,
 .app-team-theme-Zombie .app-team-title {
   background-image: url(static/img/Getquad_squad6.png);
 }
 
-.app-team-theme-Ogre,
 .app-team-theme-Ogre .app-team-title {
   background-image: url(static/img/Getquad_squad7.png);
 }

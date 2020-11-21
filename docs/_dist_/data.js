@@ -7,6 +7,7 @@ Squad 5 - Fiend - Wimpeeh
 Squad 6 - Zombie - Hangtime
 Squad 7 - Ogre - Diki
  */
+export const pickOrder = [7, 6, 5, 4, 3, 2, 1, 4, 1, 3, 2, 5, 6, 7, 7, 6, 5, 2, 3, 1, 4, 6, 3, 1, 7, 4, 5, 2];
 export const teams = {
   Rotfish: {
     id: "Rotfish",
@@ -59,17 +60,9 @@ export const teams = {
   }
 };
 export const players = {
-  Nidweyr: {
-    name: "Nidweyr",
-    country_code: "ua"
-  },
-  gLAd: {
-    name: "gLAd",
-    country_code: "ru"
-  },
-  Max_Power: {
-    name: "Max_Power",
-    country_code: "ru"
+  Andyblub: {
+    name: "Andyblub",
+    country_code: "de"
   },
   Annihilator: {
     name: "Annihilator",
@@ -79,21 +72,177 @@ export const players = {
     name: "Billy-The-Kid",
     country_code: "ru"
   },
-  spliffy: {
-    name: "spliffy",
-    country_code: "ie"
+  blixem: {
+    name: "blixem",
+    country_code: "nl"
+  },
+  Bulat: {
+    name: "Bulat",
+    country_code: "ru"
+  },
+  Conan: {
+    name: "Conan",
+    country_code: "se"
+  },
+  Creature: {
+    name: "Creature",
+    country_code: "fi"
+  },
+  derpiel: {
+    name: "derpiel",
+    country_code: "dk"
+  },
+  ".devil": {
+    name: ".devil",
+    country_code: "ru"
+  },
+  diehuman: {
+    name: "diehuman",
+    country_code: "pt"
+  },
+  Diki: {
+    name: "Diki",
+    country_code: "fi"
+  },
+  Doomie: {
+    name: "Doomie",
+    country_code: "pl"
+  },
+  Eikooren: {
+    name: "Eikooren",
+    country_code: "se"
+  },
+  Er: {
+    name: "Er",
+    country_code: "pl"
+  },
+  fgh: {
+    name: "fgh",
+    country_code: "se"
+  },
+  Flamer: {
+    name: "Flamer",
+    country_code: "cz"
+  },
+  "FU-kip": {
+    name: "FU-kip",
+    country_code: "fi"
+  },
+  gLAd: {
+    name: "gLAd",
+    country_code: "ru"
+  },
+  Goniec: {
+    name: "Goniec",
+    country_code: "pl"
+  },
+  goorol: {
+    name: "goorol",
+    country_code: "pl"
+  },
+  Gor: {
+    name: "Gor",
+    country_code: "ru"
+  },
+  gore: {
+    name: "gore",
+    country_code: "gb"
   },
   Greco: {
     name: "Greco",
     country_code: "se"
   },
+  "-insane-": {
+    name: "-insane-",
+    country_code: "pl"
+  },
+  HangTime: {
+    name: "HangTime",
+    country_code: "gb"
+  },
+  john_rambo: {
+    name: "john_rambo",
+    country_code: "ie"
+  },
+  kiln: {
+    name: "kiln",
+    country_code: "us"
+  },
+  Klice: {
+    name: "Klice",
+    country_code: "fr"
+  },
+  Knasty: {
+    name: "Knasty",
+    country_code: "de"
+  },
+  Link: {
+    name: "Link",
+    country_code: "no"
+  },
+  LordLame: {
+    name: "LordLame",
+    country_code: "ie"
+  },
+  MM: {
+    name: "MM",
+    country_code: "se"
+  },
+  Max_Power: {
+    name: "Max_Power",
+    country_code: "ru"
+  },
+  Nautilus: {
+    name: "Nautilus",
+    country_code: "gb"
+  },
+  "!Nico": {
+    name: "!Nico",
+    country_code: "us"
+  },
+  Nidweyr: {
+    name: "Nidweyr",
+    country_code: "ua"
+  },
+  Nigve: {
+    name: "Nigve",
+    country_code: "no"
+  },
   NLK: {
     name: "NLK",
     country_code: "ru"
   },
-  Andyblub: {
-    name: "Andyblub",
+  ocoini: {
+    name: "ocoini",
+    country_code: "no"
+  },
+  Ostx: {
+    name: "Ostx",
+    country_code: "nl"
+  },
+  pattah: {
+    name: "pattah",
     country_code: "de"
+  },
+  PreMorteM: {
+    name: "PreMorteM",
+    country_code: "no"
+  },
+  Quake: {
+    name: "Quake",
+    country_code: "ru"
+  },
+  raket: {
+    name: "raket",
+    country_code: "se"
+  },
+  rghst: {
+    name: "rghst",
+    country_code: "de"
+  },
+  Riki: {
+    name: "Riki",
+    country_code: "pl"
   },
   STALKERRH: {
     name: "STALKERRH",
@@ -103,212 +252,64 @@ export const players = {
     name: "Sae",
     country_code: "gb"
   },
-  Klice: {
-    name: "Klice",
-    country_code: "fr"
-  },
-  Flamer: {
-    name: "Flamer",
-    country_code: "cz"
-  },
-  LordLame: {
-    name: "LordLame",
-    country_code: "ie"
-  },
-  Doomie: {
-    name: "Doomie",
-    country_code: "pl"
-  },
   Samon: {
     name: "Samon",
     country_code: "pl"
-  },
-  Skurk: {
-    name: "Skurk",
-    country_code: "se"
-  },
-  "-insane-": {
-    name: "-insane-",
-    country_code: "pl"
-  },
-  diehuman: {
-    name: "diehuman",
-    country_code: "pt"
-  },
-  Riki: {
-    name: "Riki",
-    country_code: "pl"
-  },
-  Bulat: {
-    name: "Bulat",
-    country_code: "ru"
-  },
-  pattah: {
-    name: "pattah",
-    country_code: "de"
-  },
-  ocoini: {
-    name: "ocoini",
-    country_code: "no"
-  },
-  fgh: {
-    name: "fgh",
-    country_code: "se"
-  },
-  HangTime: {
-    name: "HangTime",
-    country_code: "gb"
-  },
-  Tumult: {
-    name: "Tumult",
-    country_code: "se"
-  },
-  rghst: {
-    name: "rghst",
-    country_code: "de"
-  },
-  Goniec: {
-    name: "Goniec",
-    country_code: "pl"
-  },
-  raket: {
-    name: "raket",
-    country_code: "se"
-  },
-  Zeppski: {
-    name: "Zeppski",
-    country_code: "ru"
-  },
-  Creature: {
-    name: "Creature",
-    country_code: "fi"
-  },
-  PreMorteM: {
-    name: "PreMorteM",
-    country_code: "no"
-  },
-  Conan: {
-    name: "Conan",
-    country_code: "se"
-  },
-  Nautilus: {
-    name: "Nautilus",
-    country_code: "gb"
-  },
-  kiln: {
-    name: "kiln",
-    country_code: "us"
-  },
-  derpiel: {
-    name: "derpiel",
-    country_code: "dk"
-  },
-  Tjall: {
-    name: "Tjall",
-    country_code: "pl"
-  },
-  Link: {
-    name: "Link",
-    country_code: "no"
-  },
-  Tom: {
-    name: "Tom",
-    country_code: "pl"
-  },
-  Turbo: {
-    name: "Turbo",
-    country_code: "gb"
-  },
-  Toma: {
-    name: "Toma",
-    country_code: "hu"
-  },
-  Zalon: {
-    name: "Zalon",
-    country_code: "dk"
-  },
-  ".devil": {
-    name: ".devil",
-    country_code: "ru"
-  },
-  Knasty: {
-    name: "Knasty",
-    country_code: "de"
   },
   Shaka: {
     name: "Shaka",
     country_code: "se"
   },
-  Wimpeeh: {
-    name: "Wimpeeh",
-    country_code: "nl"
-  },
-  blixem: {
-    name: "blixem",
-    country_code: "nl"
-  },
-  Ostx: {
-    name: "Ostx",
-    country_code: "nl"
-  },
-  Gor: {
-    name: "Gor",
-    country_code: "ru"
-  },
-  Eikooren: {
-    name: "Eikooren",
+  Skurk: {
+    name: "Skurk",
     country_code: "se"
   },
-  Nigve: {
-    name: "Nigve",
-    country_code: "no"
-  },
-  Er: {
-    name: "Er",
-    country_code: "pl"
-  },
-  Diki: {
-    name: "Diki",
-    country_code: "fi"
-  },
-  gore: {
-    name: "gore",
-    country_code: "gb"
-  },
-  goorol: {
-    name: "goorol",
-    country_code: "pl"
-  },
-  "!Nico": {
-    name: "!Nico",
-    country_code: "us"
-  },
-  "FU-kip": {
-    name: "FU-kip",
-    country_code: "fi"
-  },
-  xero: {
-    name: "xero",
-    country_code: "se"
+  spliffy: {
+    name: "spliffy",
+    country_code: "ie"
   },
   TeT: {
     name: "TeT",
     country_code: "fr"
   },
+  Tjall: {
+    name: "Tjall",
+    country_code: "pl"
+  },
+  Tom: {
+    name: "Tom",
+    country_code: "pl"
+  },
+  Toma: {
+    name: "Toma",
+    country_code: "hu"
+  },
+  Tumult: {
+    name: "Tumult",
+    country_code: "se"
+  },
+  Turbo: {
+    name: "Turbo",
+    country_code: "gb"
+  },
   Valde: {
     name: "Valde",
     country_code: "dk"
   },
-  john_rambo: {
-    name: "john_rambo",
-    country_code: "ie"
+  Wimpeeh: {
+    name: "Wimpeeh",
+    country_code: "nl"
   },
-  MM: {
-    name: "MM",
+  xero: {
+    name: "xero",
     country_code: "se"
   },
-  Quake: {
-    name: "Quake",
+  Zalon: {
+    name: "Zalon",
+    country_code: "dk"
+  },
+  Zeppski: {
+    name: "Zeppski",
     country_code: "ru"
   }
 };

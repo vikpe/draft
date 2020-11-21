@@ -3,7 +3,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 import React from "../web_modules/react.js";
 import { DragDropContext } from "../web_modules/react-beautiful-dnd.js";
 import Team from "./Team.js";
-import { teams, players } from "./data.js";
+import { pickOrder, players, teams } from "./data.js";
 
 const sortTeams = (a, b) => {
   if (a.sortOrder < b.sortOrder) {
@@ -96,10 +96,11 @@ class SampleBoard extends React.Component {
   render() {
     const playersByTeam = team => team.playerNames.map(playerId => this.state.players[playerId]);
 
-    const teamToPickIndex = this.state.pickIndex % (Object.values(this.state.teams).length - 1);
+    const indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length] - 1;
     const pickedPlayerCount = Object.values(this.state.teams).map(t => t.playerNames.length).reduce((accumulator, currentValue) => accumulator + currentValue) - this.state.teams["playerPool"].playerNames.length;
-    const pickLimit = Object.values(this.state.teams).length * 6;
-    const draftStatus = pickedPlayerCount <= pickLimit ? "in-progress" : "completed";
+    const numberOfTeams = Object.values(this.state.teams).length - 1;
+    const pickLimit = numberOfTeams * (4 + 1);
+    const draftStatus = pickedPlayerCount < pickLimit ? "in-progress" : "completed";
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
@@ -107,11 +108,11 @@ class SampleBoard extends React.Component {
       className: `app-draft app-draft-status-${draftStatus}`
     }, /*#__PURE__*/React.createElement("div", {
       className: "app-teams-container"
-    }, sortedTeams.map((team, index) => /*#__PURE__*/React.createElement(Team, {
+    }, sortedTeams.map((team, teamIndex) => /*#__PURE__*/React.createElement(Team, {
       key: team.id,
       team: team,
       players: playersByTeam(team),
-      highlight: teamToPickIndex === index
+      highlight: indexOfTeamToPick === teamIndex
     })))));
   }
 
