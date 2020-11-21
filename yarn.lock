@@ -1102,10 +1102,10 @@
   dependencies:
     slash "^3.0.0"
 
-"@rollup/plugin-commonjs@^15.0.0":
-  version "15.1.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-15.1.0.tgz#1e7d076c4f1b2abf7e65248570e555defc37c238"
-  integrity sha512-xCQqz4z/o0h2syQ7d9LskIMvBSH4PX5PjYdpSSvgS+pQik3WahkQVNWg3D8XJeYjZoVWnIUQYDghuEMRGrmQYQ==
+"@rollup/plugin-commonjs@^16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-16.0.0.tgz#169004d56cd0f0a1d0f35915d31a036b0efe281f"
+  integrity sha512-LuNyypCP3msCGVQJ7ki8PqYdpjfEkE/xtFa5DqlF+7IBD0JsfMZ87C58heSwIMint58sAUZbt3ITqOmdQv/dXw==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     commondir "^1.0.1"
@@ -1131,10 +1131,10 @@
   dependencies:
     "@rollup/pluginutils" "^3.0.8"
 
-"@rollup/plugin-node-resolve@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-9.0.0.tgz#39bd0034ce9126b39c1699695f440b4b7d2b62e6"
-  integrity sha512-gPz+utFHLRrd41WMP13Jq5mqqzHL3OXrfj3/MkSyB6UBIcuNt9j60GCbarzMzdf1VHFpOxfQh/ez7wyadLMqkg==
+"@rollup/plugin-node-resolve@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-10.0.0.tgz#44064a2b98df7530e66acf8941ff262fc9b4ead8"
+  integrity sha512-sNijGta8fqzwA1VwUEtTvWCx2E7qC70NMsDh4ZG13byAXYigBNZMxALhKUSycBks5gupJdq0lFrKumFrRZ8H3A==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     "@types/resolve" "1.17.1"
@@ -1208,6 +1208,15 @@
     "@babel/core" "^7.0.0"
     "@babel/plugin-syntax-class-properties" "^7.10.0"
     react-refresh "^0.8.3"
+
+"@snowpack/plugin-react-refresh@^2.3.7":
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/@snowpack/plugin-react-refresh/-/plugin-react-refresh-2.3.7.tgz#9ba7da6d2db160d28f9b3a14a91e588b8b445d0f"
+  integrity sha512-LltkmwZKRz4fHj1rfaaT0MC19F3k4FWs/U3eim4xbxqbsK4K/PHCMJU1RmiLxM7UcFbqi7LreQGZSCSXPoaNgQ==
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@babel/plugin-syntax-class-properties" "^7.10.0"
+    react-refresh "^0.9.0"
 
 "@snowpack/plugin-run-script@^2.2.0":
   version "2.2.0"
@@ -1663,7 +1672,7 @@ callsites@^3.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
-camelcase@^5.0.0, camelcase@^5.3.1:
+camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
@@ -1733,10 +1742,10 @@ ci-info@^2.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-cjs-module-lexer@^0.4.0:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-0.4.3.tgz#9e31f7fe701f5fcee5793f77ab4e58fa8dcde8bc"
-  integrity sha512-5RLK0Qfs0PNDpEyBXIr3bIT1Muw3ojSlvpw6dAmkUcO0+uTrsBn7GuEIgx40u+OzbCBLDta7nvmud85P4EmTsQ==
+cjs-module-lexer@^0.5.0:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-0.5.2.tgz#6e979f3065fe30cd531ebfbbd93033e6a14bc4ca"
+  integrity sha512-GlXp/i+x/WJP5X/qBAfo8ygo97ePkYSTL9um1TZ7nMG9JlFXZADyMhHQ7DFc0xk4G8oCagEKxQaHHD1wd+ZEyA==
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -1920,11 +1929,6 @@ debug@^4.1.0:
   dependencies:
     ms "2.1.2"
 
-decamelize@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
-  integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
-
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
@@ -2006,10 +2010,10 @@ es-module-lexer@^0.3.24:
   resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-0.3.26.tgz#7b507044e97d5b03b01d4392c74ffeb9c177a83b"
   integrity sha512-Va0Q/xqtrss45hWzP8CZJwzGSZJjDM5/MJRE3IXXnUCcVLElR9BRaE9F62BopysASyc4nM3uwhSW7FFB9nlWAA==
 
-esbuild@^0.7.0:
-  version "0.7.22"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.7.22.tgz#9149b903f8128b7c45a754046c24199d76bbe08e"
-  integrity sha512-B43SYg8LGWYTCv9Gs0RnuLNwjzpuWOoCaZHTWEDEf5AfrnuDMerPVMdCEu7xOdhFvQ+UqfP2MGU9lxEy0JzccA==
+esbuild@^0.8.0:
+  version "0.8.12"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.12.tgz#bea417dbb228a971a5df255cb1b8acf5ea96ef52"
+  integrity sha512-SWCUodYFOkKcu2Jbum12NbD98MoQq2EWWvHfQtpR2C9RkPzRr1BE4cavYjQpQV01hBR19UAftXl0TVLjka/i3Q==
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -2021,18 +2025,18 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-esinstall@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/esinstall/-/esinstall-0.3.6.tgz#6f54d6a05bbfbc945548c7af89a2fd2d67dab5ce"
-  integrity sha512-tmtJ0fNXv0C3t37zRuR/WUEVyKsTLvxcWPPe5OlT3QhJiWo7du/HXVUMOX4DTn6ob6jf6zSb0KQJFpHUhBCyHQ==
+esinstall@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/esinstall/-/esinstall-0.3.7.tgz#f50b897c0cfb481cc1a6923a19cbfb9129642b0d"
+  integrity sha512-IslJdHov4TQPSNwHK4WCIkQwxaYrDDW2u6iZxiGbNVzFPyeEEVs2BXDmd1ZXVE4+bP/eCvvbvYH9f59gafgn5A==
   dependencies:
     "@rollup/plugin-alias" "^3.0.1"
-    "@rollup/plugin-commonjs" "^15.0.0"
+    "@rollup/plugin-commonjs" "^16.0.0"
     "@rollup/plugin-inject" "^4.0.2"
     "@rollup/plugin-json" "^4.0.0"
-    "@rollup/plugin-node-resolve" "^9.0.0"
+    "@rollup/plugin-node-resolve" "^10.0.0"
     "@rollup/plugin-replace" "^2.3.3"
-    cjs-module-lexer "^0.4.0"
+    cjs-module-lexer "^0.5.0"
     es-module-lexer "^0.3.24"
     is-builtin-module "^3.0.0"
     kleur "^4.1.1"
@@ -2597,6 +2601,11 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   integrity sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
   dependencies:
     isobject "^3.0.1"
+
+is-plain-object@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
+  integrity sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==
 
 is-reference@^1.2.1:
   version "1.2.1"
@@ -3334,10 +3343,10 @@ postcss@^6.0.1:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-prettier@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.2.tgz#3050700dae2e4c8b67c4c3f666cdb8af405e1ce5"
-  integrity sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==
+prettier@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.0.tgz#8a03c7777883b29b37fb2c4348c66a78e980418b"
+  integrity sha512-yYerpkvseM4iKD/BXLYUkQV5aKt4tQPqaGW6EsZjzyu0r7sVZZNPJW4Y8MyKmicp6t42XUPcBVA+H6sB3gqndw==
 
 promise-inflight@^1.0.1:
   version "1.0.1"
@@ -3434,6 +3443,11 @@ react-refresh@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
+
+react-refresh@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
+  integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
 
 react@^17.0.1:
   version "17.0.1"
@@ -3728,10 +3742,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-snowpack@^2.16.1:
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-2.16.1.tgz#c05bbe5a6ada14917759e3525c2879c9cfe4cc2b"
-  integrity sha512-BvvNxCISztDWKnn5umlXdzAzAXUwpV1Bs7/80s37CoxWDhWyX4SUOv8uZ9a1K6Gb1cBR9V4nwO0nUuYN6lxSIg==
+snowpack@^2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-2.17.1.tgz#9f00a4171526df2fa288026b5496d3e544de71ce"
+  integrity sha512-FCeIESACrCQTGTZW6rbSfe1RgOFMBRPk7I5Wn//3IRl+cLBoZ1THWMdthqbv/xiv0qlK3rHoXTBqrakf7LPAZQ==
   dependencies:
     "@snowpack/plugin-build-script" "^2.0.11"
     "@snowpack/plugin-run-script" "^2.2.0"
@@ -3744,8 +3758,8 @@ snowpack@^2.16.1:
     deepmerge "^4.2.2"
     detect-port "^1.3.0"
     es-module-lexer "^0.3.24"
-    esbuild "^0.7.0"
-    esinstall "^0.3.6"
+    esbuild "^0.8.0"
+    esinstall "^0.3.7"
     etag "^1.8.1"
     execa "^4.0.3"
     find-cache-dir "^3.3.1"
@@ -3753,6 +3767,7 @@ snowpack@^2.16.1:
     glob "^7.1.4"
     http-proxy "^1.18.1"
     httpie "^1.1.2"
+    is-plain-object "^5.0.0"
     isbinaryfile "^4.0.6"
     jsonschema "~1.2.5"
     kleur "^4.1.1"
@@ -3769,7 +3784,7 @@ snowpack@^2.16.1:
     strip-comments "^2.0.1"
     validate-npm-package-name "^3.0.0"
     ws "^7.3.0"
-    yargs-parser "^18.1.3"
+    yargs-parser "^20.0.0"
 
 source-map-resolve@^0.5.0:
   version "0.5.3"
@@ -4107,10 +4122,7 @@ yaml@^1.10.0, yaml@^1.7.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
 
-yargs-parser@^18.1.3:
-  version "18.1.3"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0"
-  integrity sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==
-  dependencies:
-    camelcase "^5.0.0"
-    decamelize "^1.2.0"
+yargs-parser@^20.0.0:
+  version "20.2.4"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.4.tgz#b42890f14566796f85ae8e3a25290d205f154a54"
+  integrity sha512-WOkpgNhPTlE73h4VFAFsOnomJVaovO8VqLDzy5saChRBFQFBoMYirowyW+Q9HB4HFF4Z7VZTiG3iSzJJA29yRA==
