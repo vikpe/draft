@@ -7,54 +7,54 @@ Squad 5 - Fiend - Wimpeeh
 Squad 6 - Zombie - Hangtime
 Squad 7 - Ogre - Diki
  */
-export const pickOrder = [7, 6, 5, 4, 3, 2, 1, 4, 1, 3, 2, 5, 6, 7, 7, 6, 5, 2, 3, 1, 4, 6, 3, 1, 7, 4, 5, 2];
+export const pickOrder = [6, 5, 4, 3, 2, 1, 0, 3, 0, 2, 1, 4, 5, 6, 6, 5, 4, 1, 2, 0, 3, 5, 2, 0, 6, 3, 4, 1];
 export const teams = {
   Rotfish: {
     id: "Rotfish",
     name: "Rotfish",
-    playerNames: [],
+    playerNames: ["Creature"],
     theme: "Rotfish",
     sortOrder: 1
   },
   Spawn: {
     id: "Spawn",
     name: "Spawn",
-    playerNames: [],
+    playerNames: ["Nigve"],
     theme: "Spawn",
     sortOrder: 2
   },
   Enforcer: {
     id: "Enforcer",
     name: "Enforcer",
-    playerNames: [],
+    playerNames: ["blixem"],
     theme: "Enforcer",
     sortOrder: 3
   },
   Shambler: {
     id: "Shambler",
     name: "Shambler",
-    playerNames: [],
+    playerNames: ["raket"],
     theme: "Shambler",
     sortOrder: 4
   },
   Fiend: {
     id: "Fiend",
     name: "Fiend",
-    playerNames: [],
+    playerNames: ["Wimpeeh"],
     theme: "Fiend",
     sortOrder: 5
   },
   Zombie: {
     id: "Zombie",
     name: "Zombie",
-    playerNames: [],
+    playerNames: ["HangTime"],
     theme: "Zombie",
     sortOrder: 6
   },
   Ogre: {
     id: "Ogre",
     name: "Ogre",
-    playerNames: [],
+    playerNames: ["Diki"],
     theme: "Ogre",
     sortOrder: 7
   }

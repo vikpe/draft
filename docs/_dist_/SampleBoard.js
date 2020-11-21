@@ -15,12 +15,12 @@ const sortTeams = (a, b) => {
   }
 };
 
+const playersInTeams = Object.values(teams).map(t => t.playerNames).reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
 teams.playerPool = {
   id: "playerPool",
   name: "Player Pool",
-  playerNames: []
+  playerNames: Object.keys(players).filter(p => !playersInTeams.includes(p))
 };
-teams.playerPool.playerNames = Object.keys(players);
 const defaultData = {
   teams,
   players,
@@ -96,11 +96,16 @@ class SampleBoard extends React.Component {
   render() {
     const playersByTeam = team => team.playerNames.map(playerId => this.state.players[playerId]);
 
-    const indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length] - 1;
     const pickedPlayerCount = Object.values(this.state.teams).map(t => t.playerNames.length).reduce((accumulator, currentValue) => accumulator + currentValue) - this.state.teams["playerPool"].playerNames.length;
     const numberOfTeams = Object.values(this.state.teams).length - 1;
     const pickLimit = numberOfTeams * (4 + 1);
     const draftStatus = pickedPlayerCount < pickLimit ? "in-progress" : "completed";
+    let indexOfTeamToPick = -1;
+
+    if ("in-progress" === draftStatus) {
+      indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
+    }
+
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
