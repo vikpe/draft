@@ -153,7 +153,7 @@ class SampleBoard extends React.Component {
             <span>
               &nbsp;&nbsp;&nbsp;
               <a href="#" onClick={this.handleUndoClick}>
-                Undo last pick
+                Undo last action
               </a>
             </span>
           )}
