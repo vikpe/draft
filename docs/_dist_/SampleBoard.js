@@ -101,7 +101,7 @@ class SampleBoard extends React.Component {
     }, pickNumber), this.stateHistory.length > 0 && /* @__PURE__ */ React.createElement("span", null, "\xA0\xA0\xA0", /* @__PURE__ */ React.createElement("a", {
       href: "#",
       onClick: this.handleUndoClick
-    }, "Undo last pick"))), /* @__PURE__ */ React.createElement("div", {
+    }, "Undo last action"))), /* @__PURE__ */ React.createElement("div", {
       className: `app-draft app-draft-status-${draftStatus}`
     }, /* @__PURE__ */ React.createElement("div", {
       className: "app-teams-container"
