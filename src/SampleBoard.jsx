@@ -2,7 +2,7 @@ import React from "react";
 
 import { DragDropContext } from "react-beautiful-dnd";
 
-import {deepCopy} from "./util"
+import { deepCopy } from "./util";
 
 import Team from "./Team";
 
