@@ -151,12 +151,26 @@
   color: transparent;
 }
 
-.app-team-theme .app-player:first-child .app-player-content:after {
+.app-team-theme .app-player:first-child .app-player-content:after,
+.app-team-theme .app-player:nth-child(5) .app-player-content:after {
   margin-left: auto;
   font-size: 1.2em;
   content: "\2605"; /* Star in UTF8 */
   color: goldenrod;
 }
+
+/* begin div2 */
+.app-team-theme .app-player {
+  opacity: 0.6;
+}
+
+.app-team-theme .app-player:nth-child(n + 5) {
+  opacity: 1;
+}
+.app-team-theme .app-player:nth-child(5) .app-player-content:after {
+    color: grey;
+}
+/* end div2 */
 
 .app-team-theme .app-player-content {
   background: linear-gradient(180deg, white, #ccc);
