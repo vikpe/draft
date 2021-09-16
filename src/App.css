@@ -54,6 +54,7 @@
   text-align: center;
   font-size: 1.8rem;
   font-weight: bold;
+  display: none;
 }
 
 .app-draft-status-in-progress .app-team-highlight .app-team-title {
