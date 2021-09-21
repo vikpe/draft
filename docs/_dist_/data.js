@@ -28,35 +28,35 @@ export const teams = {
     name: "Shambler",
     playerNames: ["Creature"],
     theme: "Shambler",
-    sortOrder: 4
+    sortOrder: 3
   },
   Fiend: {
     id: "Fiend",
     name: "Fiend",
     playerNames: ["raket"],
     theme: "Fiend",
-    sortOrder: 5
+    sortOrder: 4
   },
   Zombie: {
     id: "Zombie",
     name: "Zombie",
     playerNames: ["mm"],
     theme: "Zombie",
-    sortOrder: 6
+    sortOrder: 5
   },
   Gombie: {
     id: "Gombie",
     name: "Gombie",
     playerNames: ["nigve"],
     theme: "Gombie",
-    sortOrder: 7
+    sortOrder: 6
   },
   Enforcer: {
     id: "Enforcer",
     name: "Enforcer",
     playerNames: ["ParadokS"],
     theme: "Enforcer",
-    sortOrder: 3
+    sortOrder: 7
   }
 };
 export const players = {
