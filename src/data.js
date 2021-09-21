@@ -1,42 +1,21 @@
 /*
-Squad 1/seed1 - Rotfish - Creature
-Squad 2/seed2 - Spawn - Nigve
-Squad 3 - Enforcer - Blixem
-Squad 4 - Shambler - Raket
-Squad 5 - Fiend - Wimpeeh
-Squad 6 - Zombie - Hangtime
-Squad 7 - Ogre - Diki
+Seed 0 - Milton
+Seed 1 - bps
+Seed 2 - ParadokS
+Seed 3 - Creature
+Seed 4 - Raket
+Seed 5 - mm
+Seed 6 - nigve
  */
 
 export const pickOrder = [
-  4,
-  1,
-  3,
-  6,
   0,
-  2,
-  5,
-  0,
-  6,
-  2,
-  5,
-  3,
   1,
+  2,
+  3,
   4,
   5,
-  1,
-  3,
   6,
-  4,
-  0,
-  2,
-  4,
-  2,
-  1,
-  3,
-  0,
-  6,
-  5,
 ];
 
 export const teams = {
@@ -87,7 +66,7 @@ export const teams = {
     name: "Gombie",
     playerNames: ["nigve"],
     theme: "Gombie",
-    sortOrder: 6,
+    sortOrder: 7,
   },
 };
 
@@ -185,7 +164,7 @@ export const players = {
   "STALKERRH": { name: "STALKERRH", country_code: "NO" },
   "Dib": { name: "Dib", country_code: "PT" },
   "Zalon": { name: "Zalon", country_code: "DK" },
-  "Åke Vader@180ms": { name: "Åke Vader@180ms", country_code: "SE" },
+  "Åke Vader": { name: "Åke Vader", country_code: "SE" },
   "tr0ll": { name: "tr0ll", country_code: "NO" },
   "ganon": { name: "ganon", country_code: "SE" },
   "ParadokS": { name: "ParadokS", country_code: "DK" },
