@@ -1,5 +1,5 @@
-import { c as createCommonjsModule, r as react } from './common/index-ae389540.js';
-import { r as reactDom } from './common/index-e30e5fe3.js';
+import { c as createCommonjsModule, r as react } from './common/index-370e7390.js';
+import { r as reactDom } from './common/index-765aa0d3.js';
 
 function _setPrototypeOf(o, p) {
   _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
@@ -34,48 +34,83 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function symbolObservablePonyfill(root) {
-	var result;
-	var Symbol = root.Symbol;
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
 
-	if (typeof Symbol === 'function') {
-		if (Symbol.observable) {
-			result = Symbol.observable;
-		} else {
-			result = Symbol('observable');
-			Symbol.observable = result;
-		}
-	} else {
-		result = '@@observable';
-	}
-
-	return result;
+  return obj;
 }
 
-/* global window */
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
 
-var root;
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
 
-if (typeof self !== 'undefined') {
-  root = self;
-} else if (typeof window !== 'undefined') {
-  root = window;
-} else if (typeof global !== 'undefined') {
-  root = global;
-} else if (typeof module !== 'undefined') {
-  root = module;
-} else {
-  root = Function('return this')();
+    if (enumerableOnly) {
+      symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
 }
 
-var result = symbolObservablePonyfill(root);
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
 
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+/**
+ * Adapted from React: https://github.com/facebook/react/blob/master/packages/shared/formatProdErrorMessage.js
+ *
+ * Do not require this module directly! Use normal throw error calls. These messages will be replaced with error codes
+ * during build.
+ * @param {number} code
+ */
+
+function formatProdErrorMessage(code) {
+  return "Minified Redux error #" + code + "; visit https://redux.js.org/Errors?code=" + code + " for the full message or " + 'use the non-minified dev environment for full errors. ';
+} // Inlined version of the `symbol-observable` polyfill
+
+
+var $$observable = function () {
+  return typeof Symbol === 'function' && Symbol.observable || '@@observable';
+}();
 /**
  * These are private action types reserved by Redux.
  * For any unknown actions, you must return the current state.
  * If the current state is undefined, you must return the initial state.
  * Do not reference these action types directly in your code.
  */
+
+
 var randomString = function randomString() {
   return Math.random().toString(36).substring(7).split('').join('.');
 };
@@ -87,11 +122,11 @@ var ActionTypes = {
     return "@@redux/PROBE_UNKNOWN_ACTION" + randomString();
   }
 };
-
 /**
  * @param {any} obj The object to inspect.
  * @returns {boolean} True if the argument appears to be a plain object.
  */
+
 function isPlainObject(obj) {
   if (typeof obj !== 'object' || obj === null) return false;
   var proto = obj;
@@ -101,8 +136,7 @@ function isPlainObject(obj) {
   }
 
   return Object.getPrototypeOf(obj) === proto;
-}
-
+} // Inlined / shortened version of `kindOf` from https://github.com/jonschlinkert/kind-of
 /**
  * Creates a Redux store that holds the state tree.
  * The only way to change the data in the store is to call `dispatch()` on it.
@@ -129,11 +163,12 @@ function isPlainObject(obj) {
  * and subscribe to changes.
  */
 
+
 function createStore(reducer, preloadedState, enhancer) {
   var _ref2;
 
   if (typeof preloadedState === 'function' && typeof enhancer === 'function' || typeof enhancer === 'function' && typeof arguments[3] === 'function') {
-    throw new Error('It looks like you are passing several store enhancers to ' + 'createStore(). This is not supported. Instead, compose them ' + 'together to a single function.');
+    throw new Error( formatProdErrorMessage(0) );
   }
 
   if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
@@ -143,14 +178,14 @@ function createStore(reducer, preloadedState, enhancer) {
 
   if (typeof enhancer !== 'undefined') {
     if (typeof enhancer !== 'function') {
-      throw new Error('Expected the enhancer to be a function.');
+      throw new Error( formatProdErrorMessage(1) );
     }
 
     return enhancer(createStore)(reducer, preloadedState);
   }
 
   if (typeof reducer !== 'function') {
-    throw new Error('Expected the reducer to be a function.');
+    throw new Error( formatProdErrorMessage(2) );
   }
 
   var currentReducer = reducer;
@@ -180,7 +215,7 @@ function createStore(reducer, preloadedState, enhancer) {
 
   function getState() {
     if (isDispatching) {
-      throw new Error('You may not call store.getState() while the reducer is executing. ' + 'The reducer has already received the state as an argument. ' + 'Pass it down from the top reducer instead of reading it from the store.');
+      throw new Error( formatProdErrorMessage(3) );
     }
 
     return currentState;
@@ -212,11 +247,11 @@ function createStore(reducer, preloadedState, enhancer) {
 
   function subscribe(listener) {
     if (typeof listener !== 'function') {
-      throw new Error('Expected the listener to be a function.');
+      throw new Error( formatProdErrorMessage(4) );
     }
 
     if (isDispatching) {
-      throw new Error('You may not call store.subscribe() while the reducer is executing. ' + 'If you would like to be notified after the store has been updated, subscribe from a ' + 'component and invoke store.getState() in the callback to access the latest state. ' + 'See https://redux.js.org/api-reference/store#subscribelistener for more details.');
+      throw new Error( formatProdErrorMessage(5) );
     }
 
     var isSubscribed = true;
@@ -228,7 +263,7 @@ function createStore(reducer, preloadedState, enhancer) {
       }
 
       if (isDispatching) {
-        throw new Error('You may not unsubscribe from a store listener while the reducer is executing. ' + 'See https://redux.js.org/api-reference/store#subscribelistener for more details.');
+        throw new Error( formatProdErrorMessage(6) );
       }
 
       isSubscribed = false;
@@ -267,15 +302,15 @@ function createStore(reducer, preloadedState, enhancer) {
 
   function dispatch(action) {
     if (!isPlainObject(action)) {
-      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
+      throw new Error( formatProdErrorMessage(7) );
     }
 
     if (typeof action.type === 'undefined') {
-      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
+      throw new Error( formatProdErrorMessage(8) );
     }
 
     if (isDispatching) {
-      throw new Error('Reducers may not dispatch actions.');
+      throw new Error( formatProdErrorMessage(9) );
     }
 
     try {
@@ -308,7 +343,7 @@ function createStore(reducer, preloadedState, enhancer) {
 
   function replaceReducer(nextReducer) {
     if (typeof nextReducer !== 'function') {
-      throw new Error('Expected the nextReducer to be a function.');
+      throw new Error( formatProdErrorMessage(10) );
     }
 
     currentReducer = nextReducer; // This action has a similiar effect to ActionTypes.INIT.
@@ -343,7 +378,7 @@ function createStore(reducer, preloadedState, enhancer) {
        */
       subscribe: function subscribe(observer) {
         if (typeof observer !== 'object' || observer === null) {
-          throw new TypeError('Expected the observer to be an object.');
+          throw new Error( formatProdErrorMessage(11) );
         }
 
         function observeState() {
@@ -358,7 +393,7 @@ function createStore(reducer, preloadedState, enhancer) {
           unsubscribe: unsubscribe
         };
       }
-    }, _ref[result] = function () {
+    }, _ref[$$observable] = function () {
       return this;
     }, _ref;
   } // When a store is created, an "INIT" action is dispatched so that every
@@ -374,7 +409,7 @@ function createStore(reducer, preloadedState, enhancer) {
     subscribe: subscribe,
     getState: getState,
     replaceReducer: replaceReducer
-  }, _ref2[result] = observable, _ref2;
+  }, _ref2[$$observable] = observable, _ref2;
 }
 
 function bindActionCreator(actionCreator, dispatch) {
@@ -411,7 +446,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
 
   if (typeof actionCreators !== 'object' || actionCreators === null) {
-    throw new Error("bindActionCreators expected an object or a function, instead received " + (actionCreators === null ? 'null' : typeof actionCreators) + ". " + "Did you write \"import ActionCreators from\" instead of \"import * as ActionCreators from\"?");
+    throw new Error( formatProdErrorMessage(16) );
   }
 
   var boundActionCreators = {};
@@ -426,55 +461,6 @@ function bindActionCreators(actionCreators, dispatch) {
 
   return boundActionCreators;
 }
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    keys.push.apply(keys, Object.getOwnPropertySymbols(object));
-  }
-
-  if (enumerableOnly) keys = keys.filter(function (sym) {
-    return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-  });
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(source, true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(source).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
 /**
  * Composes single-argument functions from right to left. The rightmost
  * function can take multiple arguments as it provides the signature for
@@ -485,6 +471,8 @@ function _objectSpread2(target) {
  * from right to left. For example, compose(f, g, h) is identical to doing
  * (...args) => f(g(h(...args))).
  */
+
+
 function compose() {
   for (var _len = arguments.length, funcs = new Array(_len), _key = 0; _key < _len; _key++) {
     funcs[_key] = arguments[_key];
@@ -506,7 +494,6 @@ function compose() {
     };
   });
 }
-
 /**
  * Creates a store enhancer that applies middleware to the dispatch method
  * of the Redux store. This is handy for a variety of tasks, such as expressing
@@ -524,6 +511,7 @@ function compose() {
  * @returns {Function} A store enhancer applying the middleware.
  */
 
+
 function applyMiddleware() {
   for (var _len = arguments.length, middlewares = new Array(_len), _key = 0; _key < _len; _key++) {
     middlewares[_key] = arguments[_key];
@@ -534,7 +522,7 @@ function applyMiddleware() {
       var store = createStore.apply(void 0, arguments);
 
       var _dispatch = function dispatch() {
-        throw new Error('Dispatching while constructing your middleware is not allowed. ' + 'Other middleware would not be applied to this dispatch.');
+        throw new Error( formatProdErrorMessage(15) );
       };
 
       var middlewareAPI = {
@@ -547,7 +535,7 @@ function applyMiddleware() {
         return middleware(middlewareAPI);
       });
       _dispatch = compose.apply(void 0, chain)(store.dispatch);
-      return _objectSpread2({}, store, {
+      return _objectSpread2(_objectSpread2({}, store), {}, {
         dispatch: _dispatch
       });
     };
@@ -562,31 +550,32 @@ function applyMiddleware() {
  */
 
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
 var ReactPropTypesSecret_1 = ReactPropTypesSecret;
 
 function emptyFunction() {}
+
 function emptyFunctionWithReset() {}
+
 emptyFunctionWithReset.resetWarningCache = emptyFunction;
 
-var factoryWithThrowingShims = function() {
+var factoryWithThrowingShims = function () {
   function shim(props, propName, componentName, location, propFullName, secret) {
     if (secret === ReactPropTypesSecret_1) {
       // It is still safe when called from React.
       return;
     }
-    var err = new Error(
-      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-      'Use PropTypes.checkPropTypes() to call them. ' +
-      'Read more at http://fb.me/use-check-prop-types'
-    );
+
+    var err = new Error('Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use PropTypes.checkPropTypes() to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
     err.name = 'Invariant Violation';
     throw err;
-  }  shim.isRequired = shim;
+  }
+  shim.isRequired = shim;
+
   function getShim() {
     return shim;
-  }  // Important!
+  }
   // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+
   var ReactPropTypes = {
     array: shim,
     bool: shim,
@@ -595,7 +584,6 @@ var factoryWithThrowingShims = function() {
     object: shim,
     string: shim,
     symbol: shim,
-
     any: shim,
     arrayOf: getShim,
     element: shim,
@@ -607,13 +595,10 @@ var factoryWithThrowingShims = function() {
     oneOfType: getShim,
     shape: getShim,
     exact: getShim,
-
     checkPropTypes: emptyFunctionWithReset,
     resetWarningCache: emptyFunction
   };
-
   ReactPropTypes.PropTypes = ReactPropTypes;
-
   return ReactPropTypes;
 };
 
@@ -624,7 +609,6 @@ var propTypes = createCommonjsModule(function (module) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -819,24 +803,6 @@ function Provider(_ref) {
   }, children);
 }
 
-function _extends$1() {
-  _extends$1 = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends$1.apply(this, arguments);
-}
-
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -860,12 +826,136 @@ function _objectWithoutPropertiesLoose(source, excluded) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
-Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
-function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}var AsyncMode=l;var ConcurrentMode=m;var ContextConsumer=k;var ContextProvider=h;var Element$1=c;var ForwardRef=n;var Fragment=e;var Lazy=t;var Memo=r;var Portal=d;
-var Profiler=g;var StrictMode=f;var Suspense=p;var isAsyncMode=function(a){return A(a)||z(a)===l};var isConcurrentMode=A;var isContextConsumer=function(a){return z(a)===k};var isContextProvider=function(a){return z(a)===h};var isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};var isForwardRef=function(a){return z(a)===n};var isFragment=function(a){return z(a)===e};var isLazy=function(a){return z(a)===t};
-var isMemo=function(a){return z(a)===r};var isPortal=function(a){return z(a)===d};var isProfiler=function(a){return z(a)===g};var isStrictMode=function(a){return z(a)===f};var isSuspense=function(a){return z(a)===p};
-var isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};var typeOf=z;
+
+var b = "function" === typeof Symbol && Symbol.for,
+    c = b ? Symbol.for("react.element") : 60103,
+    d = b ? Symbol.for("react.portal") : 60106,
+    e = b ? Symbol.for("react.fragment") : 60107,
+    f = b ? Symbol.for("react.strict_mode") : 60108,
+    g = b ? Symbol.for("react.profiler") : 60114,
+    h = b ? Symbol.for("react.provider") : 60109,
+    k = b ? Symbol.for("react.context") : 60110,
+    l = b ? Symbol.for("react.async_mode") : 60111,
+    m = b ? Symbol.for("react.concurrent_mode") : 60111,
+    n = b ? Symbol.for("react.forward_ref") : 60112,
+    p = b ? Symbol.for("react.suspense") : 60113,
+    q = b ? Symbol.for("react.suspense_list") : 60120,
+    r = b ? Symbol.for("react.memo") : 60115,
+    t = b ? Symbol.for("react.lazy") : 60116,
+    v = b ? Symbol.for("react.block") : 60121,
+    w = b ? Symbol.for("react.fundamental") : 60117,
+    x = b ? Symbol.for("react.responder") : 60118,
+    y = b ? Symbol.for("react.scope") : 60119;
+
+function z(a) {
+  if ("object" === typeof a && null !== a) {
+    var u = a.$$typeof;
+
+    switch (u) {
+      case c:
+        switch (a = a.type, a) {
+          case l:
+          case m:
+          case e:
+          case g:
+          case f:
+          case p:
+            return a;
+
+          default:
+            switch (a = a && a.$$typeof, a) {
+              case k:
+              case n:
+              case t:
+              case r:
+              case h:
+                return a;
+
+              default:
+                return u;
+            }
+
+        }
+
+      case d:
+        return u;
+    }
+  }
+}
+
+function A(a) {
+  return z(a) === m;
+}
+
+var AsyncMode = l;
+var ConcurrentMode = m;
+var ContextConsumer = k;
+var ContextProvider = h;
+var Element$1 = c;
+var ForwardRef = n;
+var Fragment = e;
+var Lazy = t;
+var Memo = r;
+var Portal = d;
+var Profiler = g;
+var StrictMode = f;
+var Suspense = p;
+
+var isAsyncMode = function (a) {
+  return A(a) || z(a) === l;
+};
+
+var isConcurrentMode = A;
+
+var isContextConsumer = function (a) {
+  return z(a) === k;
+};
+
+var isContextProvider = function (a) {
+  return z(a) === h;
+};
+
+var isElement = function (a) {
+  return "object" === typeof a && null !== a && a.$$typeof === c;
+};
+
+var isForwardRef = function (a) {
+  return z(a) === n;
+};
+
+var isFragment = function (a) {
+  return z(a) === e;
+};
+
+var isLazy = function (a) {
+  return z(a) === t;
+};
+
+var isMemo = function (a) {
+  return z(a) === r;
+};
+
+var isPortal = function (a) {
+  return z(a) === d;
+};
+
+var isProfiler = function (a) {
+  return z(a) === g;
+};
+
+var isStrictMode = function (a) {
+  return z(a) === f;
+};
+
+var isSuspense = function (a) {
+  return z(a) === p;
+};
+
+var isValidElementType = function (a) {
+  return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || a === q || "object" === typeof a && null !== a && (a.$$typeof === t || a.$$typeof === r || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n || a.$$typeof === w || a.$$typeof === x || a.$$typeof === y || a.$$typeof === v);
+};
+
+var typeOf = z;
 
 var reactIs_production_min = {
 	AsyncMode: AsyncMode,
@@ -909,6 +999,8 @@ var reactIs = createCommonjsModule(function (module) {
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
+
+
 var REACT_STATICS = {
   childContextTypes: true,
   contextType: true,
@@ -966,6 +1058,7 @@ var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 var getPrototypeOf = Object.getPrototypeOf;
 var objectPrototype = Object.prototype;
+
 function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
   if (typeof sourceComponent !== 'string') {
     // don't hoist over string (html) components
@@ -1163,7 +1256,7 @@ _ref) {
     var wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
     var displayName = getDisplayName(wrappedComponentName);
 
-    var selectorFactoryOptions = _extends$1({}, connectOptions, {
+    var selectorFactoryOptions = _extends({}, connectOptions, {
       getDisplayName: getDisplayName,
       methodName: methodName,
       renderCountProp: renderCountProp,
@@ -1225,18 +1318,18 @@ _ref) {
       var _useMemo2 = react.useMemo(function () {
         if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY; // This Subscription's source should match where store came from: props vs. context. A component
         // connected to the store via props shouldn't use subscription from context, or vice versa.
-
         // This Subscription's source should match where store came from: props vs. context. A component
         // connected to the store via props shouldn't use subscription from context, or vice versa.
+
         var subscription = createSubscription(store, didStoreComeFromProps ? null : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
         // the middle of the notification loop, where `subscription` will then be null. This can
         // probably be avoided if Subscription's listeners logic is changed to not call listeners
         // that have been unsubscribed in the  middle of the notification loop.
-
         // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
         // the middle of the notification loop, where `subscription` will then be null. This can
         // probably be avoided if Subscription's listeners logic is changed to not call listeners
         // that have been unsubscribed in the  middle of the notification loop.
+
         var notifyNestedSubs = subscription.notifyNestedSubs.bind(subscription);
         return [subscription, notifyNestedSubs];
       }, [store, didStoreComeFromProps, contextValue]),
@@ -1255,7 +1348,7 @@ _ref) {
         // connected descendants won't update until after this component is done
 
 
-        return _extends$1({}, contextValue, {
+        return _extends({}, contextValue, {
           subscription: subscription
         });
       }, [didStoreComeFromProps, contextValue, subscription]); // We need to force this wrapper component to re-render whenever a Redux store update
@@ -1302,7 +1395,7 @@ _ref) {
       // We memoize the elements for the rendered child component as an optimization.
 
       var renderedWrappedComponent = react.useMemo(function () {
-        return /*#__PURE__*/react.createElement(WrappedComponent, _extends$1({}, actualChildProps, {
+        return /*#__PURE__*/react.createElement(WrappedComponent, _extends({}, actualChildProps, {
           ref: reactReduxForwardedRef
         }));
       }, [reactReduxForwardedRef, WrappedComponent, actualChildProps]); // If React sees the exact same element reference as last time, it bails out of re-rendering
@@ -1324,13 +1417,13 @@ _ref) {
     } // If we're in "pure" mode, ensure our wrapper component only re-renders when incoming props have changed.
 
 
-    var Connect = pure ? react.memo(ConnectFunction) : ConnectFunction;
+    var Connect = pure ? /*#__PURE__*/react.memo(ConnectFunction) : ConnectFunction;
     Connect.WrappedComponent = WrappedComponent;
     Connect.displayName = ConnectFunction.displayName = displayName;
 
     if (forwardRef) {
-      var forwarded = react.forwardRef(function forwardConnectRef(props, ref) {
-        return /*#__PURE__*/react.createElement(Connect, _extends$1({}, props, {
+      var forwarded = /*#__PURE__*/react.forwardRef(function forwardConnectRef(props, ref) {
+        return /*#__PURE__*/react.createElement(Connect, _extends({}, props, {
           reactReduxForwardedRef: ref
         }));
       });
@@ -1481,7 +1574,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 var defaultMapStateToPropsFactories = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
 
 function defaultMergeProps(stateProps, dispatchProps, ownProps) {
-  return _extends$1({}, ownProps, stateProps, dispatchProps);
+  return _extends({}, ownProps, stateProps, dispatchProps);
 }
 function wrapMergePropsFunc(mergeProps) {
   return function initMergePropsProxy(dispatch, _ref) {
@@ -1666,7 +1759,7 @@ function createConnect(_temp) {
     var initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps');
     var initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps');
     var initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps');
-    return connectHOC(selectorFactory, _extends$1({
+    return connectHOC(selectorFactory, _extends({
       // used in error messages
       methodName: 'connect',
       // used to compute Connect's displayName from the wrapped component's displayName.
@@ -1714,33 +1807,39 @@ function useMemoOne(getResult, inputs) {
       result: getResult()
     };
   })[0];
+  var isFirstRun = react.useRef(true);
   var committed = react.useRef(initial);
-  var isInputMatch = Boolean(inputs && committed.current.inputs && areInputsEqual(inputs, committed.current.inputs));
-  var cache = isInputMatch ? committed.current : {
+  var useCache = isFirstRun.current || Boolean(inputs && committed.current.inputs && areInputsEqual(inputs, committed.current.inputs));
+  var cache = useCache ? committed.current : {
     inputs: inputs,
     result: getResult()
   };
   react.useEffect(function () {
+    isFirstRun.current = false;
     committed.current = cache;
   }, [cache]);
   return cache.result;
 }
+
 function useCallbackOne(callback, inputs) {
   return useMemoOne(function () {
     return callback;
   }, inputs);
 }
+
 var useMemo = useMemoOne;
 var useCallback = useCallbackOne;
 
 var prefix = 'Invariant failed';
+
 function invariant(condition, message) {
-    if (condition) {
-        return;
-    }
-    {
-        throw new Error(prefix);
-    }
+  if (condition) {
+    return;
+  }
+
+  {
+    throw new Error(prefix);
+  }
 }
 
 var getRect = function getRect(_ref) {
@@ -1766,6 +1865,7 @@ var getRect = function getRect(_ref) {
   };
   return rect;
 };
+
 var expand = function expand(target, expandBy) {
   return {
     top: target.top - expandBy.top,
@@ -1774,6 +1874,7 @@ var expand = function expand(target, expandBy) {
     right: target.right + expandBy.right
   };
 };
+
 var shrink = function shrink(target, shrinkBy) {
   return {
     top: target.top + shrinkBy.top,
@@ -1798,6 +1899,7 @@ var noSpacing = {
   bottom: 0,
   left: 0
 };
+
 var createBox = function createBox(_ref2) {
   var borderBox = _ref2.borderBox,
       _ref2$margin = _ref2.margin,
@@ -1853,6 +1955,7 @@ var offset = function offset(original, change) {
     padding: padding
   });
 };
+
 var withScroll = function withScroll(original, scroll) {
   if (scroll === void 0) {
     scroll = getWindowScroll();
@@ -1860,6 +1963,7 @@ var withScroll = function withScroll(original, scroll) {
 
   return offset(original, scroll);
 };
+
 var calculateBox = function calculateBox(borderBox, styles) {
   var margin = {
     top: parse(styles.marginTop),
@@ -1886,45 +1990,72 @@ var calculateBox = function calculateBox(borderBox, styles) {
     border: border
   });
 };
+
 var getBox = function getBox(el) {
   var borderBox = el.getBoundingClientRect();
   var styles = window.getComputedStyle(el);
   return calculateBox(borderBox, styles);
 };
 
-function areInputsEqual$1(newInputs, lastInputs) {
-    if (newInputs.length !== lastInputs.length) {
-        return false;
-    }
-    for (var i = 0; i < newInputs.length; i++) {
-        if (newInputs[i] !== lastInputs[i]) {
-            return false;
-        }
-    }
+var safeIsNaN = Number.isNaN || function ponyfill(value) {
+  return typeof value === 'number' && value !== value;
+};
+
+function isEqual(first, second) {
+  if (first === second) {
     return true;
+  }
+
+  if (safeIsNaN(first) && safeIsNaN(second)) {
+    return true;
+  }
+
+  return false;
+}
+
+function areInputsEqual$1(newInputs, lastInputs) {
+  if (newInputs.length !== lastInputs.length) {
+    return false;
+  }
+
+  for (var i = 0; i < newInputs.length; i++) {
+    if (!isEqual(newInputs[i], lastInputs[i])) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 function memoizeOne(resultFn, isEqual) {
-    if (isEqual === void 0) { isEqual = areInputsEqual$1; }
-    var lastThis;
-    var lastArgs = [];
-    var lastResult;
-    var calledOnce = false;
-    function memoized() {
-        var newArgs = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            newArgs[_i] = arguments[_i];
-        }
-        if (calledOnce && lastThis === this && isEqual(newArgs, lastArgs)) {
-            return lastResult;
-        }
-        lastResult = resultFn.apply(this, newArgs);
-        calledOnce = true;
-        lastThis = this;
-        lastArgs = newArgs;
-        return lastResult;
+  if (isEqual === void 0) {
+    isEqual = areInputsEqual$1;
+  }
+
+  var lastThis;
+  var lastArgs = [];
+  var lastResult;
+  var calledOnce = false;
+
+  function memoized() {
+    var newArgs = [];
+
+    for (var _i = 0; _i < arguments.length; _i++) {
+      newArgs[_i] = arguments[_i];
     }
-    return memoized;
+
+    if (calledOnce && lastThis === this && isEqual(newArgs, lastArgs)) {
+      return lastResult;
+    }
+
+    lastResult = resultFn.apply(this, newArgs);
+    calledOnce = true;
+    lastThis = this;
+    lastArgs = newArgs;
+    return lastResult;
+  }
+
+  return memoized;
 }
 
 var rafSchd = function rafSchd(fn) {
@@ -1966,6 +2097,7 @@ function log(type, message) {
     return;
   }
 }
+
 var warning = log.bind(null, 'warn');
 var error = log.bind(null, 'error');
 
@@ -1990,6 +2122,7 @@ function bindEvents(el, bindings, sharedOptions) {
   };
 }
 var prefix$1 = 'Invariant failed';
+
 function RbdInvariant(message) {
   this.message = message;
 }
@@ -2158,32 +2291,36 @@ var preset = {
   onDragUpdate: onDragUpdate,
   onDragEnd: onDragEnd
 };
-
 var origin = {
   x: 0,
   y: 0
 };
+
 var add = function add(point1, point2) {
   return {
     x: point1.x + point2.x,
     y: point1.y + point2.y
   };
 };
+
 var subtract = function subtract(point1, point2) {
   return {
     x: point1.x - point2.x,
     y: point1.y - point2.y
   };
 };
-var isEqual = function isEqual(point1, point2) {
+
+var isEqual$1 = function isEqual(point1, point2) {
   return point1.x === point2.x && point1.y === point2.y;
 };
+
 var negate = function negate(point) {
   return {
     x: point.x !== 0 ? -point.x : 0,
     y: point.y !== 0 ? -point.y : 0
   };
 };
+
 var patch = function patch(line, value, otherValue) {
   var _ref;
 
@@ -2193,14 +2330,17 @@ var patch = function patch(line, value, otherValue) {
 
   return _ref = {}, _ref[line] = value, _ref[line === 'x' ? 'y' : 'x'] = otherValue, _ref;
 };
+
 var distance = function distance(point1, point2) {
   return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
 };
+
 var closest = function closest(target, points) {
   return Math.min.apply(Math, points.map(function (point) {
     return distance(target, point);
   }));
 };
+
 var apply = function apply(fn) {
   return function (point) {
     return {
@@ -2210,7 +2350,7 @@ var apply = function apply(fn) {
   };
 };
 
-var executeClip = (function (frame, subject) {
+var executeClip = function (frame, subject) {
   var result = getRect({
     top: Math.max(subject.top, frame.top),
     right: Math.min(subject.right, frame.right),
@@ -2223,7 +2363,7 @@ var executeClip = (function (frame, subject) {
   }
 
   return result;
-});
+};
 
 var offsetByPosition = function offsetByPosition(spacing, point) {
   return {
@@ -2233,6 +2373,7 @@ var offsetByPosition = function offsetByPosition(spacing, point) {
     right: spacing.right + point.x
   };
 };
+
 var getCorners = function getCorners(spacing) {
   return [{
     x: spacing.left,
@@ -2248,6 +2389,7 @@ var getCorners = function getCorners(spacing) {
     y: spacing.bottom
   }];
 };
+
 var noSpacing$1 = {
   top: 0,
   right: 0,
@@ -2281,7 +2423,7 @@ var clip = function clip(target, frame) {
   return getRect(target);
 };
 
-var getSubject = (function (_ref) {
+var getSubject = function (_ref) {
   var page = _ref.page,
       withPlaceholder = _ref.withPlaceholder,
       axis = _ref.axis,
@@ -2294,9 +2436,9 @@ var getSubject = (function (_ref) {
     withPlaceholder: withPlaceholder,
     active: clipped
   };
-});
+};
 
-var scrollDroppable = (function (droppable, newScroll) {
+var scrollDroppable = function (droppable, newScroll) {
   !droppable.frame ?  invariant$1(false) : void 0;
   var scrollable = droppable.frame;
   var scrollDiff = subtract(newScroll, scrollable.scroll.initial);
@@ -2327,7 +2469,8 @@ var scrollDroppable = (function (droppable, newScroll) {
   });
 
   return result;
-});
+};
+
 function values(map) {
   if (Object.values) {
     return Object.values(map);
@@ -2337,6 +2480,7 @@ function values(map) {
     return map[key];
   });
 }
+
 function findIndex(list, predicate) {
   if (list.findIndex) {
     return list.findIndex(predicate);
@@ -2350,6 +2494,7 @@ function findIndex(list, predicate) {
 
   return -1;
 }
+
 function find(list, predicate) {
   if (list.find) {
     return list.find(predicate);
@@ -2363,6 +2508,7 @@ function find(list, predicate) {
 
   return undefined;
 }
+
 function toArray(list) {
   return Array.prototype.slice.call(list);
 }
@@ -2385,7 +2531,6 @@ var toDroppableList = memoizeOne(function (droppables) {
 var toDraggableList = memoizeOne(function (draggables) {
   return values(draggables);
 });
-
 var getDraggablesInsideDroppable = memoizeOne(function (droppableId, draggables) {
   var result = toDraggableList(draggables).filter(function (draggable) {
     return droppableId === draggable.descriptor.droppableId;
@@ -2402,6 +2547,7 @@ function tryGetDestination(impact) {
 
   return null;
 }
+
 function tryGetCombine(impact) {
   if (impact.at && impact.at.type === 'COMBINE') {
     return impact.at.combine;
@@ -2416,7 +2562,7 @@ var removeDraggableFromList = memoizeOne(function (remove, list) {
   });
 });
 
-var moveToNextCombine = (function (_ref) {
+var moveToNextCombine = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       draggable = _ref.draggable,
       destination = _ref.destination,
@@ -2476,11 +2622,11 @@ var moveToNextCombine = (function (_ref) {
 
   var before = withoutDraggable[proposedIndex];
   return getImpact(before.descriptor.id);
-});
+};
 
-var isHomeOf = (function (draggable, destination) {
+var isHomeOf = function (draggable, destination) {
   return draggable.descriptor.droppableId === destination.descriptor.id;
-});
+};
 
 var noDisplacedBy = {
   point: origin,
@@ -2497,13 +2643,13 @@ var noImpact = {
   at: null
 };
 
-var isWithin = (function (lowerBound, upperBound) {
+var isWithin = function (lowerBound, upperBound) {
   return function (value) {
     return lowerBound <= value && value <= upperBound;
   };
-});
+};
 
-var isPartiallyVisibleThroughFrame = (function (frame) {
+var isPartiallyVisibleThroughFrame = function (frame) {
   var isWithinVertical = isWithin(frame.top, frame.bottom);
   var isWithinHorizontal = isWithin(frame.left, frame.right);
   return function (subject) {
@@ -2532,16 +2678,16 @@ var isPartiallyVisibleThroughFrame = (function (frame) {
     var isTargetBiggerOnOneAxis = isBiggerVertically && isPartiallyVisibleHorizontally || isBiggerHorizontally && isPartiallyVisibleVertically;
     return isTargetBiggerOnOneAxis;
   };
-});
+};
 
-var isTotallyVisibleThroughFrame = (function (frame) {
+var isTotallyVisibleThroughFrame = function (frame) {
   var isWithinVertical = isWithin(frame.top, frame.bottom);
   var isWithinHorizontal = isWithin(frame.left, frame.right);
   return function (subject) {
     var isContained = isWithinVertical(subject.top) && isWithinVertical(subject.bottom) && isWithinHorizontal(subject.left) && isWithinHorizontal(subject.right);
     return isContained;
   };
-});
+};
 
 var vertical = {
   direction: 'vertical',
@@ -2566,7 +2712,7 @@ var horizontal = {
   crossAxisSize: 'height'
 };
 
-var isTotallyVisibleThroughFrameOnAxis = (function (axis) {
+var isTotallyVisibleThroughFrameOnAxis = function (axis) {
   return function (frame) {
     var isWithinVertical = isWithin(frame.top, frame.bottom);
     var isWithinHorizontal = isWithin(frame.left, frame.right);
@@ -2578,7 +2724,7 @@ var isTotallyVisibleThroughFrameOnAxis = (function (axis) {
       return isWithinHorizontal(subject.left) && isWithinHorizontal(subject.right);
     };
   };
-});
+};
 
 var getDroppableDisplaced = function getDroppableDisplaced(target, destination) {
   var displacement = destination.frame ? destination.frame.scroll.diff.displacement : origin;
@@ -2612,11 +2758,13 @@ var isPartiallyVisible = function isPartiallyVisible(args) {
     isVisibleThroughFrameFn: isPartiallyVisibleThroughFrame
   }));
 };
+
 var isTotallyVisible = function isTotallyVisible(args) {
   return isVisible(_extends({}, args, {
     isVisibleThroughFrameFn: isTotallyVisibleThroughFrame
   }));
 };
+
 var isTotallyVisibleOnAxis = function isTotallyVisibleOnAxis(args) {
   return isVisible(_extends({}, args, {
     isVisibleThroughFrameFn: isTotallyVisibleThroughFrameOnAxis(args.destination.axis)
@@ -2782,7 +2930,7 @@ function didStartAfterCritical(draggableId, afterCritical) {
   return Boolean(afterCritical.effected[draggableId]);
 }
 
-var fromCombine = (function (_ref) {
+var fromCombine = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       destination = _ref.destination,
       draggables = _ref.draggables,
@@ -2811,9 +2959,9 @@ var fromCombine = (function (_ref) {
   }
 
   return combineWithIndex;
-});
+};
 
-var fromReorder = (function (_ref) {
+var fromReorder = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       isInHomeList = _ref.isInHomeList,
       insideDestination = _ref.insideDestination,
@@ -2838,9 +2986,9 @@ var fromReorder = (function (_ref) {
   }
 
   return proposedIndex;
-});
+};
 
-var moveToNextIndex = (function (_ref) {
+var moveToNextIndex = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       isInHomeList = _ref.isInHomeList,
       draggable = _ref.draggable,
@@ -2898,9 +3046,9 @@ var moveToNextIndex = (function (_ref) {
     displacedBy: previousImpact.displacedBy,
     index: newIndex
   });
-});
+};
 
-var getCombinedItemDisplacement = (function (_ref) {
+var getCombinedItemDisplacement = function (_ref) {
   var displaced = _ref.displaced,
       afterCritical = _ref.afterCritical,
       combineWith = _ref.combineWith,
@@ -2912,9 +3060,9 @@ var getCombinedItemDisplacement = (function (_ref) {
   }
 
   return isDisplaced ? displacedBy.point : origin;
-});
+};
 
-var whenCombining = (function (_ref) {
+var whenCombining = function (_ref) {
   var afterCritical = _ref.afterCritical,
       impact = _ref.impact,
       draggables = _ref.draggables;
@@ -2929,7 +3077,7 @@ var whenCombining = (function (_ref) {
     displacedBy: impact.displacedBy
   });
   return add(center, displaceBy);
-});
+};
 
 var distanceFromStartToBorderBoxCenter = function distanceFromStartToBorderBoxCenter(axis, box) {
   return box.margin[axis.start] + box.borderBox[axis.size] / 2;
@@ -2949,12 +3097,14 @@ var goAfter = function goAfter(_ref) {
       isMoving = _ref.isMoving;
   return patch(axis.line, moveRelativeTo.marginBox[axis.end] + distanceFromStartToBorderBoxCenter(axis, isMoving), getCrossAxisBorderBoxCenter(axis, moveRelativeTo.marginBox, isMoving));
 };
+
 var goBefore = function goBefore(_ref2) {
   var axis = _ref2.axis,
       moveRelativeTo = _ref2.moveRelativeTo,
       isMoving = _ref2.isMoving;
   return patch(axis.line, moveRelativeTo.marginBox[axis.start] - distanceFromEndToBorderBoxCenter(axis, isMoving), getCrossAxisBorderBoxCenter(axis, moveRelativeTo.marginBox, isMoving));
 };
+
 var goIntoStart = function goIntoStart(_ref3) {
   var axis = _ref3.axis,
       moveInto = _ref3.moveInto,
@@ -2962,7 +3112,7 @@ var goIntoStart = function goIntoStart(_ref3) {
   return patch(axis.line, moveInto.contentBox[axis.start] + distanceFromStartToBorderBoxCenter(axis, isMoving), getCrossAxisBorderBoxCenter(axis, moveInto.contentBox, isMoving));
 };
 
-var whenReordering = (function (_ref) {
+var whenReordering = function (_ref) {
   var impact = _ref.impact,
       draggable = _ref.draggable,
       draggables = _ref.draggables,
@@ -3023,9 +3173,9 @@ var whenReordering = (function (_ref) {
     moveRelativeTo: last.page,
     isMoving: draggablePage
   });
-});
+};
 
-var withDroppableDisplacement = (function (droppable, point) {
+var withDroppableDisplacement = function (droppable, point) {
   var frame = droppable.frame;
 
   if (!frame) {
@@ -3033,7 +3183,7 @@ var withDroppableDisplacement = (function (droppable, point) {
   }
 
   return add(point, frame.scroll.diff.displacement);
-});
+};
 
 var getResultWithoutDroppableDisplacement = function getResultWithoutDroppableDisplacement(_ref) {
   var impact = _ref.impact,
@@ -3069,14 +3219,14 @@ var getResultWithoutDroppableDisplacement = function getResultWithoutDroppableDi
   });
 };
 
-var getPageBorderBoxCenterFromImpact = (function (args) {
+var getPageBorderBoxCenterFromImpact = function (args) {
   var withoutDisplacement = getResultWithoutDroppableDisplacement(args);
   var droppable = args.droppable;
   var withDisplacement = droppable ? withDroppableDisplacement(droppable, withoutDisplacement) : withoutDisplacement;
   return withDisplacement;
-});
+};
 
-var scrollViewport = (function (viewport, newScroll) {
+var scrollViewport = function (viewport, newScroll) {
   var diff = subtract(newScroll, viewport.scroll.initial);
   var displacement = negate(diff);
   var frame = getRect({
@@ -3098,7 +3248,7 @@ var scrollViewport = (function (viewport, newScroll) {
     }
   };
   return updated;
-});
+};
 
 function getDraggables(ids, draggables) {
   return ids.map(function (id) {
@@ -3118,7 +3268,7 @@ function tryGetVisible(id, groups) {
   return null;
 }
 
-var speculativelyIncrease = (function (_ref) {
+var speculativelyIncrease = function (_ref) {
   var impact = _ref.impact,
       viewport = _ref.viewport,
       destination = _ref.destination,
@@ -3166,22 +3316,22 @@ var speculativelyIncrease = (function (_ref) {
   });
 
   return newImpact;
-});
+};
 
-var withViewportDisplacement = (function (viewport, point) {
+var withViewportDisplacement = function (viewport, point) {
   return add(viewport.scroll.diff.displacement, point);
-});
+};
 
-var getClientFromPageBorderBoxCenter = (function (_ref) {
+var getClientFromPageBorderBoxCenter = function (_ref) {
   var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
       draggable = _ref.draggable,
       viewport = _ref.viewport;
   var withoutPageScrollChange = withViewportDisplacement(viewport, pageBorderBoxCenter);
   var offset = subtract(withoutPageScrollChange, draggable.page.borderBox.center);
   return add(draggable.client.borderBox.center, offset);
-});
+};
 
-var isTotallyVisibleInNewLocation = (function (_ref) {
+var isTotallyVisibleInNewLocation = function (_ref) {
   var draggable = _ref.draggable,
       destination = _ref.destination,
       newPageBorderBoxCenter = _ref.newPageBorderBoxCenter,
@@ -3198,9 +3348,9 @@ var isTotallyVisibleInNewLocation = (function (_ref) {
     viewport: viewport
   };
   return onlyOnMainAxis ? isTotallyVisibleOnAxis(args) : isTotallyVisible(args);
-});
+};
 
-var moveToNextPlace = (function (_ref) {
+var moveToNextPlace = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       draggable = _ref.draggable,
       destination = _ref.destination,
@@ -3281,7 +3431,7 @@ var moveToNextPlace = (function (_ref) {
     impact: cautious,
     scrollJumpRequest: distance
   };
-});
+};
 
 var getKnownActive = function getKnownActive(droppable) {
   var rect = droppable.subject.active;
@@ -3289,7 +3439,7 @@ var getKnownActive = function getKnownActive(droppable) {
   return rect;
 };
 
-var getBestCrossAxisDroppable = (function (_ref) {
+var getBestCrossAxisDroppable = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       pageBorderBoxCenter = _ref.pageBorderBoxCenter,
       source = _ref.source,
@@ -3369,18 +3519,19 @@ var getBestCrossAxisDroppable = (function (_ref) {
 
     return getKnownActive(a)[axis.start] - getKnownActive(b)[axis.start];
   })[0];
-});
+};
 
 var getCurrentPageBorderBoxCenter = function getCurrentPageBorderBoxCenter(draggable, afterCritical) {
   var original = draggable.page.borderBox.center;
   return didStartAfterCritical(draggable.descriptor.id, afterCritical) ? subtract(original, afterCritical.displacedBy.point) : original;
 };
+
 var getCurrentPageBorderBox = function getCurrentPageBorderBox(draggable, afterCritical) {
   var original = draggable.page.borderBox;
   return didStartAfterCritical(draggable.descriptor.id, afterCritical) ? offsetByPosition(original, negate(afterCritical.displacedBy.point)) : original;
 };
 
-var getClosestDraggable = (function (_ref) {
+var getClosestDraggable = function (_ref) {
   var pageBorderBoxCenter = _ref.pageBorderBoxCenter,
       viewport = _ref.viewport,
       destination = _ref.destination,
@@ -3408,7 +3559,7 @@ var getClosestDraggable = (function (_ref) {
     return a.descriptor.index - b.descriptor.index;
   });
   return sorted[0] || null;
-});
+};
 
 var getDisplacedBy = memoizeOne(function getDisplacedBy(axis, displaceBy) {
   var displacement = displaceBy[axis.line];
@@ -3486,6 +3637,7 @@ var addPlaceholder = function addPlaceholder(droppable, draggable, draggables) {
     frame: newFrame
   });
 };
+
 var removePlaceholder = function removePlaceholder(droppable) {
   var added = droppable.subject.withPlaceholder;
   !added ?  invariant$1(false) : void 0;
@@ -3519,7 +3671,7 @@ var removePlaceholder = function removePlaceholder(droppable) {
   });
 };
 
-var moveToNewDroppable = (function (_ref) {
+var moveToNewDroppable = function (_ref) {
   var previousPageBorderBoxCenter = _ref.previousPageBorderBoxCenter,
       moveRelativeTo = _ref.moveRelativeTo,
       insideDestination = _ref.insideDestination,
@@ -3590,9 +3742,9 @@ var moveToNewDroppable = (function (_ref) {
     last: emptyGroups,
     index: proposedIndex
   });
-});
+};
 
-var moveCrossAxis = (function (_ref) {
+var moveCrossAxis = function (_ref) {
   var isMovingForward = _ref.isMovingForward,
       previousPageBorderBoxCenter = _ref.previousPageBorderBoxCenter,
       draggable = _ref.draggable,
@@ -3653,9 +3805,9 @@ var moveCrossAxis = (function (_ref) {
     impact: impact,
     scrollJumpRequest: null
   };
-});
+};
 
-var whatIsDraggedOver = (function (impact) {
+var whatIsDraggedOver = function (impact) {
   var at = impact.at;
 
   if (!at) {
@@ -3667,14 +3819,14 @@ var whatIsDraggedOver = (function (impact) {
   }
 
   return at.combine.droppableId;
-});
+};
 
 var getDroppableOver = function getDroppableOver(impact, droppables) {
   var id = whatIsDraggedOver(impact);
   return id ? droppables[id] : null;
 };
 
-var moveInDirection = (function (_ref) {
+var moveInDirection = function (_ref) {
   var state = _ref.state,
       type = _ref.type;
   var isActuallyOver = getDroppableOver(state.impact, state.dimensions.droppables);
@@ -3714,7 +3866,7 @@ var moveInDirection = (function (_ref) {
     viewport: state.viewport,
     afterCritical: state.afterCritical
   });
-});
+};
 
 function isMovementAllowed(state) {
   return state.phase === 'DRAGGING' || state.phase === 'COLLECTING';
@@ -3811,7 +3963,7 @@ var offsetRectByPosition = function offsetRectByPosition(rect, point) {
   return getRect(offsetByPosition(rect, point));
 };
 
-var withDroppableScroll = (function (droppable, area) {
+var withDroppableScroll = function (droppable, area) {
   var frame = droppable.frame;
 
   if (!frame) {
@@ -3819,7 +3971,7 @@ var withDroppableScroll = (function (droppable, area) {
   }
 
   return offsetRectByPosition(area, frame.scroll.diff.value);
-});
+};
 
 function getIsDisplaced(_ref) {
   var displaced = _ref.displaced,
@@ -3847,7 +3999,7 @@ function atIndex(_ref) {
   return closest.descriptor.index;
 }
 
-var getReorderImpact = (function (_ref2) {
+var getReorderImpact = function (_ref2) {
   var targetRect = _ref2.pageBorderBoxWithDroppableScroll,
       draggable = _ref2.draggable,
       destination = _ref2.destination,
@@ -3898,10 +4050,11 @@ var getReorderImpact = (function (_ref2) {
     displacedBy: displacedBy,
     index: newIndex
   });
-});
+};
 
 var combineThresholdDivisor = 4;
-var getCombineImpact = (function (_ref) {
+
+var getCombineImpact = function (_ref) {
   var draggable = _ref.draggable,
       targetRect = _ref.pageBorderBoxWithDroppableScroll,
       previousImpact = _ref.previousImpact,
@@ -3961,9 +4114,9 @@ var getCombineImpact = (function (_ref) {
     }
   };
   return impact;
-});
+};
 
-var getDragImpact = (function (_ref) {
+var getDragImpact = function (_ref) {
   var pageOffset = _ref.pageOffset,
       draggable = _ref.draggable,
       draggables = _ref.draggables,
@@ -4001,13 +4154,13 @@ var getDragImpact = (function (_ref) {
     viewport: viewport,
     afterCritical: afterCritical
   });
-});
+};
 
-var patchDroppableMap = (function (droppables, updated) {
+var patchDroppableMap = function (droppables, updated) {
   var _extends2;
 
   return _extends({}, droppables, (_extends2 = {}, _extends2[updated.descriptor.id] = updated, _extends2));
-});
+};
 
 var clearUnusedPlaceholder = function clearUnusedPlaceholder(_ref) {
   var previousImpact = _ref.previousImpact,
@@ -4034,7 +4187,7 @@ var clearUnusedPlaceholder = function clearUnusedPlaceholder(_ref) {
   return patchDroppableMap(droppables, updated);
 };
 
-var recomputePlaceholders = (function (_ref2) {
+var recomputePlaceholders = function (_ref2) {
   var draggable = _ref2.draggable,
       draggables = _ref2.draggables,
       droppables = _ref2.droppables,
@@ -4063,9 +4216,9 @@ var recomputePlaceholders = (function (_ref2) {
 
   var patched = addPlaceholder(droppable, draggable, draggables);
   return patchDroppableMap(cleaned, patched);
-});
+};
 
-var update = (function (_ref) {
+var update = function (_ref) {
   var state = _ref.state,
       forcedClientSelection = _ref.clientSelection,
       forcedDimensions = _ref.dimensions,
@@ -4132,7 +4285,7 @@ var update = (function (_ref) {
   });
 
   return result;
-});
+};
 
 function getDraggables$1(ids, draggables) {
   return ids.map(function (id) {
@@ -4140,7 +4293,7 @@ function getDraggables$1(ids, draggables) {
   });
 }
 
-var recompute = (function (_ref) {
+var recompute = function (_ref) {
   var impact = _ref.impact,
       viewport = _ref.viewport,
       draggables = _ref.draggables,
@@ -4159,9 +4312,9 @@ var recompute = (function (_ref) {
   return _extends({}, impact, {
     displaced: displaced
   });
-});
+};
 
-var getClientBorderBoxCenter = (function (_ref) {
+var getClientBorderBoxCenter = function (_ref) {
   var impact = _ref.impact,
       draggable = _ref.draggable,
       droppable = _ref.droppable,
@@ -4180,9 +4333,9 @@ var getClientBorderBoxCenter = (function (_ref) {
     draggable: draggable,
     viewport: viewport
   });
-});
+};
 
-var refreshSnap = (function (_ref) {
+var refreshSnap = function (_ref) {
   var state = _ref.state,
       forcedDimensions = _ref.dimensions,
       forcedViewport = _ref.viewport;
@@ -4217,16 +4370,16 @@ var refreshSnap = (function (_ref) {
     dimensions: dimensions,
     viewport: viewport
   });
-});
+};
 
-var getHomeLocation = (function (descriptor) {
+var getHomeLocation = function (descriptor) {
   return {
     index: descriptor.index,
     droppableId: descriptor.droppableId
   };
-});
+};
 
-var getLiftEffect = (function (_ref) {
+var getLiftEffect = function (_ref) {
   var draggable = _ref.draggable,
       home = _ref.home,
       draggables = _ref.draggables,
@@ -4265,16 +4418,16 @@ var getLiftEffect = (function (_ref) {
     impact: impact,
     afterCritical: afterCritical
   };
-});
+};
 
-var patchDimensionMap = (function (dimensions, updated) {
+var patchDimensionMap = function (dimensions, updated) {
   return {
     draggables: dimensions.draggables,
     droppables: patchDroppableMap(dimensions.droppables, updated)
   };
-});
+};
 
-var offsetDraggable = (function (_ref) {
+var offsetDraggable = function (_ref) {
   var draggable = _ref.draggable,
       offset$1 = _ref.offset,
       initialWindowScroll = _ref.initialWindowScroll;
@@ -4290,15 +4443,15 @@ var offsetDraggable = (function (_ref) {
   });
 
   return moved;
-});
+};
 
-var getFrame = (function (droppable) {
+var getFrame = function (droppable) {
   var frame = droppable.frame;
   !frame ?  invariant$1(false) : void 0;
   return frame;
-});
+};
 
-var adjustAdditionsForScrollChanges = (function (_ref) {
+var adjustAdditionsForScrollChanges = function (_ref) {
   var additions = _ref.additions,
       updatedDroppables = _ref.updatedDroppables,
       viewport = _ref.viewport;
@@ -4316,9 +4469,9 @@ var adjustAdditionsForScrollChanges = (function (_ref) {
     });
     return moved;
   });
-});
+};
 
-var publishWhileDraggingInVirtual = (function (_ref) {
+var publishWhileDraggingInVirtual = function (_ref) {
   var state = _ref.state,
       published = _ref.published;
   var withScrollChange = published.modified.map(function (update) {
@@ -4393,7 +4546,7 @@ var publishWhileDraggingInVirtual = (function (_ref) {
   });
 
   return dropPending;
-});
+};
 
 var isSnapping = function isSnapping(state) {
   return state.movementMode === 'SNAP';
@@ -4432,7 +4585,8 @@ var idle = {
   completed: null,
   shouldFlush: false
 };
-var reducer = (function (state, action) {
+
+var reducer = function (state, action) {
   if (state === void 0) {
     state = idle;
   }
@@ -4530,7 +4684,7 @@ var reducer = (function (state, action) {
     !isMovementAllowed(state) ?  invariant$1(false) : void 0;
     var _clientSelection = action.payload.client;
 
-    if (isEqual(_clientSelection, state.current.client.selection)) {
+    if (isEqual$1(_clientSelection, state.current.client.selection)) {
       return state;
     }
 
@@ -4613,7 +4767,7 @@ var reducer = (function (state, action) {
     !state.isWindowScrollAllowed ?  invariant$1(false) : void 0;
     var _newScroll = action.payload.newScroll;
 
-    if (isEqual(state.viewport.scroll.current, _newScroll)) {
+    if (isEqual$1(state.viewport.scroll.current, _newScroll)) {
       return removeScrollJumpRequest(state);
     }
 
@@ -4639,7 +4793,7 @@ var reducer = (function (state, action) {
 
     var maxScroll = action.payload.maxScroll;
 
-    if (isEqual(maxScroll, state.viewport.scroll.max)) {
+    if (isEqual$1(maxScroll, state.viewport.scroll.max)) {
       return state;
     }
 
@@ -4721,7 +4875,7 @@ var reducer = (function (state, action) {
   }
 
   return state;
-});
+};
 
 var beforeInitialCapture = function beforeInitialCapture(args) {
   return {
@@ -4729,120 +4883,140 @@ var beforeInitialCapture = function beforeInitialCapture(args) {
     payload: args
   };
 };
+
 var lift = function lift(args) {
   return {
     type: 'LIFT',
     payload: args
   };
 };
+
 var initialPublish = function initialPublish(args) {
   return {
     type: 'INITIAL_PUBLISH',
     payload: args
   };
 };
+
 var publishWhileDragging = function publishWhileDragging(args) {
   return {
     type: 'PUBLISH_WHILE_DRAGGING',
     payload: args
   };
 };
+
 var collectionStarting = function collectionStarting() {
   return {
     type: 'COLLECTION_STARTING',
     payload: null
   };
 };
+
 var updateDroppableScroll = function updateDroppableScroll(args) {
   return {
     type: 'UPDATE_DROPPABLE_SCROLL',
     payload: args
   };
 };
+
 var updateDroppableIsEnabled = function updateDroppableIsEnabled(args) {
   return {
     type: 'UPDATE_DROPPABLE_IS_ENABLED',
     payload: args
   };
 };
+
 var updateDroppableIsCombineEnabled = function updateDroppableIsCombineEnabled(args) {
   return {
     type: 'UPDATE_DROPPABLE_IS_COMBINE_ENABLED',
     payload: args
   };
 };
+
 var move = function move(args) {
   return {
     type: 'MOVE',
     payload: args
   };
 };
+
 var moveByWindowScroll = function moveByWindowScroll(args) {
   return {
     type: 'MOVE_BY_WINDOW_SCROLL',
     payload: args
   };
 };
+
 var updateViewportMaxScroll = function updateViewportMaxScroll(args) {
   return {
     type: 'UPDATE_VIEWPORT_MAX_SCROLL',
     payload: args
   };
 };
+
 var moveUp = function moveUp() {
   return {
     type: 'MOVE_UP',
     payload: null
   };
 };
+
 var moveDown = function moveDown() {
   return {
     type: 'MOVE_DOWN',
     payload: null
   };
 };
+
 var moveRight = function moveRight() {
   return {
     type: 'MOVE_RIGHT',
     payload: null
   };
 };
+
 var moveLeft = function moveLeft() {
   return {
     type: 'MOVE_LEFT',
     payload: null
   };
 };
+
 var flush = function flush() {
   return {
     type: 'FLUSH',
     payload: null
   };
 };
+
 var animateDrop = function animateDrop(args) {
   return {
     type: 'DROP_ANIMATE',
     payload: args
   };
 };
+
 var completeDrop = function completeDrop(args) {
   return {
     type: 'DROP_COMPLETE',
     payload: args
   };
 };
+
 var drop = function drop(args) {
   return {
     type: 'DROP',
     payload: args
   };
 };
+
 var dropPending = function dropPending(args) {
   return {
     type: 'DROP_PENDING',
     payload: args
   };
 };
+
 var dropAnimationFinished = function dropAnimationFinished() {
   return {
     type: 'DROP_ANIMATION_FINISHED',
@@ -4850,7 +5024,7 @@ var dropAnimationFinished = function dropAnimationFinished() {
   };
 };
 
-var lift$1 = (function (marshal) {
+var lift$1 = function (marshal) {
   return function (_ref) {
     var getState = _ref.getState,
         dispatch = _ref.dispatch;
@@ -4901,9 +5075,9 @@ var lift$1 = (function (marshal) {
       };
     };
   };
-});
+};
 
-var style = (function (marshal) {
+var style = function (marshal) {
   return function () {
     return function (next) {
       return function (action) {
@@ -4923,7 +5097,7 @@ var style = (function (marshal) {
       };
     };
   };
-});
+};
 
 var curves = {
   outOfTheWay: 'cubic-bezier(0.2, 0, 0, 1)',
@@ -4956,7 +5130,7 @@ var transitions = {
 };
 
 var moveTo = function moveTo(offset) {
-  return isEqual(offset, origin) ? null : "translate(" + offset.x + "px, " + offset.y + "px)";
+  return isEqual$1(offset, origin) ? null : "translate(" + offset.x + "px, " + offset.y + "px)";
 };
 
 var transforms = {
@@ -4975,13 +5149,13 @@ var transforms = {
     return translate + " scale(" + combine.scale.drop + ")";
   }
 };
-
 var minDropTime = timings.minDropTime,
     maxDropTime = timings.maxDropTime;
 var dropTimeRange = maxDropTime - minDropTime;
 var maxDropTimeAtDistance = 1500;
 var cancelDropModifier = 0.6;
-var getDropDuration = (function (_ref) {
+
+var getDropDuration = function (_ref) {
   var current = _ref.current,
       destination = _ref.destination,
       reason = _ref.reason;
@@ -4999,9 +5173,9 @@ var getDropDuration = (function (_ref) {
   var duration = minDropTime + dropTimeRange * percentage;
   var withDuration = reason === 'CANCEL' ? duration * cancelDropModifier : duration;
   return Number(withDuration.toFixed(2));
-});
+};
 
-var getNewHomeClientOffset = (function (_ref) {
+var getNewHomeClientOffset = function (_ref) {
   var impact = _ref.impact,
       draggable = _ref.draggable,
       dimensions = _ref.dimensions,
@@ -5022,9 +5196,9 @@ var getNewHomeClientOffset = (function (_ref) {
   });
   var offset = subtract(newClientCenter, draggable.client.borderBox.center);
   return offset;
-});
+};
 
-var getDropImpact = (function (_ref) {
+var getDropImpact = function (_ref) {
   var draggables = _ref.draggables,
       reason = _ref.reason,
       lastImpact = _ref.lastImpact,
@@ -5061,9 +5235,9 @@ var getDropImpact = (function (_ref) {
     impact: withoutMovement,
     didDropInsideDroppable: true
   };
-});
+};
 
-var drop$1 = (function (_ref) {
+var drop$1 = function (_ref) {
   var getState = _ref.getState,
       dispatch = _ref.dispatch;
   return function (next) {
@@ -5134,7 +5308,7 @@ var drop$1 = (function (_ref) {
         result: result,
         impact: impact
       };
-      var isAnimationRequired = !isEqual(state.current.client.offset, newHomeClientOffset) || Boolean(result.combine);
+      var isAnimationRequired = !isEqual$1(state.current.client.offset, newHomeClientOffset) || Boolean(result.combine);
 
       if (!isAnimationRequired) {
         dispatch(completeDrop({
@@ -5156,14 +5330,14 @@ var drop$1 = (function (_ref) {
       dispatch(animateDrop(args));
     };
   };
-});
+};
 
-var getWindowScroll$1 = (function () {
+var getWindowScroll$1 = function () {
   return {
     x: window.pageXOffset,
     y: window.pageYOffset
   };
-});
+};
 
 function getWindowScrollBinding(update) {
   return {
@@ -5220,7 +5394,7 @@ var shouldEnd = function shouldEnd(action) {
   return action.type === 'DROP_COMPLETE' || action.type === 'DROP_ANIMATE' || action.type === 'FLUSH';
 };
 
-var scrollListener = (function (store) {
+var scrollListener = function (store) {
   var listener = getScrollListener({
     onWindowScroll: function onWindowScroll(newScroll) {
       store.dispatch(moveByWindowScroll({
@@ -5241,9 +5415,9 @@ var scrollListener = (function (store) {
       next(action);
     };
   };
-});
+};
 
-var getExpiringAnnounce = (function (announce) {
+var getExpiringAnnounce = function (announce) {
   var wasCalled = false;
   var isExpired = false;
   var timeoutId = setTimeout(function () {
@@ -5269,9 +5443,9 @@ var getExpiringAnnounce = (function (announce) {
   };
 
   return result;
-});
+};
 
-var getAsyncMarshal = (function () {
+var getAsyncMarshal = function () {
   var entries = [];
 
   var execute = function execute(timerId) {
@@ -5314,7 +5488,7 @@ var getAsyncMarshal = (function () {
     add: add,
     flush: flush
   };
-});
+};
 
 var areLocationsEqual = function areLocationsEqual(first, second) {
   if (first == null && second == null) {
@@ -5327,6 +5501,7 @@ var areLocationsEqual = function areLocationsEqual(first, second) {
 
   return first.droppableId === second.droppableId && first.index === second.index;
 };
+
 var isCombineEqual = function isCombineEqual(first, second) {
   if (first == null && second == null) {
     return true;
@@ -5338,6 +5513,7 @@ var isCombineEqual = function isCombineEqual(first, second) {
 
   return first.draggableId === second.draggableId && first.droppableId === second.droppableId;
 };
+
 var isCriticalEqual = function isCriticalEqual(first, second) {
   if (first === second) {
     return true;
@@ -5381,7 +5557,7 @@ var execute = function execute(responder, data, announce, getDefaultMessage) {
   }
 };
 
-var getPublisher = (function (getResponders, announce) {
+var getPublisher = function (getResponders, announce) {
   var asyncMarshal = getAsyncMarshal();
   var dragging = null;
 
@@ -5501,9 +5677,9 @@ var getPublisher = (function (getResponders, announce) {
     drop: drop,
     abort: abort
   };
-});
+};
 
-var responders = (function (getResponders, announce) {
+var responders = function (getResponders, announce) {
   var publisher = getPublisher(getResponders, announce);
   return function (store) {
     return function (next) {
@@ -5544,9 +5720,9 @@ var responders = (function (getResponders, announce) {
       };
     };
   };
-});
+};
 
-var dropAnimationFinish = (function (store) {
+var dropAnimationFinish = function (store) {
   return function (next) {
     return function (action) {
       if (action.type !== 'DROP_ANIMATION_FINISHED') {
@@ -5561,9 +5737,9 @@ var dropAnimationFinish = (function (store) {
       }));
     };
   };
-});
+};
 
-var dropAnimationFlushOnScroll = (function (store) {
+var dropAnimationFlushOnScroll = function (store) {
   var unbind = null;
   var frameId = null;
 
@@ -5612,9 +5788,9 @@ var dropAnimationFlushOnScroll = (function (store) {
       });
     };
   };
-});
+};
 
-var dimensionMarshalStopper = (function (marshal) {
+var dimensionMarshalStopper = function (marshal) {
   return function () {
     return function (next) {
       return function (action) {
@@ -5626,9 +5802,9 @@ var dimensionMarshalStopper = (function (marshal) {
       };
     };
   };
-});
+};
 
-var focus = (function (marshal) {
+var focus = function (marshal) {
   var isWatching = false;
   return function () {
     return function (next) {
@@ -5666,13 +5842,13 @@ var focus = (function (marshal) {
       };
     };
   };
-});
+};
 
 var shouldStop = function shouldStop(action) {
   return action.type === 'DROP_COMPLETE' || action.type === 'DROP_ANIMATE' || action.type === 'FLUSH';
 };
 
-var autoScroll = (function (autoScroller) {
+var autoScroll = function (autoScroller) {
   return function (store) {
     return function (next) {
       return function (action) {
@@ -5695,9 +5871,9 @@ var autoScroll = (function (autoScroller) {
       };
     };
   };
-});
+};
 
-var pendingDrop = (function (store) {
+var pendingDrop = function (store) {
   return function (next) {
     return function (action) {
       next(action);
@@ -5721,10 +5897,11 @@ var pendingDrop = (function (store) {
       }));
     };
   };
-});
+};
 
 var composeEnhancers =  compose;
-var createStore$1 = (function (_ref) {
+
+var createStore$1 = function (_ref) {
   var dimensionMarshal = _ref.dimensionMarshal,
       focusMarshal = _ref.focusMarshal,
       styleMarshal = _ref.styleMarshal,
@@ -5732,7 +5909,7 @@ var createStore$1 = (function (_ref) {
       announce = _ref.announce,
       autoScroller = _ref.autoScroller;
   return createStore(reducer, composeEnhancers(applyMiddleware(style(styleMarshal), dimensionMarshalStopper(dimensionMarshal), lift$1(dimensionMarshal), drop$1, dropAnimationFinish, dropAnimationFlushOnScroll, pendingDrop, autoScroll(autoScroller), scrollListener, focus(focusMarshal), responders(getResponders, announce))));
-});
+};
 
 var clean$1 = function clean() {
   return {
@@ -5741,6 +5918,7 @@ var clean$1 = function clean() {
     modified: {}
   };
 };
+
 function createPublisher(_ref) {
   var registry = _ref.registry,
       callbacks = _ref.callbacks;
@@ -5823,7 +6001,7 @@ function createPublisher(_ref) {
   };
 }
 
-var getMaxScroll = (function (_ref) {
+var getMaxScroll = function (_ref) {
   var scrollHeight = _ref.scrollHeight,
       scrollWidth = _ref.scrollWidth,
       height = _ref.height,
@@ -5840,15 +6018,15 @@ var getMaxScroll = (function (_ref) {
     y: Math.max(0, maxScroll.y)
   };
   return adjustedMaxScroll;
-});
+};
 
-var getDocumentElement = (function () {
+var getDocumentElement = function () {
   var doc = document.documentElement;
   !doc ?  invariant$1(false) : void 0;
   return doc;
-});
+};
 
-var getMaxWindowScroll = (function () {
+var getMaxWindowScroll = function () {
   var doc = getDocumentElement();
   var maxScroll = getMaxScroll({
     scrollHeight: doc.scrollHeight,
@@ -5857,9 +6035,9 @@ var getMaxWindowScroll = (function () {
     height: doc.clientHeight
   });
   return maxScroll;
-});
+};
 
-var getViewport = (function () {
+var getViewport = function () {
   var scroll = getWindowScroll$1();
   var maxScroll = getMaxWindowScroll();
   var top = scroll.y;
@@ -5888,9 +6066,9 @@ var getViewport = (function () {
     }
   };
   return viewport;
-});
+};
 
-var getInitialPublish = (function (_ref) {
+var getInitialPublish = function (_ref) {
   var critical = _ref.critical,
       scrollOptions = _ref.scrollOptions,
       registry = _ref.registry;
@@ -5913,7 +6091,7 @@ var getInitialPublish = (function (_ref) {
     viewport: viewport
   };
   return result;
-});
+};
 
 function shouldPublishUpdate(registry, dragging, entry) {
   if (entry.descriptor.id === dragging.id) {
@@ -5933,7 +6111,7 @@ function shouldPublishUpdate(registry, dragging, entry) {
   return true;
 }
 
-var createDimensionMarshal = (function (registry, callbacks) {
+var createDimensionMarshal = function (registry, callbacks) {
   var collection = null;
   var publisher = createPublisher({
     callbacks: {
@@ -6048,9 +6226,9 @@ var createDimensionMarshal = (function (registry, callbacks) {
     stopPublishing: stopPublishing
   };
   return marshal;
-});
+};
 
-var canStartDrag = (function (state, id) {
+var canStartDrag = function (state, id) {
   if (state.phase === 'IDLE') {
     return true;
   }
@@ -6064,11 +6242,11 @@ var canStartDrag = (function (state, id) {
   }
 
   return state.completed.result.reason === 'DROP';
-});
+};
 
-var scrollWindow = (function (change) {
+var scrollWindow = function (change) {
   window.scrollBy(change.x, change.y);
-});
+};
 
 var getScrollableDroppables = memoizeOne(function (droppables) {
   return toDroppableList(droppables).filter(function (droppable) {
@@ -6092,7 +6270,7 @@ var getScrollableDroppableOver = function getScrollableDroppableOver(target, dro
   return maybe;
 };
 
-var getBestScrollableDroppable = (function (_ref) {
+var getBestScrollableDroppable = function (_ref) {
   var center = _ref.center,
       destination = _ref.destination,
       droppables = _ref.droppables;
@@ -6109,7 +6287,7 @@ var getBestScrollableDroppable = (function (_ref) {
 
   var dimension = getScrollableDroppableOver(center, droppables);
   return dimension;
-});
+};
 
 var config = {
   startFromPercentage: 0.25,
@@ -6124,7 +6302,7 @@ var config = {
   }
 };
 
-var getDistanceThresholds = (function (container, axis) {
+var getDistanceThresholds = function (container, axis) {
   var startScrollingFrom = container[axis.size] * config.startFromPercentage;
   var maxScrollValueAt = container[axis.size] * config.maxScrollAtPercentage;
   var thresholds = {
@@ -6132,9 +6310,9 @@ var getDistanceThresholds = (function (container, axis) {
     maxScrollValueAt: maxScrollValueAt
   };
   return thresholds;
-});
+};
 
-var getPercentage = (function (_ref) {
+var getPercentage = function (_ref) {
   var startOfRange = _ref.startOfRange,
       endOfRange = _ref.endOfRange,
       current = _ref.current;
@@ -6147,11 +6325,11 @@ var getPercentage = (function (_ref) {
   var currentInRange = current - startOfRange;
   var percentage = currentInRange / range;
   return percentage;
-});
+};
 
 var minScroll = 1;
 
-var getValueFromDistance = (function (distanceToEdge, thresholds) {
+var getValueFromDistance = function (distanceToEdge, thresholds) {
   if (distanceToEdge > thresholds.startScrollingFrom) {
     return 0;
   }
@@ -6172,11 +6350,12 @@ var getValueFromDistance = (function (distanceToEdge, thresholds) {
   var percentageFromStartScrollingFrom = 1 - percentageFromMaxScrollValueAt;
   var scroll = config.maxPixelScroll * config.ease(percentageFromStartScrollingFrom);
   return Math.ceil(scroll);
-});
+};
 
 var accelerateAt = config.durationDampening.accelerateAt;
 var stopAt = config.durationDampening.stopDampeningAt;
-var dampenValueByTime = (function (proposedScroll, dragStartTime) {
+
+var dampenValueByTime = function (proposedScroll, dragStartTime) {
   var startOfRange = dragStartTime;
   var endOfRange = stopAt;
   var now = Date.now();
@@ -6197,9 +6376,9 @@ var dampenValueByTime = (function (proposedScroll, dragStartTime) {
   });
   var scroll = proposedScroll * config.ease(betweenAccelerateAtAndStopAtPercentage);
   return Math.ceil(scroll);
-});
+};
 
-var getValue = (function (_ref) {
+var getValue = function (_ref) {
   var distanceToEdge = _ref.distanceToEdge,
       thresholds = _ref.thresholds,
       dragStartTime = _ref.dragStartTime,
@@ -6215,9 +6394,9 @@ var getValue = (function (_ref) {
   }
 
   return Math.max(dampenValueByTime(scroll, dragStartTime), minScroll);
-});
+};
 
-var getScrollOnAxis = (function (_ref) {
+var getScrollOnAxis = function (_ref) {
   var container = _ref.container,
       distanceToEdges = _ref.distanceToEdges,
       dragStartTime = _ref.dragStartTime,
@@ -6241,9 +6420,9 @@ var getScrollOnAxis = (function (_ref) {
     dragStartTime: dragStartTime,
     shouldUseTimeDampening: shouldUseTimeDampening
   });
-});
+};
 
-var adjustForSizeLimits = (function (_ref) {
+var adjustForSizeLimits = function (_ref) {
   var container = _ref.container,
       subject = _ref.subject,
       proposedScroll = _ref.proposedScroll;
@@ -6262,12 +6441,13 @@ var adjustForSizeLimits = (function (_ref) {
     x: isTooBigHorizontally ? 0 : proposedScroll.x,
     y: isTooBigVertically ? 0 : proposedScroll.y
   };
-});
+};
 
 var clean$2 = apply(function (value) {
   return value === 0 ? 0 : value;
 });
-var getScroll = (function (_ref) {
+
+var getScroll = function (_ref) {
   var dragStartTime = _ref.dragStartTime,
       container = _ref.container,
       subject = _ref.subject,
@@ -6298,7 +6478,7 @@ var getScroll = (function (_ref) {
     y: y
   });
 
-  if (isEqual(required, origin)) {
+  if (isEqual$1(required, origin)) {
     return null;
   }
 
@@ -6312,8 +6492,8 @@ var getScroll = (function (_ref) {
     return null;
   }
 
-  return isEqual(limited, origin) ? null : limited;
-});
+  return isEqual$1(limited, origin) ? null : limited;
+};
 
 var smallestSigned = apply(function (value) {
   if (value === 0) {
@@ -6322,6 +6502,7 @@ var smallestSigned = apply(function (value) {
 
   return value > 0 ? 1 : -1;
 });
+
 var getOverlap = function () {
   var getRemainder = function getRemainder(target, max) {
     if (target < 0) {
@@ -6345,13 +6526,14 @@ var getOverlap = function () {
       y: getRemainder(targetScroll.y, max.y)
     };
 
-    if (isEqual(overlap, origin)) {
+    if (isEqual$1(overlap, origin)) {
       return null;
     }
 
     return overlap;
   };
 }();
+
 var canPartiallyScroll = function canPartiallyScroll(_ref2) {
   var rawMax = _ref2.max,
       current = _ref2.current,
@@ -6381,6 +6563,7 @@ var canPartiallyScroll = function canPartiallyScroll(_ref2) {
 
   return false;
 };
+
 var canScrollWindow = function canScrollWindow(viewport, change) {
   return canPartiallyScroll({
     current: viewport.scroll.current,
@@ -6388,6 +6571,7 @@ var canScrollWindow = function canScrollWindow(viewport, change) {
     change: change
   });
 };
+
 var getWindowOverlap = function getWindowOverlap(viewport, change) {
   if (!canScrollWindow(viewport, change)) {
     return null;
@@ -6401,6 +6585,7 @@ var getWindowOverlap = function getWindowOverlap(viewport, change) {
     change: change
   });
 };
+
 var canScrollDroppable = function canScrollDroppable(droppable, change) {
   var frame = droppable.frame;
 
@@ -6414,6 +6599,7 @@ var canScrollDroppable = function canScrollDroppable(droppable, change) {
     change: change
   });
 };
+
 var getDroppableOverlap = function getDroppableOverlap(droppable, change) {
   var frame = droppable.frame;
 
@@ -6432,7 +6618,7 @@ var getDroppableOverlap = function getDroppableOverlap(droppable, change) {
   });
 };
 
-var getWindowScrollChange = (function (_ref) {
+var getWindowScrollChange = function (_ref) {
   var viewport = _ref.viewport,
       subject = _ref.subject,
       center = _ref.center,
@@ -6446,9 +6632,9 @@ var getWindowScrollChange = (function (_ref) {
     shouldUseTimeDampening: shouldUseTimeDampening
   });
   return scroll && canScrollWindow(viewport, scroll) ? scroll : null;
-});
+};
 
-var getDroppableScrollChange = (function (_ref) {
+var getDroppableScrollChange = function (_ref) {
   var droppable = _ref.droppable,
       subject = _ref.subject,
       center = _ref.center,
@@ -6468,9 +6654,9 @@ var getDroppableScrollChange = (function (_ref) {
     shouldUseTimeDampening: shouldUseTimeDampening
   });
   return scroll && canScrollDroppable(droppable, scroll) ? scroll : null;
-});
+};
 
-var scroll$1 = (function (_ref) {
+var scroll$1 = function (_ref) {
   var state = _ref.state,
       dragStartTime = _ref.dragStartTime,
       shouldUseTimeDampening = _ref.shouldUseTimeDampening,
@@ -6518,9 +6704,9 @@ var scroll$1 = (function (_ref) {
   if (change) {
     scrollDroppable(droppable.descriptor.id, change);
   }
-});
+};
 
-var createFluidScroller = (function (_ref) {
+var createFluidScroller = function (_ref) {
   var scrollWindow = _ref.scrollWindow,
       scrollDroppable = _ref.scrollDroppable;
   var scheduleWindowScroll = rafSchd(scrollWindow);
@@ -6582,9 +6768,9 @@ var createFluidScroller = (function (_ref) {
     stop: stop,
     scroll: tryScroll
   };
-});
+};
 
-var createJumpScroller = (function (_ref) {
+var createJumpScroller = function (_ref) {
   var move = _ref.move,
       scrollDroppable = _ref.scrollDroppable,
       scrollWindow = _ref.scrollWindow;
@@ -6662,9 +6848,9 @@ var createJumpScroller = (function (_ref) {
   };
 
   return jumpScroller;
-});
+};
 
-var createAutoScroller = (function (_ref) {
+var createAutoScroller = function (_ref) {
   var scrollDroppable = _ref.scrollDroppable,
       scrollWindow = _ref.scrollWindow,
       move = _ref.move;
@@ -6701,9 +6887,10 @@ var createAutoScroller = (function (_ref) {
     stop: fluidScroller.stop
   };
   return scroller;
-});
+};
 
 var prefix$1$1 = 'data-rbd';
+
 var dragHandle = function () {
   var base = prefix$1$1 + "-drag-handle";
   return {
@@ -6712,6 +6899,7 @@ var dragHandle = function () {
     contextId: base + "-context-id"
   };
 }();
+
 var draggable = function () {
   var base = prefix$1$1 + "-draggable";
   return {
@@ -6720,6 +6908,7 @@ var draggable = function () {
     id: base + "-id"
   };
 }();
+
 var droppable = function () {
   var base = prefix$1$1 + "-droppable";
   return {
@@ -6728,6 +6917,7 @@ var droppable = function () {
     id: base + "-id"
   };
 }();
+
 var scrollContainer = {
   contextId: prefix$1$1 + "-scroll-container-context-id"
 };
@@ -6751,7 +6941,8 @@ var getStyles = function getStyles(rules, property) {
 };
 
 var noPointerEvents = 'pointer-events: none;';
-var getStyles$1 = (function (contextId) {
+
+var getStyles$1 = function (contextId) {
   var getSelector = makeGetSelector(contextId);
 
   var dragHandle$1 = function () {
@@ -6799,7 +6990,7 @@ var getStyles$1 = (function (contextId) {
     dropAnimating: getStyles(rules, 'dropAnimating'),
     userCancel: getStyles(rules, 'userCancel')
   };
-});
+};
 
 var useIsomorphicLayoutEffect$1 = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? react.useLayoutEffect : react.useEffect;
 
@@ -6888,9 +7079,9 @@ function useStyleMarshal(contextId, nonce) {
   return marshal;
 }
 
-var getWindowFromEl = (function (el) {
+var getWindowFromEl = function (el) {
   return el && el.ownerDocument ? el.ownerDocument.defaultView : window;
-});
+};
 
 function isHtmlElement(el) {
   return el instanceof getWindowFromEl(el).HTMLElement;
@@ -7158,13 +7349,13 @@ function useRegistry() {
   return registry;
 }
 
-var StoreContext = react.createContext(null);
+var StoreContext = /*#__PURE__*/react.createContext(null);
 
-var getBodyElement = (function () {
+var getBodyElement = function () {
   var body = document.body;
   !body ?  invariant$1(false) : void 0;
   return body;
-});
+};
 
 var visuallyHidden = {
   position: 'absolute',
@@ -7181,6 +7372,7 @@ var visuallyHidden = {
 var getId = function getId(contextId) {
   return "rbd-announcement-" + contextId;
 };
+
 function useAnnouncer(contextId) {
   var id = useMemo(function () {
     return getId(contextId);
@@ -7225,6 +7417,7 @@ var count = 0;
 var defaults = {
   separator: '::'
 };
+
 function useUniqueId(prefix, options) {
   if (options === void 0) {
     options = defaults;
@@ -7240,6 +7433,7 @@ function getElementId(_ref) {
       uniqueId = _ref.uniqueId;
   return "rbd-hidden-text-" + contextId + "-" + uniqueId;
 }
+
 function useHiddenTextElement(_ref2) {
   var contextId = _ref2.contextId,
       text = _ref2.text;
@@ -7269,7 +7463,7 @@ function useHiddenTextElement(_ref2) {
   return id;
 }
 
-var AppContext = react.createContext(null);
+var AppContext = /*#__PURE__*/react.createContext(null);
 
 function usePrevious(current) {
   var ref = react.useRef(current);
@@ -7334,12 +7528,14 @@ var arrowRight = 39;
 var arrowDown = 40;
 
 var _preventedKeys;
+
 var preventedKeys = (_preventedKeys = {}, _preventedKeys[enter] = true, _preventedKeys[tab] = true, _preventedKeys);
-var preventStandardKeyEvents = (function (event) {
+
+var preventStandardKeyEvents = function (event) {
   if (preventedKeys[event.keyCode]) {
     event.preventDefault();
   }
-});
+};
 
 var supportedEventName = function () {
   var base = 'visibilitychange';
@@ -8105,9 +8301,9 @@ function isEventInInteractiveElement(draggable, event) {
   return isAnInteractiveElement(draggable, target);
 }
 
-var getBorderBoxCenterPosition = (function (el) {
+var getBorderBoxCenterPosition = function (el) {
   return getRect(el.getBoundingClientRect()).center;
-});
+};
 
 function isElement$1(el) {
   return el instanceof getWindowFromEl(el).Element;
@@ -8448,6 +8644,7 @@ function tryStart(_ref3) {
 }
 
 var defaultSensors = [useMouseSensor, useKeyboardSensor, useTouchSensor];
+
 function useSensorMarshal(_ref4) {
   var contextId = _ref4.contextId,
       store = _ref4.store,
@@ -8644,25 +8841,27 @@ function App(props) {
   react.useEffect(function () {
     return tryResetStore;
   }, [tryResetStore]);
-  return react.createElement(AppContext.Provider, {
+  return /*#__PURE__*/react.createElement(AppContext.Provider, {
     value: appContext
-  }, react.createElement(Provider, {
+  }, /*#__PURE__*/react.createElement(Provider, {
     context: StoreContext,
     store: store
   }, props.children));
 }
 
 var count$1 = 0;
+
 function useInstanceCount() {
   return useMemo(function () {
     return "" + count$1++;
   }, []);
 }
+
 function DragDropContext(props) {
   var contextId = useInstanceCount();
   var dragHandleUsageInstructions = props.dragHandleUsageInstructions || preset.dragHandleUsageInstructions;
-  return react.createElement(ErrorBoundary, null, function (setCallbacks) {
-    return react.createElement(App, {
+  return /*#__PURE__*/react.createElement(ErrorBoundary, null, function (setCallbacks) {
+    return /*#__PURE__*/react.createElement(App, {
       nonce: props.nonce,
       contextId: contextId,
       setCallbacks: setCallbacks,
@@ -8678,14 +8877,14 @@ function DragDropContext(props) {
   });
 }
 
-var isEqual$1 = function isEqual(base) {
+var isEqual$1$1 = function isEqual(base) {
   return function (value) {
     return base === value;
   };
 };
 
-var isScroll = isEqual$1('scroll');
-var isAuto = isEqual$1('auto');
+var isScroll = isEqual$1$1('scroll');
+var isAuto = isEqual$1$1('auto');
 
 var isEither = function isEither(overflow, fn) {
   return fn(overflow.overflowX) || fn(overflow.overflowY);
@@ -8726,12 +8925,12 @@ var getClosestScrollable = function getClosestScrollable(el) {
   return el;
 };
 
-var getScroll$1 = (function (el) {
+var getScroll$1 = function (el) {
   return {
     x: el.scrollLeft,
     y: el.scrollTop
   };
-});
+};
 
 var getIsFixed = function getIsFixed(el) {
   if (!el) {
@@ -8747,16 +8946,16 @@ var getIsFixed = function getIsFixed(el) {
   return getIsFixed(el.parentElement);
 };
 
-var getEnv = (function (start) {
+var getEnv = function (start) {
   var closestScrollable = getClosestScrollable(start);
   var isFixedOnPage = getIsFixed(start);
   return {
     closestScrollable: closestScrollable,
     isFixedOnPage: isFixedOnPage
   };
-});
+};
 
-var getDroppableDimension = (function (_ref) {
+var getDroppableDimension = function (_ref) {
   var descriptor = _ref.descriptor,
       isEnabled = _ref.isEnabled,
       isCombineEnabled = _ref.isCombineEnabled,
@@ -8815,7 +9014,7 @@ var getDroppableDimension = (function (_ref) {
     subject: subject
   };
   return dimension;
-});
+};
 
 var getClient = function getClient(targetRef, closestScrollable) {
   var base = getBox(targetRef);
@@ -8848,7 +9047,7 @@ var getClient = function getClient(targetRef, closestScrollable) {
   return client;
 };
 
-var getDimension = (function (_ref) {
+var getDimension = function (_ref) {
   var ref = _ref.ref,
       descriptor = _ref.descriptor,
       env = _ref.env,
@@ -8891,7 +9090,7 @@ var getDimension = (function (_ref) {
     closest: closest
   });
   return dimension;
-});
+};
 
 var immediate = {
   passive: false
@@ -8899,9 +9098,10 @@ var immediate = {
 var delayed = {
   passive: true
 };
-var getListenerOptions = (function (options) {
+
+var getListenerOptions = function (options) {
   return options.shouldPublishImmediately ? immediate : delayed;
-});
+};
 
 function useRequiredContext(Context) {
   var result = react.useContext(Context);
@@ -9178,7 +9378,7 @@ function Placeholder(props) {
     animate: props.animate,
     placeholder: props.placeholder
   });
-  return react.createElement(props.placeholder.tagName, {
+  return /*#__PURE__*/react.createElement(props.placeholder.tagName, {
     style: style,
     'data-rbd-placeholder-context-id': contextId,
     onTransitionEnd: onSizeChangeEnd,
@@ -9186,9 +9386,8 @@ function Placeholder(props) {
   });
 }
 
-var Placeholder$1 = react.memo(Placeholder);
-
-var DroppableContext = react.createContext(null);
+var Placeholder$1 = /*#__PURE__*/react.memo(Placeholder);
+var DroppableContext = /*#__PURE__*/react.createContext(null);
 
 var AnimateInOut = function (_React$PureComponent) {
   _inheritsLoose(AnimateInOut, _React$PureComponent);
@@ -9523,11 +9722,11 @@ function Draggable(props) {
   return children(provided, mapped.snapshot, rubric);
 }
 
-var isStrictEqual = (function (a, b) {
+var isStrictEqual = function (a, b) {
   return a === b;
-});
+};
 
-var whatIsDraggedOverFromResult = (function (result) {
+var whatIsDraggedOverFromResult = function (result) {
   var combine = result.combine,
       destination = result.destination;
 
@@ -9540,7 +9739,7 @@ var whatIsDraggedOverFromResult = (function (result) {
   }
 
   return null;
-});
+};
 
 var getCombineWithFromResult = function getCombineWithFromResult(result) {
   return result.combine ? result.combine.draggableId : null;
@@ -9761,6 +9960,7 @@ var makeMapStateToProps = function makeMapStateToProps() {
 
   return selector;
 };
+
 var mapDispatchToProps = {
   dropAnimationFinished: dropAnimationFinished
 };
@@ -9778,13 +9978,14 @@ function PrivateDraggable(props) {
     return null;
   }
 
-  return react.createElement(ConnectedDraggable, props);
+  return /*#__PURE__*/react.createElement(ConnectedDraggable, props);
 }
+
 function PublicDraggable(props) {
   var isEnabled = typeof props.isDragDisabled === 'boolean' ? !props.isDragDisabled : true;
   var canDragInteractiveElements = Boolean(props.disableInteractiveElementBlocking);
   var shouldRespectForcePress = Boolean(props.shouldRespectForcePress);
-  return react.createElement(PrivateDraggable, _extends({}, props, {
+  return /*#__PURE__*/react.createElement(PrivateDraggable, _extends({}, props, {
     isClone: false,
     isEnabled: isEnabled,
     canDragInteractiveElements: canDragInteractiveElements,
@@ -9840,14 +10041,14 @@ function Droppable(props) {
     ignoreContainerClipping: ignoreContainerClipping,
     getDroppableRef: getDroppableRef
   });
-  var placeholder = react.createElement(AnimateInOut, {
+  var placeholder = /*#__PURE__*/react.createElement(AnimateInOut, {
     on: props.placeholder,
     shouldAnimate: props.shouldAnimatePlaceholder
   }, function (_ref) {
     var onClose = _ref.onClose,
         data = _ref.data,
         animate = _ref.animate;
-    return react.createElement(Placeholder$1, {
+    return /*#__PURE__*/react.createElement(Placeholder$1, {
       placeholder: data,
       onClose: onClose,
       innerRef: setPlaceholderRef,
@@ -9882,7 +10083,7 @@ function Droppable(props) {
 
     var dragging = useClone.dragging,
         render = useClone.render;
-    var node = react.createElement(PrivateDraggable, {
+    var node = /*#__PURE__*/react.createElement(PrivateDraggable, {
       draggableId: dragging.draggableId,
       index: dragging.source.index,
       isClone: true,
@@ -9892,10 +10093,10 @@ function Droppable(props) {
     }, function (draggableProvided, draggableSnapshot) {
       return render(draggableProvided, draggableSnapshot, dragging);
     });
-    return reactDom.createPortal(node, getContainerForClone());
+    return /*#__PURE__*/reactDom.createPortal(node, getContainerForClone());
   }
 
-  return react.createElement(DroppableContext.Provider, {
+  return /*#__PURE__*/react.createElement(DroppableContext.Provider, {
     value: droppableContext
   }, children(provided, snapshot), getClone());
 }
@@ -10037,6 +10238,7 @@ var makeMapStateToProps$1 = function makeMapStateToProps() {
 
   return selector;
 };
+
 var mapDispatchToProps$1 = {
   updateViewportMaxScroll: updateViewportMaxScroll
 };

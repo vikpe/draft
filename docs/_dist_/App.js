@@ -1,9 +1,11 @@
-import React from "../web_modules/react.js";
+import React from "../_snowpack/pkg/react.js";
 import "./App.css.proxy.js";
-import SampleBoard2 from "./SampleBoard.js";
-function App2() {
-  return /* @__PURE__ */ React.createElement("div", {
+import SampleBoard from "./SampleBoard.js";
+
+function App() {
+  return /*#__PURE__*/React.createElement("div", {
     className: "app"
-  }, /* @__PURE__ */ React.createElement("section", null, /* @__PURE__ */ React.createElement(SampleBoard2, null)));
+  }, /*#__PURE__*/React.createElement("section", null, /*#__PURE__*/React.createElement(SampleBoard, null)));
 }
-export default App2;
+
+export default App;
