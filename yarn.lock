@@ -1491,15 +1491,6 @@
     "@babel/plugin-syntax-class-properties" "^7.10.0"
     react-refresh "^0.8.3"
 
-"@snowpack/plugin-react-refresh@^2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@snowpack/plugin-react-refresh/-/plugin-react-refresh-2.5.0.tgz#e4ad1561ec4acd9a876318cb1e8d05f66b4e11d4"
-  integrity sha512-3rYkwayAA+65IIYLXMEFqQwtBGbII9IidMJo1yXuj35kTEg9TdZrofoqcHaSts2sv2Nz0TD6v7BWRPdvCU0uIw==
-  dependencies:
-    "@babel/core" "^7.0.0"
-    "@babel/plugin-syntax-class-properties" "^7.10.0"
-    react-refresh "^0.9.0"
-
 "@snowpack/plugin-typescript@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@snowpack/plugin-typescript/-/plugin-typescript-1.1.0.tgz#902d3f5500e7295835cefa31c0a26cafd2d819d0"
@@ -4884,11 +4875,6 @@ react-refresh@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
-
-react-refresh@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
-  integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
 
 react@^17.0.2:
   version "17.0.2"

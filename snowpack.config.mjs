@@ -1,10 +1,12 @@
 export default {
   "extends": "@snowpack/app-scripts-react",
-  "plugins": [
-    "@snowpack/plugin-react-refresh",
-  ],
   "mount": {
-    build: '/',
+    src: {
+      url: "/_dist_",
+      static: false,
+      resolve: true,
+    },
+    public: "/",
     static: {
       url: "/static",
       static: true,
