@@ -33,13 +33,6 @@ export const teams = {
     theme: "Spawn",
     sortOrder: 2,
   },
-  Enforcer: {
-    id: "Enforcer",
-    name: "Enforcer",
-    playerNames: ["ParadokS"],
-    theme: "Enforcer",
-    sortOrder: 3,
-  },
   Shambler: {
     id: "Shambler",
     name: "Shambler",
@@ -67,6 +60,13 @@ export const teams = {
     playerNames: ["nigve"],
     theme: "Gombie",
     sortOrder: 7,
+  },
+  Enforcer: {
+    id: "Enforcer",
+    name: "Enforcer",
+    playerNames: ["ParadokS"],
+    theme: "Enforcer",
+    sortOrder: 3,
   },
 };
 
