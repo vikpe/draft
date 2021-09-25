@@ -80,7 +80,7 @@ export const players = {
   anni: { name: "anni", country_code: "DE" },
   Anza: { name: "Anza", country_code: "FI" },
   bps: { name: "bps", country_code: "SE" },
-  BTK: { name: "BTK", country_code: "RU" },
+  "Billy The Kid": { name: "Billy The Kid", country_code: "RU" },
   coj: { name: "coj", country_code: "US" },
   conan: { name: "conan", country_code: "SE" },
   Creature: { name: "Creature", country_code: "FI" },
