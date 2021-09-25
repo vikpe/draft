@@ -31,7 +31,7 @@ teams.playerPool = {
 const getDefaultData = () => deepCopy({ teams, players, pickIndex: 0 });
 
 const getInitialData = () => {
-  return getDefaultData();
+  // return getDefaultData();
   const localData = localStorage.getItem("draft");
 
   if (localData) {

@@ -30,7 +30,7 @@ const getDefaultData = () => deepCopy({
 });
 
 const getInitialData = () => {
-  return getDefaultData();
+  // return getDefaultData();
   const localData = localStorage.getItem("draft");
 
   if (localData) {
