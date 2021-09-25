@@ -9,7 +9,12 @@ index team
 1     mm
 0     nigve
 */
-export const pickOrder = [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, 6, 5, 4, 3, 2, 1, 0, 7];
+export const pickOrder = [// div 1 players
+0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, // div 2 captains
+7, 6, 5, 4, 3, 2, 1, 0, // div 2 players
+0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, // div 3 captains
+7, 6, 5, 4, 3, 2, 1, 0, // div 3 players
+0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, 7, 6, 5, 4, 3, 2, 1, 0];
 export const teams = {
   Rotfish: {
     id: "Rotfish",

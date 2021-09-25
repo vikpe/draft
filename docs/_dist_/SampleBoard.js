@@ -112,7 +112,7 @@ class SampleBoard extends React.Component {
 
     const pickedPlayerCount = Object.values(this.state.teams).map(t => t.playerNames.length).reduce((accumulator, currentValue) => accumulator + currentValue, 0) - this.state.teams["playerPool"].playerNames.length;
     const numberOfTeams = Object.values(this.state.teams).length - 1;
-    const pickLimit = numberOfTeams * (1 + 7);
+    const pickLimit = Object.values(players).length;
     const draftStatus = pickedPlayerCount === pickLimit ? "completed" : "in-progress";
     let indexOfTeamToPick = -1;
 
@@ -120,6 +120,19 @@ class SampleBoard extends React.Component {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
     }
 
+    let captainDiv;
+    const div1PickLimit = 7 * (4 + 1);
+    const div2PickLimit = div1PickLimit + 8 * (4 + 1);
+
+    if (pickedPlayerCount <= div1PickLimit) {
+      captainDiv = 1;
+    } else if (pickedPlayerCount <= div2PickLimit) {
+      captainDiv = 2;
+    } else {
+      captainDiv = 3;
+    }
+
+    const teamCount = pickedPlayerCount < 7 * 4 ? 7 : 8;
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     const pickRound = 1 + Math.floor(this.state.pickIndex / numberOfTeams);
     const pickNumber = 1 + this.state.pickIndex % numberOfTeams;
@@ -135,11 +148,11 @@ class SampleBoard extends React.Component {
       style: {
         color: "cyan"
       }
-    }, pickNumber), this.stateHistory.length > 0 && /*#__PURE__*/React.createElement("span", null, "\xA0\xA0\xA0", /*#__PURE__*/React.createElement("a", {
+    }, pickNumber), "\xA0\xA0\xA0", this.stateHistory.length > 0 && /*#__PURE__*/React.createElement("span", null, "\xA0\xA0\xA0", /*#__PURE__*/React.createElement("a", {
       href: "#",
       onClick: this.handleUndoClick
     }, "Undo last action"))), /*#__PURE__*/React.createElement("div", {
-      className: `app-draft app-draft-status-${draftStatus}`
+      className: `app-draft app-draft-status-${draftStatus} app-captaindiv-${captainDiv} app-teamcount-${teamCount}`
     }, /*#__PURE__*/React.createElement("div", {
       className: "app-teams-container"
     }, sortedTeams.map((team, teamIndex) => /*#__PURE__*/React.createElement(Team, {
