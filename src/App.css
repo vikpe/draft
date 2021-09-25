@@ -127,7 +127,7 @@
 
 /* Custom Teams/Themes */
 .app-team-theme {
-  flex: 0 0 11%;
+  flex: 0 0 13%;
   min-height: 400px;
   overflow: hidden;
   display: flex;
@@ -135,6 +135,10 @@
   border: 5px solid black;
   box-shadow: 0 0 12px black;
   border-radius: 1em;
+}
+
+.app-div-1 .app-team-theme:nth-child(8) {
+    display: none;
 }
 
 .app-team-theme .app-team-droppable {
@@ -152,15 +156,18 @@
   color: transparent;
 }
 
-.app-team-theme .app-player:first-child .app-player-content:after,
-.app-team-theme .app-player:nth-child(5) .app-player-content:after {
+.app-team-theme .app-player:nth-child(1) .app-player-content:after,
+.app-team-theme .app-player:nth-child(5) .app-player-content:after,
+.app-team-theme .app-player:nth-child(9) .app-player-content:after {
   margin-left: auto;
   font-size: 1.2em;
   content: "\2605"; /* Star in UTF8 */
-  color: goldenrod;
 }
 
-/* begin div2 */
+.app-team-theme .app-player:nth-child(1) .app-player-content:after {color: goldenrod;}
+.app-team-theme .app-player:nth-child(5) .app-player-content:after {color: #999;}
+.app-team-theme .app-player:nth-child(9) .app-player-content:after {color: saddlebrown;}
+
 .app-team-theme .app-player {
   opacity: 0.75;
 }
@@ -169,35 +176,41 @@
   opacity: 1;
 }
 
-.app-team-theme:not(:nth-child(8)) .app-player:nth-child(5) {
+.app-team-theme .app-player:nth-child(5),
+.app-team-theme .app-player:nth-child(9){
   margin-top: 2em;
 }
 
-.app-team-theme:not(:nth-child(8))
-  .app-player:nth-child(5)
-  .app-player-content:after,
-.app-team-theme:nth-child(8)
-  .app-player:nth-child(1)
-  .app-player-content:after {
-  color: #999;
-}
-
-.app-team-highlight:not(:nth-child(8))
-  .app-player:nth-child(5)
-  .app-player-content,
-.app-team-highlight:nth-child(8) .app-player:nth-child(1) .app-player-content {
+/* highlight picking captain/squad */
+.app-div-1 .app-team-highlight .app-player:nth-child(1) .app-player-content {
   background: linear-gradient(180deg, lightyellow, yellow);
   color: black;
 }
 
-/* special team */
-.app-div-2 .app-team-theme {
+.app-div-2 .app-team-highlight:not(:nth-child(8)) .app-player:nth-child(5) .app-player-content,
+.app-div-2 .app-team-highlight:nth-child(8) .app-player:nth-child(1) .app-player-content {
+  background: linear-gradient(180deg, lightyellow, yellow);
+  color: black;
+}
+
+.app-div-3 .app-team-highlight:not(:nth-child(12)) .app-player:nth-child(9) .app-player-content,
+.app-div-3 .app-team-highlight:nth-child(12) .app-player:nth-child(5) .app-player-content {
+  background: linear-gradient(180deg, lightyellow, yellow);
+  color: black;
+}
+
+/* div2/3 special */
+.app-div-2 .app-team-theme,
+.app-div-3 .app-team-theme {
   flex: 0 0 11%;
 }
 
+/* admin team */
 .app-team-theme:nth-child(8) .app-team-droppable {
   padding-top: 230px;
 }
+.app-team-theme:nth-child(8) .app-player:nth-child(1) .app-player-content:after {color: #999;}
+.app-team-theme:nth-child(8) .app-player:nth-child(5) .app-player-content:after {color: saddlebrown;}
 
 /* end div2 */
 

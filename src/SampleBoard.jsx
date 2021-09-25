@@ -131,12 +131,24 @@ class SampleBoard extends React.Component {
     const numberOfTeams = Object.values(this.state.teams).length - 1;
     const pickLimit = numberOfTeams * (1 + 7);
     const draftStatus =
-      pickedPlayerCount === pickLimit ? "completed" : "in-progress";
+      pickedPlayerCount === Object.values(players).length ? "completed" : "in-progress";
 
     let indexOfTeamToPick = -1;
 
     if (pickedPlayerCount < pickLimit) {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
+    }
+
+    let divNumber;
+    const div1Count = 7 * 4;
+    const div2Count = 8 * 4;
+
+    if (pickedPlayerCount < div1Count) {
+      divNumber = 1;
+    } else if (pickedPlayerCount < (div1Count + div2Count)) {
+      divNumber = 2;
+    } else {
+      divNumber = 3;
     }
 
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
@@ -149,6 +161,8 @@ class SampleBoard extends React.Component {
         <div className={"app-controls"}>
           Round <span style={{ color: "cyan" }}>{pickRound}</span>, pick{" "}
           <span style={{ color: "cyan" }}>{pickNumber}</span>
+          &nbsp;&nbsp;&nbsp;
+          <span>(<span style={{ color: "cyan" }}>DIV {divNumber}</span>)</span>
           {this.stateHistory.length > 0 && (
             <span>
               &nbsp;&nbsp;&nbsp;
@@ -158,7 +172,7 @@ class SampleBoard extends React.Component {
             </span>
           )}
         </div>
-        <div className={`app-draft app-draft-status-${draftStatus}`}>
+        <div className={`app-draft app-draft-status-${draftStatus} app-div-${divNumber}`}>
           <div className="app-teams-container">
             {sortedTeams.map((team, teamIndex) => (
               <Team
