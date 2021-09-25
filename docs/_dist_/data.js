@@ -1,62 +1,71 @@
 /*
-Seed 0 - Milton
-Seed 1 - bps
-Seed 2 - ParadokS
-Seed 3 - Creature
-Seed 4 - Raket
-Seed 5 - mm
-Seed 6 - nigve
- */
-export const pickOrder = [0, 1, 2, 3, 4, 5, 6];
+index team
+7     admin pick
+6     Milton
+5     bps
+4     XantoM
+3     Creature
+2     Raket
+1     mm
+0     nigve
+*/
+export const pickOrder = [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, 6, 5, 4, 3, 2, 1, 0, 7];
 export const teams = {
   Rotfish: {
     id: "Rotfish",
     name: "Rotfish",
     playerNames: ["Milton"],
     theme: "Rotfish",
-    sortOrder: 1
+    sortOrder: 7
   },
   Spawn: {
     id: "Spawn",
     name: "Spawn",
     playerNames: ["bps"],
     theme: "Spawn",
-    sortOrder: 2
+    sortOrder: 6
   },
   Shambler: {
     id: "Shambler",
     name: "Shambler",
-    playerNames: ["Creature"],
+    playerNames: ["XantoM"],
     theme: "Shambler",
-    sortOrder: 3
+    sortOrder: 5
   },
   Fiend: {
     id: "Fiend",
     name: "Fiend",
-    playerNames: ["raket"],
+    playerNames: ["Creature"],
     theme: "Fiend",
     sortOrder: 4
   },
   Zombie: {
     id: "Zombie",
     name: "Zombie",
-    playerNames: ["mm"],
+    playerNames: ["raket"],
     theme: "Zombie",
-    sortOrder: 5
+    sortOrder: 3
   },
   Gombie: {
     id: "Gombie",
     name: "Gombie",
-    playerNames: ["nigve"],
+    playerNames: ["mm"],
     theme: "Gombie",
-    sortOrder: 6
+    sortOrder: 2
   },
   Enforcer: {
     id: "Enforcer",
     name: "Enforcer",
-    playerNames: ["ParadokS"],
+    playerNames: ["nigve"],
     theme: "Enforcer",
-    sortOrder: 7
+    sortOrder: 1
+  },
+  AdminPick: {
+    id: "AdminPick",
+    name: "AdminPick",
+    playerNames: [],
+    theme: "AdminPick",
+    sortOrder: 8
   }
 };
 export const players = {
@@ -64,43 +73,39 @@ export const players = {
     name: "6. Vegeta",
     country_code: "US"
   },
-  "[o]djevulsk": {
-    name: "[o]djevulsk",
-    country_code: "SE"
-  },
-  "Abraxas": {
+  Abraxas: {
     name: "Abraxas",
     country_code: "NO"
   },
-  "anni": {
+  anni: {
     name: "anni",
     country_code: "DE"
   },
-  "Anza": {
+  Anza: {
     name: "Anza",
     country_code: "FI"
   },
-  "bps": {
+  bps: {
     name: "bps",
     country_code: "SE"
   },
-  "BTK": {
-    name: "BTK",
+  "Billy The Kid": {
+    name: "Billy The Kid",
     country_code: "RU"
   },
-  "coj": {
+  coj: {
     name: "coj",
     country_code: "US"
   },
-  "conan": {
+  conan: {
     name: "conan",
     country_code: "SE"
   },
-  "Creature": {
+  Creature: {
     name: "Creature",
     country_code: "FI"
   },
-  "dev": {
+  dev: {
     name: "dev",
     country_code: "ES"
   },
@@ -108,103 +113,99 @@ export const players = {
     name: ".devil",
     country_code: "RU"
   },
-  "Dib": {
+  Dib: {
     name: "Dib",
     country_code: "PT"
   },
-  "diehuman": {
+  diehuman: {
     name: "diehuman",
     country_code: "PT"
   },
-  "Diki": {
+  Diki: {
     name: "Diki",
     country_code: "FI"
   },
-  "DobeZz/Fenta": {
-    name: "DobeZz/Fenta",
-    country_code: "GB"
+  "[o]djevulsk": {
+    name: "[o]djevulsk",
+    country_code: "SE"
   },
-  "dopesklillz": {
+  dopesklillz: {
     name: "dopesklillz",
     country_code: "DE"
   },
-  "Effie": {
+  Effie: {
     name: "Effie",
     country_code: "NO"
   },
-  "Eikooren": {
+  Eikooren: {
     name: "Eikooren",
     country_code: "SE"
   },
-  "Elguapo": {
+  Elguapo: {
     name: "Elguapo",
     country_code: "SE"
   },
-  "eppe": {
+  eppe: {
     name: "eppe",
     country_code: "SE"
   },
-  "fgh": {
-    name: "fgh",
-    country_code: "SE"
+  Fentanyl: {
+    name: "Fentanyl",
+    country_code: "GB"
   },
-  "FinalExit": {
+  FinalExit: {
     name: "FinalExit",
     country_code: "MT"
   },
-  "Flamer": {
+  Flamer: {
     name: "Flamer",
     country_code: "CZ"
   },
-  "Gamer": {
+  Gamer: {
     name: "Gamer",
     country_code: "FI"
   },
-  "ganon": {
+  ganon: {
     name: "ganon",
     country_code: "SE"
   },
-  "gLAd": {
+  gLAd: {
     name: "gLAd",
     country_code: "RU"
   },
-  "Goniec": {
+  Goniec: {
     name: "Goniec",
     country_code: "PL"
   },
-  "gor": {
+  gor: {
     name: "gor",
     country_code: "RU"
   },
-  "Grc": {
+  Grc: {
     name: "Grc",
     country_code: "SE"
   },
-  "Grl": {
+  Grl: {
     name: "Grl",
     country_code: "PL"
   },
-  "HangTime": {
+  HangTime: {
     name: "HangTime",
     country_code: "GB"
   },
-  "HaraldQuake": {
+  HaraldQuake: {
     name: "HaraldQuake",
     country_code: "DE"
   },
-  "HENU": {
+  HENU: {
     name: "HENU",
     country_code: "FI"
   },
-  "hlw-": {
-    name: "hlw-",
-    country_code: "SE"
-  },
-  "Hooraytio": {
+  Hooraytio: {
     name: "Hooraytio",
     country_code: "SE"
   },
-  "hyrveli": {
+  hyrveli: {
     name: "hyrveli",
     country_code: "FI"
   },
@@ -212,253 +213,253 @@ export const players = {
     name: "-insane-",
     country_code: "PL"
   },
-  "kip": {
+  kip: {
     name: "kip",
     country_code: "FI"
   },
-  "Klice": {
+  Klice: {
     name: "Klice",
     country_code: "FR"
   },
-  "knasty": {
+  knasty: {
     name: "knasty",
     country_code: "DE"
   },
-  "Link": {
+  Link: {
     name: "Link",
     country_code: "NO"
   },
-  "lordlame": {
+  lordlame: {
     name: "lordlame",
     country_code: "IE"
   },
-  "Luckyshot": {
+  Luckyshot: {
     name: "Luckyshot",
     country_code: "FI"
   },
-  "lurq": {
+  lurq: {
     name: "lurq",
     country_code: "SE"
   },
-  "Macler": {
+  Macler: {
     name: "Macler",
     country_code: "PL"
   },
-  "mads": {
+  mads: {
     name: "mads",
     country_code: "RU"
   },
-  "maks": {
+  maks: {
     name: "maks",
     country_code: "PL"
   },
-  "Milton": {
+  Milton: {
     name: "Milton",
     country_code: "FI"
   },
-  "mm": {
+  mm: {
     name: "mm",
     country_code: "SE"
   },
-  "MolkyPolky": {
+  MolkyPolky: {
     name: "MolkyPolky",
     country_code: "UA"
   },
-  "nas": {
+  nas: {
     name: "nas",
     country_code: "SE"
   },
-  "Nautilus": {
+  Nautilus: {
     name: "Nautilus",
     country_code: "GB"
   },
-  "ncr": {
+  ncr: {
     name: "ncr",
     country_code: "SE"
   },
-  "Nexus": {
+  Nexus: {
     name: "Nexus",
     country_code: "FI"
   },
-  "Nico": {
+  Nico: {
     name: "Nico",
     country_code: "US"
   },
-  "Nidweyr": {
+  Nidweyr: {
     name: "Nidweyr",
     country_code: "UA"
   },
-  "nigve": {
+  nigve: {
     name: "nigve",
     country_code: "NO"
   },
-  "nitemare": {
+  nitemare: {
     name: "nitemare",
     country_code: "PT"
   },
-  "niw": {
+  niw: {
     name: "niw",
     country_code: "DK"
   },
-  "ocoini": {
+  ocoini: {
     name: "ocoini",
     country_code: "NO"
   },
-  "Ok98": {
+  Ok98: {
     name: "Ok98",
     country_code: "SE"
   },
-  "omicron": {
+  omicron: {
     name: "omicron",
     country_code: "US"
   },
-  "overflow / ovr": {
-    name: "overflow / ovr",
+  "overflow/ovr": {
+    name: "overflow/ovr",
     country_code: "CH"
   },
-  "paniagua": {
+  paniagua: {
     name: "paniagua",
     country_code: "FI"
   },
-  "Panjabi": {
+  Panjabi: {
     name: "Panjabi",
     country_code: "FI"
   },
-  "ParadokS": {
+  ParadokS: {
     name: "ParadokS",
     country_code: "DK"
   },
-  "pattah": {
+  pattah: {
     name: "pattah",
     country_code: "DE"
   },
-  "pooll": {
+  pooll: {
     name: "pooll",
     country_code: "PL"
   },
-  "PreMorteM": {
+  PreMorteM: {
     name: "PreMorteM",
     country_code: "NO"
   },
-  "raket": {
+  raket: {
     name: "raket",
     country_code: "SE"
   },
-  "razor": {
+  razor: {
     name: "razor",
     country_code: "SE"
   },
-  "Respa": {
+  Respa: {
     name: "Respa",
     country_code: "SE"
   },
-  "rghst": {
+  rghst: {
     name: "rghst",
     country_code: "DE"
   },
-  "ripperi": {
+  ripperi: {
     name: "ripperi",
     country_code: "FI"
   },
-  "Rotker": {
+  Rotker: {
     name: "Rotker",
     country_code: "PL"
   },
-  "sae": {
+  sae: {
     name: "sae",
     country_code: "GB"
   },
-  "samon": {
+  samon: {
     name: "samon",
     country_code: "PL"
   },
-  "Shaka": {
+  Shaka: {
     name: "Shaka",
     country_code: "SE"
   },
-  "skurk": {
+  skurk: {
     name: "skurk",
     country_code: "SE"
   },
-  "Sniegov": {
+  Sniegov: {
     name: "Sniegov",
     country_code: "PL"
   },
-  "SplasH": {
+  SplasH: {
     name: "SplasH",
     country_code: "SE"
   },
-  "splif": {
+  splif: {
     name: "splif",
     country_code: "GB"
   },
-  "STALKERRH": {
+  STALKERRH: {
     name: "STALKERRH",
     country_code: "NO"
   },
-  "TheChosenOne": {
+  TheChosenOne: {
     name: "TheChosenOne",
     country_code: "NO"
   },
-  "Thunder": {
+  Thunder: {
     name: "Thunder",
     country_code: "PL"
   },
-  "TiMMi": {
+  TiMMi: {
     name: "TiMMi",
     country_code: "NO"
   },
-  "Tom": {
+  Tom: {
     name: "Tom",
     country_code: "PL"
   },
-  "Toma": {
+  Toma: {
     name: "Toma",
     country_code: "HU"
   },
-  "tr0ll": {
+  tr0ll: {
     name: "tr0ll",
     country_code: "NO"
   },
-  "tumult": {
+  tumult: {
     name: "tumult",
     country_code: "SE"
   },
-  "Turbo": {
+  Turbo: {
     name: "Turbo",
     country_code: "GB"
   },
-  "Valde": {
+  Valde: {
     name: "Valde",
     country_code: "DK"
   },
-  "Wimpeeh": {
+  Wimpeeh: {
     name: "Wimpeeh",
     country_code: "NL"
   },
-  "xero": {
+  XantoM: {
+    name: "XantoM",
+    country_code: "SE"
+  },
+  xero: {
     name: "xero",
     country_code: "SE"
   },
-  "Ysbaddaden": {
+  Ysbaddaden: {
     name: "Ysbaddaden",
     country_code: "RU"
   },
-  "Zalon": {
+  Zalon: {
     name: "Zalon",
     country_code: "DK"
   },
-  "Zepp": {
+  Zepp: {
     name: "Zepp",
     country_code: "RU"
   },
-  "zigg": {
+  zigg: {
     name: "zigg",
     country_code: "GB"
-  },
-  "Znappe": {
-    name: "Znappe",
-    country_code: "SE"
   },
   "Åke Vader": {
     name: "Åke Vader",
