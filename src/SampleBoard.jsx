@@ -128,7 +128,6 @@ class SampleBoard extends React.Component {
         .reduce((accumulator, currentValue) => accumulator + currentValue, 0) -
       this.state.teams["playerPool"].playerNames.length;
 
-    const numberOfTeams = Object.values(this.state.teams).length - 1;
     const pickLimit = Object.values(players).length;
     const draftStatus =
       pickedPlayerCount === pickLimit ? "completed" : "in-progress";
@@ -139,24 +138,33 @@ class SampleBoard extends React.Component {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
     }
 
-    let captainDiv;
-    const div1PickLimit = 7 * (4 + 1);
-    const div2PickLimit = div1PickLimit + 8 * (4 + 1);
+    const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
 
-    if (pickedPlayerCount <= div1PickLimit) {
+    let captainDiv;
+    const div1CaptainPickLimit = 7 * (4 + 1);
+    const div2CaptainPickLimit = div1CaptainPickLimit + (8 * 4);
+
+    if (pickedPlayerCount <= div1CaptainPickLimit) {
       captainDiv = 1;
-    } else if (pickedPlayerCount <= div2PickLimit) {
+    } else if (pickedPlayerCount <= div2CaptainPickLimit) {
       captainDiv = 2;
     } else {
       captainDiv = 3;
     }
 
-    const teamCount = pickedPlayerCount < 7 * 4 ? 7 : 8;
+    let teamCount;
+    let adjustedPickedPlayerCount;
 
-    const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
+    if (pickedPlayerCount < (7 * 4)) {
+      teamCount = 7;
+      adjustedPickedPlayerCount = pickedPlayerCount;
+    } else {
+      teamCount = 8;
+      adjustedPickedPlayerCount = 4 + pickedPlayerCount;
+    }
 
-    const pickRound = 1 + Math.floor(this.state.pickIndex / numberOfTeams);
-    const pickNumber = 1 + (this.state.pickIndex % numberOfTeams);
+    const pickRound = Math.floor(adjustedPickedPlayerCount / teamCount);
+    const pickNumber = 1 + (adjustedPickedPlayerCount % teamCount);
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
