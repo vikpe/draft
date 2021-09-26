@@ -134,6 +134,10 @@ export const players = {
     name: "[o]djevulsk",
     country_code: "SE"
   },
+  dobeZz: {
+    name: "dobeZz",
+    country_code: "GB"
+  },
   dopesklillz: {
     name: "dopesklillz",
     country_code: "DE"
@@ -153,10 +157,6 @@ export const players = {
   eppe: {
     name: "eppe",
     country_code: "SE"
-  },
-  Fentanyl: {
-    name: "Fentanyl",
-    country_code: "GB"
   },
   FinalExit: {
     name: "FinalExit",

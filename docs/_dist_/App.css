@@ -75,6 +75,9 @@
   flex: 0 1 100%;
 }
 
+.app-draft-status-completed .app-team-id-playerPool {
+  opacity: 0 !important;
+}
 .app-draft-status-completed .app-team-id-playerPool > .app-team-title,
 .app-draft-status-completed .app-team-id-playerPool .app-player {
   opacity: 0.3 !important;

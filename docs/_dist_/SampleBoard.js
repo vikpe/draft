@@ -111,7 +111,6 @@ class SampleBoard extends React.Component {
     const playersByTeam = team => team.playerNames.map(playerId => this.state.players[playerId]);
 
     const pickedPlayerCount = Object.values(this.state.teams).map(t => t.playerNames.length).reduce((accumulator, currentValue) => accumulator + currentValue, 0) - this.state.teams["playerPool"].playerNames.length;
-    const numberOfTeams = Object.values(this.state.teams).length - 1;
     const pickLimit = Object.values(players).length;
     const draftStatus = pickedPlayerCount === pickLimit ? "completed" : "in-progress";
     let indexOfTeamToPick = -1;
@@ -120,22 +119,32 @@ class SampleBoard extends React.Component {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
     }
 
+    const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     let captainDiv;
-    const div1PickLimit = 7 * (4 + 1);
-    const div2PickLimit = div1PickLimit + 8 * (4 + 1);
+    const div1CaptainPickLimit = 7 * (4 + 1);
+    const div2CaptainPickLimit = div1CaptainPickLimit + 8 * 4;
 
-    if (pickedPlayerCount <= div1PickLimit) {
+    if (pickedPlayerCount <= div1CaptainPickLimit) {
       captainDiv = 1;
-    } else if (pickedPlayerCount <= div2PickLimit) {
+    } else if (pickedPlayerCount <= div2CaptainPickLimit) {
       captainDiv = 2;
     } else {
       captainDiv = 3;
     }
 
-    const teamCount = pickedPlayerCount < 7 * 4 ? 7 : 8;
-    const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
-    const pickRound = 1 + Math.floor(this.state.pickIndex / numberOfTeams);
-    const pickNumber = 1 + this.state.pickIndex % numberOfTeams;
+    let teamCount;
+    let adjustedPickedPlayerCount;
+
+    if (pickedPlayerCount < 7 * 4) {
+      teamCount = 7;
+      adjustedPickedPlayerCount = pickedPlayerCount;
+    } else {
+      teamCount = 8;
+      adjustedPickedPlayerCount = 4 + pickedPlayerCount;
+    }
+
+    const pickRound = Math.floor(adjustedPickedPlayerCount / teamCount);
+    const pickNumber = 1 + adjustedPickedPlayerCount % teamCount;
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
     }, /*#__PURE__*/React.createElement("div", {
