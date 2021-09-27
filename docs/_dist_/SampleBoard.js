@@ -120,31 +120,18 @@ class SampleBoard extends React.Component {
     }
 
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
-    let captainDiv;
-    const div1CaptainPickLimit = 7 * (4 + 1);
-    const div2CaptainPickLimit = div1CaptainPickLimit + 8 * 4;
+    const teamCount = Object.values(this.state.teams).length - 1;
+    let captainNumber;
+    const captainPickLimit = teamCount * 5;
 
-    if (pickedPlayerCount <= div1CaptainPickLimit) {
-      captainDiv = 1;
-    } else if (pickedPlayerCount <= div2CaptainPickLimit) {
-      captainDiv = 2;
+    if (pickedPlayerCount < captainPickLimit) {
+      captainNumber = 1;
     } else {
-      captainDiv = 3;
+      captainNumber = 2;
     }
 
-    let teamCount;
-    let adjustedPickedPlayerCount;
-
-    if (pickedPlayerCount < 7 * 4) {
-      teamCount = 7;
-      adjustedPickedPlayerCount = pickedPlayerCount;
-    } else {
-      teamCount = 8;
-      adjustedPickedPlayerCount = 4 + pickedPlayerCount;
-    }
-
-    const pickRound = Math.floor(adjustedPickedPlayerCount / teamCount);
-    const pickNumber = 1 + adjustedPickedPlayerCount % teamCount;
+    const pickRound = Math.floor(pickedPlayerCount / teamCount);
+    const pickNumber = 1 + pickedPlayerCount % teamCount;
     return /*#__PURE__*/React.createElement(DragDropContext, {
       onDragEnd: this.onDragEnd
     }, /*#__PURE__*/React.createElement("div", {
@@ -161,7 +148,7 @@ class SampleBoard extends React.Component {
       href: "#",
       onClick: this.handleUndoClick
     }, "Undo last action"))), /*#__PURE__*/React.createElement("div", {
-      className: `app-draft app-draft-status-${draftStatus} app-captaindiv-${captainDiv} app-teamcount-${teamCount}`
+      className: `app-draft app-draft-status-${draftStatus} app-captain-${captainNumber} app-teamcount-${teamCount}`
     }, /*#__PURE__*/React.createElement("div", {
       className: "app-teams-container"
     }, sortedTeams.map((team, teamIndex) => /*#__PURE__*/React.createElement(Team, {

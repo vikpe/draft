@@ -9,9 +9,7 @@ index team
 1     mm
 0     nigve
 */
-export const pickOrder = [// div 1 players
-0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, // div 2 captains
-7, 6, 5, 4, 3, 2, 1, 0, // div 2 players
+export const pickOrder = [// div 2 players
 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, // div 3 captains
 7, 6, 5, 4, 3, 2, 1, 0, // div 3 players
 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, 7, 6, 5, 4, 3, 2, 1, 0];
@@ -19,56 +17,56 @@ export const teams = {
   Rotfish: {
     id: "Rotfish",
     name: "Rotfish",
-    playerNames: ["Milton"],
+    playerNames: ["overflow/ovr"],
     theme: "Rotfish",
     sortOrder: 7
   },
   Spawn: {
     id: "Spawn",
     name: "Spawn",
-    playerNames: ["bps"],
+    playerNames: ["maks"],
     theme: "Spawn",
     sortOrder: 6
   },
   Shambler: {
     id: "Shambler",
     name: "Shambler",
-    playerNames: ["XantoM"],
+    playerNames: ["lordlame"],
     theme: "Shambler",
     sortOrder: 5
   },
   Fiend: {
     id: "Fiend",
     name: "Fiend",
-    playerNames: ["Creature"],
+    playerNames: ["Sniegov"],
     theme: "Fiend",
     sortOrder: 4
   },
   Zombie: {
     id: "Zombie",
     name: "Zombie",
-    playerNames: ["raket"],
+    playerNames: ["xero"],
     theme: "Zombie",
     sortOrder: 3
   },
   Gombie: {
     id: "Gombie",
     name: "Gombie",
-    playerNames: ["mm"],
+    playerNames: ["samon"],
     theme: "Gombie",
     sortOrder: 2
   },
   Enforcer: {
     id: "Enforcer",
     name: "Enforcer",
-    playerNames: ["nigve"],
+    playerNames: ["kip"],
     theme: "Enforcer",
     sortOrder: 1
   },
   AdminPick: {
     id: "AdminPick",
     name: "AdminPick",
-    playerNames: [],
+    playerNames: ["Grc"],
     theme: "AdminPick",
     sortOrder: 8
   }
@@ -90,14 +88,6 @@ export const players = {
     name: "Anza",
     country_code: "FI"
   },
-  bps: {
-    name: "bps",
-    country_code: "SE"
-  },
-  "Billy The Kid": {
-    name: "Billy The Kid",
-    country_code: "RU"
-  },
   coj: {
     name: "coj",
     country_code: "US"
@@ -105,14 +95,6 @@ export const players = {
   conan: {
     name: "conan",
     country_code: "SE"
-  },
-  Creature: {
-    name: "Creature",
-    country_code: "FI"
-  },
-  dev: {
-    name: "dev",
-    country_code: "ES"
   },
   ".devil": {
     name: ".devil",
@@ -125,10 +107,6 @@ export const players = {
   diehuman: {
     name: "diehuman",
     country_code: "PT"
-  },
-  Diki: {
-    name: "Diki",
-    country_code: "FI"
   },
   "[o]djevulsk": {
     name: "[o]djevulsk",
@@ -166,25 +144,9 @@ export const players = {
     name: "Flamer",
     country_code: "CZ"
   },
-  Gamer: {
-    name: "Gamer",
-    country_code: "FI"
-  },
-  ganon: {
-    name: "ganon",
-    country_code: "SE"
-  },
-  gLAd: {
-    name: "gLAd",
-    country_code: "RU"
-  },
   Goniec: {
     name: "Goniec",
     country_code: "PL"
-  },
-  gor: {
-    name: "gor",
-    country_code: "RU"
   },
   Grc: {
     name: "Grc",
@@ -194,17 +156,9 @@ export const players = {
     name: "Grl",
     country_code: "PL"
   },
-  HangTime: {
-    name: "HangTime",
-    country_code: "GB"
-  },
   HaraldQuake: {
     name: "HaraldQuake",
     country_code: "DE"
-  },
-  HENU: {
-    name: "HENU",
-    country_code: "FI"
   },
   Hooraytio: {
     name: "Hooraytio",
@@ -213,10 +167,6 @@ export const players = {
   hyrveli: {
     name: "hyrveli",
     country_code: "FI"
-  },
-  "-insane-": {
-    name: "-insane-",
-    country_code: "PL"
   },
   kip: {
     name: "kip",
@@ -246,10 +196,6 @@ export const players = {
     name: "lurq",
     country_code: "SE"
   },
-  Macler: {
-    name: "Macler",
-    country_code: "PL"
-  },
   mads: {
     name: "mads",
     country_code: "RU"
@@ -257,14 +203,6 @@ export const players = {
   maks: {
     name: "maks",
     country_code: "PL"
-  },
-  Milton: {
-    name: "Milton",
-    country_code: "FI"
-  },
-  mm: {
-    name: "mm",
-    country_code: "SE"
   },
   MolkyPolky: {
     name: "MolkyPolky",
@@ -294,25 +232,13 @@ export const players = {
     name: "Nidweyr",
     country_code: "UA"
   },
-  nigve: {
-    name: "nigve",
-    country_code: "NO"
-  },
   nitemare: {
     name: "nitemare",
     country_code: "PT"
   },
-  niw: {
-    name: "niw",
-    country_code: "DK"
-  },
   ocoini: {
     name: "ocoini",
     country_code: "NO"
-  },
-  Ok98: {
-    name: "Ok98",
-    country_code: "SE"
   },
   omicron: {
     name: "omicron",
@@ -330,10 +256,6 @@ export const players = {
     name: "Panjabi",
     country_code: "FI"
   },
-  ParadokS: {
-    name: "ParadokS",
-    country_code: "DK"
-  },
   pattah: {
     name: "pattah",
     country_code: "DE"
@@ -345,14 +267,6 @@ export const players = {
   PreMorteM: {
     name: "PreMorteM",
     country_code: "NO"
-  },
-  raket: {
-    name: "raket",
-    country_code: "SE"
-  },
-  razor: {
-    name: "razor",
-    country_code: "SE"
   },
   Respa: {
     name: "Respa",
@@ -370,17 +284,9 @@ export const players = {
     name: "Rotker",
     country_code: "PL"
   },
-  sae: {
-    name: "sae",
-    country_code: "GB"
-  },
   samon: {
     name: "samon",
     country_code: "PL"
-  },
-  Shaka: {
-    name: "Shaka",
-    country_code: "SE"
   },
   skurk: {
     name: "skurk",
@@ -389,10 +295,6 @@ export const players = {
   Sniegov: {
     name: "Sniegov",
     country_code: "PL"
-  },
-  SplasH: {
-    name: "SplasH",
-    country_code: "SE"
   },
   splif: {
     name: "splif",
@@ -414,10 +316,6 @@ export const players = {
     name: "TiMMi",
     country_code: "NO"
   },
-  Tom: {
-    name: "Tom",
-    country_code: "PL"
-  },
   Toma: {
     name: "Toma",
     country_code: "HU"
@@ -438,14 +336,6 @@ export const players = {
     name: "Valde",
     country_code: "DK"
   },
-  Wimpeeh: {
-    name: "Wimpeeh",
-    country_code: "NL"
-  },
-  XantoM: {
-    name: "XantoM",
-    country_code: "SE"
-  },
   xero: {
     name: "xero",
     country_code: "SE"
@@ -457,10 +347,6 @@ export const players = {
   Zalon: {
     name: "Zalon",
     country_code: "DK"
-  },
-  Zepp: {
-    name: "Zepp",
-    country_code: "RU"
   },
   zigg: {
     name: "zigg",
