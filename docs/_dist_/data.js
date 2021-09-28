@@ -10,65 +10,58 @@ index team
 0     nigve
 */
 export const pickOrder = [// div 2 players
-0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, // div 3 captains
-7, 6, 5, 4, 3, 2, 1, 0, // div 3 players
-0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, 7, 6, 5, 4, 3, 2, 1, 0];
+0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, // div 3 captains
+6, 5, 4, 3, 2, 1, 0, // div 3 players
+0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, 6, 5, 4, 3, 2, 1, 0];
 export const teams = {
-  Rotfish: {
-    id: "Rotfish",
-    name: "Rotfish",
-    playerNames: ["overflow/ovr"],
-    theme: "Rotfish",
-    sortOrder: 7
-  },
   Spawn: {
     id: "Spawn",
     name: "Spawn",
-    playerNames: ["maks"],
+    playerNames: ["overflow/ovr"],
     theme: "Spawn",
-    sortOrder: 6
+    sortOrder: 7
   },
   Shambler: {
     id: "Shambler",
     name: "Shambler",
-    playerNames: ["lordlame"],
+    playerNames: ["maks"],
     theme: "Shambler",
-    sortOrder: 5
+    sortOrder: 6
   },
   Fiend: {
     id: "Fiend",
     name: "Fiend",
     playerNames: ["Sniegov"],
     theme: "Fiend",
-    sortOrder: 4
+    sortOrder: 5
   },
   Zombie: {
     id: "Zombie",
     name: "Zombie",
     playerNames: ["xero"],
     theme: "Zombie",
-    sortOrder: 3
+    sortOrder: 4
   },
   Gombie: {
     id: "Gombie",
     name: "Gombie",
     playerNames: ["samon"],
     theme: "Gombie",
-    sortOrder: 2
+    sortOrder: 3
   },
   Enforcer: {
     id: "Enforcer",
     name: "Enforcer",
     playerNames: ["kip"],
     theme: "Enforcer",
-    sortOrder: 1
+    sortOrder: 2
   },
-  AdminPick: {
-    id: "AdminPick",
-    name: "AdminPick",
-    playerNames: ["Grc"],
-    theme: "AdminPick",
-    sortOrder: 8
+  Rotfish: {
+    id: "Rotfish",
+    name: "Rotfish",
+    playerNames: ["Link"],
+    theme: "Rotfish",
+    sortOrder: 1
   }
 };
 export const players = {
@@ -116,8 +109,8 @@ export const players = {
     name: "dobeZz",
     country_code: "GB"
   },
-  dopesklillz: {
-    name: "dopesklillz",
+  Dopeskillz: {
+    name: "Dopeskillz",
     country_code: "DE"
   },
   Effie: {
@@ -147,10 +140,6 @@ export const players = {
   Goniec: {
     name: "Goniec",
     country_code: "PL"
-  },
-  Grc: {
-    name: "Grc",
-    country_code: "SE"
   },
   Grl: {
     name: "Grl",
@@ -183,10 +172,6 @@ export const players = {
   Link: {
     name: "Link",
     country_code: "NO"
-  },
-  lordlame: {
-    name: "lordlame",
-    country_code: "IE"
   },
   Luckyshot: {
     name: "Luckyshot",
