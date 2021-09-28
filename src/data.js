@@ -12,72 +12,65 @@ index team
 
 export const pickOrder = [
   // div 2 players
-  0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0,
+  0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0,
 
   // div 3 captains
-  7, 6, 5, 4, 3, 2, 1, 0,
+  6, 5, 4, 3, 2, 1, 0,
 
   // div 3 players
-  0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, 7, 6,
+  0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, 6,
   5, 4, 3, 2, 1, 0,
 ];
 
 export const teams = {
-  Rotfish: {
-    id: "Rotfish",
-    name: "Rotfish",
-    playerNames: ["overflow/ovr"],
-    theme: "Rotfish",
-    sortOrder: 7,
-  },
   Spawn: {
     id: "Spawn",
     name: "Spawn",
-    playerNames: ["maks"],
+    playerNames: ["overflow/ovr"],
     theme: "Spawn",
-    sortOrder: 6,
+    sortOrder: 7,
   },
   Shambler: {
     id: "Shambler",
     name: "Shambler",
-    playerNames: ["lordlame"],
+    playerNames: ["maks"],
     theme: "Shambler",
-    sortOrder: 5,
+    sortOrder: 6,
   },
   Fiend: {
     id: "Fiend",
     name: "Fiend",
     playerNames: ["Sniegov"],
     theme: "Fiend",
-    sortOrder: 4,
+    sortOrder: 5,
   },
   Zombie: {
     id: "Zombie",
     name: "Zombie",
     playerNames: ["xero"],
     theme: "Zombie",
-    sortOrder: 3,
+    sortOrder: 4,
   },
   Gombie: {
     id: "Gombie",
     name: "Gombie",
     playerNames: ["samon"],
     theme: "Gombie",
-    sortOrder: 2,
+    sortOrder: 3,
   },
   Enforcer: {
     id: "Enforcer",
     name: "Enforcer",
     playerNames: ["kip"],
     theme: "Enforcer",
-    sortOrder: 1,
+    sortOrder: 2,
   },
-  AdminPick: {
-    id: "AdminPick",
-    name: "AdminPick",
-    playerNames: ["Grc"],
-    theme: "AdminPick",
-    sortOrder: 8,
+  Rotfish: {
+    id: "Rotfish",
+    name: "Rotfish",
+    playerNames: ["Link"],
+    theme: "Rotfish",
+    sortOrder: 1,
   },
 };
 
@@ -93,7 +86,7 @@ export const players = {
   diehuman: { name: "diehuman", country_code: "PT" },
   "[o]djevulsk": { name: "[o]djevulsk", country_code: "SE" },
   dobeZz: { name: "dobeZz", country_code: "GB" },
-  dopesklillz: { name: "dopesklillz", country_code: "DE" },
+  Dopeskillz: { name: "Dopeskillz", country_code: "DE" },
   Effie: { name: "Effie", country_code: "NO" },
   Eikooren: { name: "Eikooren", country_code: "SE" },
   Elguapo: { name: "Elguapo", country_code: "SE" },
@@ -101,7 +94,6 @@ export const players = {
   FinalExit: { name: "FinalExit", country_code: "MT" },
   Flamer: { name: "Flamer", country_code: "CZ" },
   Goniec: { name: "Goniec", country_code: "PL" },
-  Grc: { name: "Grc", country_code: "SE" },
   Grl: { name: "Grl", country_code: "PL" },
   HaraldQuake: { name: "HaraldQuake", country_code: "DE" },
   Hooraytio: { name: "Hooraytio", country_code: "SE" },
@@ -110,7 +102,6 @@ export const players = {
   Klice: { name: "Klice", country_code: "FR" },
   knasty: { name: "knasty", country_code: "DE" },
   Link: { name: "Link", country_code: "NO" },
-  lordlame: { name: "lordlame", country_code: "IE" },
   Luckyshot: { name: "Luckyshot", country_code: "FI" },
   lurq: { name: "lurq", country_code: "SE" },
   mads: { name: "mads", country_code: "RU" },
