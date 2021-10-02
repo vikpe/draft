@@ -121,14 +121,8 @@ class SampleBoard extends React.Component {
 
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
     const teamCount = Object.values(this.state.teams).length - 1;
-    let captainNumber;
+    let captainNumber = 1;
     const captainPickLimit = teamCount * 5;
-
-    if (pickedPlayerCount < captainPickLimit) {
-      captainNumber = 1;
-    } else {
-      captainNumber = 2;
-    }
 
     const pickRound = Math.floor(pickedPlayerCount / teamCount);
     const pickNumber = 1 + pickedPlayerCount % teamCount;
