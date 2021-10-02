@@ -177,10 +177,6 @@ export const players = {
     name: "Luckyshot",
     country_code: "FI"
   },
-  lurq: {
-    name: "lurq",
-    country_code: "SE"
-  },
   mads: {
     name: "mads",
     country_code: "RU"
