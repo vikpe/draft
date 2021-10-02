@@ -155,8 +155,7 @@
   color: transparent;
 }
 
-.app-team-theme .app-player:nth-child(1) .app-player-content:after,
-.app-team-theme .app-player:nth-child(5) .app-player-content:after {
+.app-team-theme .app-player:nth-child(1) .app-player-content:after {
   margin-left: auto;
   font-size: 1.2em;
   content: "\2605"; /* Star in UTF8 */
