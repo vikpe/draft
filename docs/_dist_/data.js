@@ -9,10 +9,22 @@ index team
 1     mm
 0     nigve
 */
+
+export const pickOrder = [
+6,5,4,3,2,1,0,
+6,5,4,3,2,1,0,
+0,1,2,3,4,5,6,
+0,1,2,3,4,5,6,
+3,4,5,6
+];
+
+/*
 export const pickOrder = [// div 2 players
 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, // div 3 captains
 6, 5, 4, 3, 2, 1, 0, // div 3 players
 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0, 6, 5, 4, 3, 2, 1, 0];
+*/
+
 export const teams = {
   Spawn: {
     id: "Spawn",
