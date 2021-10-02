@@ -140,10 +140,6 @@
   border-radius: 1em;
 }
 
-.app-teamcount-7 .app-team-theme:nth-child(8) {
-  display: none;
-}
-
 .app-team-theme .app-team-droppable {
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -167,9 +163,6 @@
 }
 
 .app-team-theme .app-player:nth-child(1) .app-player-content:after {
-  color: #999;
-}
-.app-team-theme .app-player:nth-child(5) .app-player-content:after {
   color: saddlebrown;
 }
 
@@ -180,10 +173,6 @@
 .app-draft-status-completed .app-player,
 .app-team-highlight .app-player {
   opacity: 1;
-}
-
-.app-team-theme .app-player:nth-child(5) {
-  margin-top: 2em;
 }
 
 /* highlight picking captain/squad */
