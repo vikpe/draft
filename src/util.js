@@ -1,5 +1,3 @@
-export const siteUrl = url => new URL(url, import.meta.env.BASE_URL).toString();
-
 export function deepCopy(o) {
   // Cas de base
   if (

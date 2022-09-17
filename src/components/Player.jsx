@@ -1,6 +1,5 @@
 import React from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import { siteUrl } from "../util.js";
 
 // const getDraggableClassName = (snapshot) => {
 //   const classNames = ["app-player-draggable"];
@@ -17,7 +16,7 @@ export const PlayerDetails = (props) => {
 
   return (
     <div className="flex items-center space-x-2 p-1.5 bg-gradient-to-b from-white to-gray-300 rounded text-xl shadow">
-      <img src={siteUrl(`/assets/img/flags/32/${player.country_code}.png`)} width={32} />
+      <img src={`assets/img/flags/32/${player.country_code}.png`} width={32} />
       <span>{player.name}</span>
     </div>
   )
