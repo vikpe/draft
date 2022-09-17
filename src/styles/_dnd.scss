@@ -37,6 +37,6 @@
 #app-playerpool, #app-teams {
   .dnd-draggable:hover,
   .dnd-draggable.dnd-isDragging {
-    @apply bg-gradient-to-b from-yellow-100 to-yellow-300 max-w-[200px] shadow text-black;
+    @apply bg-gradient-to-b from-yellow-100 to-yellow-300 max-w-[160px] shadow text-black;
   }
 }
