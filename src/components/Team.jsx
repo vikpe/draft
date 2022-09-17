@@ -1,8 +1,8 @@
 import React from "react";
-import Player from "./Player.jsx";
+import { DraggablePlayer } from "./Player.jsx";
 import { Droppable } from "react-beautiful-dnd";
 
-const getDroppableClassNames = (snapshot) => {
+const getDndClassNames = (snapshot) => {
   const classNames = ["app-team-droppable"];
 
   if (snapshot.isDraggingOver) {
@@ -12,46 +12,23 @@ const getDroppableClassNames = (snapshot) => {
   return classNames.join(" ");
 };
 
-const getClassNames = (props) => {
-  const classNames = ["app-team", `app-team-id-${props.team.id}`];
+export const DroppablePlayerList = props => {
+  const { id, players } = props;
 
-  if (props.highlight) {
-    classNames.push("app-team-highlight");
-  }
-
-  if (props.team.hasOwnProperty("theme")) {
-    classNames.push(`app-team-theme app-team-theme-${props.team.theme}`);
-  }
-
-  return classNames.join(" ");
-};
-
-class Team extends React.Component {
-  render() {
-    const isPlayerPool = this.props.team.id === "playerPool";
-    const direction = isPlayerPool ? "horizontal" : "vertical";
-
-    return (
-      <div className={getClassNames(this.props)}>
-        <div className="app-team-title">{this.props.team.name}</div>
-
-        <Droppable droppableId={this.props.team.id} direction={direction}>
-          {(provided, snapshot) => (
-            <div
-              className={getDroppableClassNames(snapshot)}
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              {this.props.players.map((player, index) => (
-                <Player key={player.name} player={player} index={index} />
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </div>
-    );
-  }
+  return (
+    <Droppable droppableId={id}>
+      {(provided, snapshot) => (
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          {players.map((player, index) => (
+            <DraggablePlayer key={index} index={index} player={player} />
+          ))}
+        </div>
+      )}
+    </Droppable>
+  );
 }
 
-export default Team;

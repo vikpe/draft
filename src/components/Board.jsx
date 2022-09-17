@@ -1,15 +1,26 @@
 import React from "react";
 import { DragDropContext } from "react-beautiful-dnd";
-import { deepCopy, playersInTeams, sortTeams } from "../util.js";
+import { deepCopy, sortTeams } from "../util.js";
 import { pickOrder, players, teams } from "../data.js";
-import { move, reorderList, shouldReorderState } from "./dnd.js";
-import Team from "./Team.jsx";
+import { move, reorderList, shouldReorderState } from "../dnd.js";
 
-teams.playerPool = {
-  id: "playerPool",
-  name: "Player Pool",
-  playerNames: Object.keys(players).filter((p) => !playersInTeams.includes(p)),
-};
+import _chunk from "lodash.chunk"
+import { DroppablePlayerList } from "./Player.jsx";
+
+// add player pools
+function appendPlayerPoolTeams() {
+  const playersInTeams = Object.values(teams)
+    .map((t) => t.playerNames)
+    .reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
+  const playerPoolPlayerNames = Object.keys(players).filter((p) => !playersInTeams.includes(p));
+
+  _chunk(playerPoolPlayerNames, 14).map((playerNames, index) => {
+    const id = `playerpool-${index}`;
+    teams[id] = { id, playerNames }
+  });
+}
+
+appendPlayerPoolTeams()
 
 const getDefaultData = () => deepCopy({ teams, players, pickIndex: 0 });
 
@@ -41,11 +52,11 @@ class Board extends React.Component {
   onDragEnd = (result) => {
     const { destination, source } = result;
 
-    this.stateHistory.push(deepCopy(this.state));
-
     if (!shouldReorderState(destination, source)) {
       return;
     }
+
+    this.stateHistory.push(deepCopy(this.state));
 
     if (source.droppableId === destination.droppableId) {
       const team = this.state.teams[source.droppableId];
@@ -74,67 +85,74 @@ class Board extends React.Component {
   };
 
   render() {
-    const playersByTeam = (team) =>
-      team.playerNames.map((playerId) => this.state.players[playerId]);
+    const playersByNames = (names) => names.map((name) => this.state.players[name]);
 
-    const pickedPlayerCount =
-      Object.values(this.state.teams)
-        .map((t) => t.playerNames.length)
-        .reduce((accumulator, currentValue) => accumulator + currentValue, 0) -
-      this.state.teams["playerPool"].playerNames.length;
+    const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
+    const captainTeams = sortedTeams.filter(t => !t.id.includes("playerpool"))
+    const playerPoolTeams = sortedTeams.filter(t => t.id.includes("playerpool"))
 
-    const pickLimit = Object.values(players).length;
+    const pickCount = captainTeams
+      .map((t) => t.playerNames.length)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    const pickRound = Math.floor(pickCount / captainTeams.length);
+    const pickNumber = 1 + (pickCount % captainTeams.length);
+
+    const pickLimit = captainTeams.length * 4;
     const draftStatus =
-      pickedPlayerCount === pickLimit ? "completed" : "in-progress";
+      pickCount === pickLimit ? "completed" : "in-progress";
 
     let indexOfTeamToPick = -1;
 
-    if (pickedPlayerCount < pickLimit) {
+    if (pickCount < pickLimit) {
       indexOfTeamToPick = pickOrder[this.state.pickIndex % pickOrder.length];
     }
 
-    const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
-    const teamCount = Object.values(this.state.teams).length - 1;
-
-    let captainNumber;
-    const captainPickLimit = teamCount * 5;
-
-    if (pickedPlayerCount < captainPickLimit) {
-      captainNumber = 1;
-    } else {
-      captainNumber = 2;
-    }
-
-    const pickRound = Math.floor(pickedPlayerCount / teamCount);
-    const pickNumber = 1 + (pickedPlayerCount % teamCount);
-
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div className={"app-controls"}>
-          Round <span style={{ color: "cyan" }}>{pickRound}</span>, pick{" "}
-          <span style={{ color: "cyan" }}>{pickNumber}</span>
-          &nbsp;&nbsp;&nbsp;
+        <ul className="text-white hidden">
+          <li>this.state.pickIndex: {this.state.pickIndex}</li>
+          <li>indexOfTeamToPick: {indexOfTeamToPick}</li>
+          <li>pickCount: {pickCount}</li>
+        </ul>
+        <div className="app-controls text-white text-2xl mb-4">
+          Round <span className="text-cyan-300">{pickRound}</span>, pick{" "}
+          <span className="text-cyan-300">{pickNumber}</span>
           {this.stateHistory.length > 0 && (
-            <span>
-              &nbsp;&nbsp;&nbsp;
-              <a href="#" onClick={this.handleUndoClick}>
+            <span className="ml-4">
+              <a href="#" onClick={this.handleUndoClick} className="text-fuchsia-600 hover:text-fuchsia-400">
                 Undo last action
               </a>
             </span>
           )}
         </div>
-        <div
-          className={`app-draft app-draft-status-${draftStatus} app-captain-${captainNumber} app-teamcount-${teamCount}`}
-        >
-          <div className="app-teams-container">
-            {sortedTeams.map((team, teamIndex) => (
-              <Team
-                key={team.id}
-                team={team}
-                players={playersByTeam(team)}
-                highlight={indexOfTeamToPick === teamIndex}
-              />
-            ))}
+        <div>
+          <div
+            className={`app-draft app-draft-status-${draftStatus}`}
+          >
+            <div className={`grid gap-6 grid-cols-6`}>
+              {captainTeams.map((team, index) => (
+                <div className="p-4 bg-black/30 rounded-lg border-4 border-black">
+                  <DroppablePlayerList
+                    key={team.id}
+                    id={team.id}
+                    players={playersByNames(team.playerNames)}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <br />
+
+            <div className="p-4 bg-black/50 rounded-xl">
+              <div className="grid gap-6 grid-cols-6">
+                {
+                  playerPoolTeams.map((team, index) => (
+                    <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
+                  ))
+                }
+              </div>
+            </div>
           </div>
         </div>
       </DragDropContext>

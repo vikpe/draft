@@ -5,11 +5,18 @@
 body {
   background: black url(../static/img/wallpaper.jpg) no-repeat;
   background-size: cover;
-  margin: 0;
   font-family: "Boogaloo", cursive, -apple-system, BlinkMacSystemFont,
   "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
   "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+}
+
+
+.debug {
+  border: 1px solid red;
+
+  > * {
+    border: 1px solid yellow;
+  }
 }

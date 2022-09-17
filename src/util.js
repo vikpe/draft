@@ -1,5 +1,3 @@
-import { teams } from "./data.js";
-
 export function deepCopy(o) {
   // Cas de base
   if (
@@ -48,7 +46,3 @@ export const sortTeams = (a, b) => {
     return 0;
   }
 };
-
-export const playersInTeams = Object.values(teams)
-  .map((t) => t.playerNames)
-  .reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);

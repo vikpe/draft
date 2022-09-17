@@ -11,9 +11,9 @@ index team
 
 export const pickOrder = [
   // div 1 players
-  0, 1, 2, 3, 4, 5, 6,
-  0, 1, 2, 3, 4, 5, 6,
-  6, 5, 4, 3, 2, 1, 0,
+  0, 1, 2, 3, 4, 5,
+  0, 1, 2, 3, 4, 5,
+  5, 4, 3, 2, 1, 0,
 ];
 
 export const teams = {
