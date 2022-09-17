@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "react": "./react.js",
-    "react-beautiful-dnd": "./react-beautiful-dnd.js",
-    "react-dom": "./react-dom.js"
-  }
-}

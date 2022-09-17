@@ -1,4 +1,0 @@
-include: [
-  "_snowpack",
-  "_dist_",
-]
