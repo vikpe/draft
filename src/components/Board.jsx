@@ -130,28 +130,22 @@ class Board extends React.Component {
           <div
             className={`app-draft app-draft-status-${draftStatus}`}
           >
-            <div className={`grid gap-6 grid-cols-6`}>
+            <div id="app-teams" className={`grid gap-6 grid-cols-6 mb-6`}>
               {captainTeams.map((team, index) => (
-                <div className="p-4 bg-black/30 rounded-lg border-4 border-black">
-                  <DroppablePlayerList
-                    key={team.id}
-                    id={team.id}
-                    players={playersByNames(team.playerNames)}
-                  />
-                </div>
+                <DroppablePlayerList
+                  key={team.id}
+                  id={team.id}
+                  players={playersByNames(team.playerNames)}
+                />
               ))}
             </div>
 
-            <br />
-
-            <div className="p-4 bg-black/50 rounded-xl">
-              <div className="grid gap-6 grid-cols-6">
-                {
-                  playerPoolTeams.map((team, index) => (
-                    <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
-                  ))
-                }
-              </div>
+            <div id="app-playerpool" className="p-4 bg-black/80 rounded-xl grid gap-8 grid-cols-6">
+              {
+                playerPoolTeams.map((team, index) => (
+                  <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
+                ))
+              }
             </div>
           </div>
         </div>

@@ -1,0 +1,42 @@
+.dnd-droppable {
+  @apply transition-colors;
+}
+
+.dnd-draggable {
+  @apply rounded-md;
+
+  &.dnd-isDragging {
+    @apply rounded-md shadow;
+  }
+}
+
+#app-teams {
+  .dnd-droppable {
+    @apply min-h-[250px] bg-black/50 rounded-xl px-4 py-2 border-4 border-black;
+
+    &.dnd-isDraggingOver {
+      @apply bg-cyan-600/30;
+    }
+  }
+
+  .dnd-draggable {
+    @apply my-2 bg-gradient-to-b from-white to-gray-300;
+  }
+}
+
+#app-playerpool {
+  .dnd-draggable {
+    @apply text-white;
+  }
+
+  .dnd-droppable {
+
+  }
+}
+
+#app-playerpool, #app-teams {
+  .dnd-draggable:hover,
+  .dnd-draggable.dnd-isDragging {
+    @apply bg-gradient-to-b from-yellow-100 to-yellow-300 max-w-[200px] shadow text-black;
+  }
+}
