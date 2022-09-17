@@ -24,7 +24,7 @@ const getInitialData = () => {
   }
 };
 
-class SampleBoard extends React.Component {
+class Board extends React.Component {
   state = getInitialData();
   stateHistory = [];
 
@@ -142,4 +142,4 @@ class SampleBoard extends React.Component {
   }
 }
 
-export default SampleBoard;
+export default Board;

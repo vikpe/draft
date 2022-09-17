@@ -1,11 +1,11 @@
 import React from "react";
-import SampleBoard from "./SampleBoard.jsx";
+import Board from "./Board.jsx";
 
 function App() {
   return (
     <div className="app">
       <section>
-        <SampleBoard />
+        <Board />
       </section>
     </div>
   );
