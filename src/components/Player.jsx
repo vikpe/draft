@@ -16,7 +16,7 @@ export const PlayerDetails = (props) => {
 
   return (
     <div className="flex items-center space-x-2 p-1.5 bg-gradient-to-b from-white to-gray-300 rounded text-xl shadow">
-      <img src={`static/flags/32/${player.country_code}.png`} width={32} />
+      <img src={`/assets/img/flags/32/${player.country_code}.png`} width={32} />
       <span>{player.name}</span>
     </div>
   )
