@@ -1,26 +1,9 @@
 import React from "react";
-
 import { DragDropContext } from "react-beautiful-dnd";
-
-import { deepCopy } from "../util.js";
-
-import Team from "./Team.jsx";
-
+import { deepCopy, playersInTeams, sortTeams } from "../util.js";
 import { pickOrder, players, teams } from "../data.js";
-
-const sortTeams = (a, b) => {
-  if (a.sortOrder < b.sortOrder) {
-    return -1;
-  } else if (a.sortOrder > b.sortOrder) {
-    return 1;
-  } else {
-    return 0;
-  }
-};
-
-const playersInTeams = Object.values(teams)
-  .map((t) => t.playerNames)
-  .reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
+import { move, reorderList, shouldReorderState } from "./dnd.js";
+import Team from "./Team.jsx";
 
 teams.playerPool = {
   id: "playerPool",
@@ -39,34 +22,6 @@ const getInitialData = () => {
   } else {
     return getDefaultData();
   }
-};
-
-const shouldReorderState = (destination, source) => {
-  return !(
-    !destination ||
-    (destination.droppableId === source.droppableId &&
-      destination.index === source.index)
-  );
-};
-
-const reorderList = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-
-  return result;
-};
-
-const move = (source, destination, droppableSource, droppableDestination) => {
-  const sourceClone = Array.from(source);
-  const destClone = Array.from(destination);
-  const [removed] = sourceClone.splice(droppableSource.index, 1);
-  destClone.splice(droppableDestination.index, 0, removed);
-
-  return {
-    source: sourceClone,
-    destination: destClone,
-  };
 };
 
 class SampleBoard extends React.Component {
