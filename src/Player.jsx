@@ -28,7 +28,7 @@ class Player extends React.Component {
             >
               <div className="app-player-content">
                 <img
-                  src={`static/flags/32/${this.props.player.country_code.toUpperCase()}.png`}
+                  src={`static/flags/32/${this.props.player.country_code}.png`}
                   width={32}
                   className="app-player-flag"
                 />{" "}
