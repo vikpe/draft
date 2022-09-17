@@ -13,6 +13,7 @@
   color: darkmagenta;
   text-decoration: none;
 }
+
 .app-controls a:hover {
   color: magenta;
 }
@@ -78,6 +79,7 @@
 .app-draft-status-completed .app-team-id-playerPool {
   opacity: 0 !important;
 }
+
 .app-draft-status-completed .app-team-id-playerPool > .app-team-title,
 .app-draft-status-completed .app-team-id-playerPool .app-player {
   opacity: 0.3 !important;
@@ -99,6 +101,7 @@
 /* Player */
 .app-player {
   width: 178px;
+  border: 1px solid red;
 }
 
 .app-player-draggable {
@@ -130,8 +133,8 @@
 
 /* Custom Teams/Themes */
 .app-team-theme {
-  flex: 0 0 11%;
-  min-height: 400px;
+  flex: 0 0 15%;
+  min-height: 320px;
   overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
@@ -167,9 +170,6 @@
 }
 
 .app-team-theme .app-player:nth-child(1) .app-player-content:after {
-  color: #999;
-}
-.app-team-theme .app-player:nth-child(5) .app-player-content:after {
   color: saddlebrown;
 }
 

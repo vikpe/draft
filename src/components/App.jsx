@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import SampleBoard from "./SampleBoard";
+import "../styles/App.scss";
+import SampleBoard from "./SampleBoard.jsx";
 
 function App() {
   return (

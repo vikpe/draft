@@ -2,11 +2,11 @@ import React from "react";
 
 import { DragDropContext } from "react-beautiful-dnd";
 
-import { deepCopy } from "./util";
+import { deepCopy } from "../util.js";
 
-import Team from "./Team";
+import Team from "./Team.jsx";
 
-import { pickOrder, players, teams } from "./data";
+import { pickOrder, players, teams } from "../data.js";
 
 const sortTeams = (a, b) => {
   if (a.sortOrder < b.sortOrder) {
@@ -31,7 +31,7 @@ teams.playerPool = {
 const getDefaultData = () => deepCopy({ teams, players, pickIndex: 0 });
 
 const getInitialData = () => {
-  // return getDefaultData();
+  return getDefaultData();
   const localData = localStorage.getItem("draft");
 
   if (localData) {
@@ -162,7 +162,7 @@ class SampleBoard extends React.Component {
           {this.stateHistory.length > 0 && (
             <span>
               &nbsp;&nbsp;&nbsp;
-              <a href="#" onClick={this.handleUndoClick}>
+              <a href="src/components/SampleBoard.jsx#" onClick={this.handleUndoClick}>
                 Undo last action
               </a>
             </span>
