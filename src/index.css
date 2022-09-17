@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Boogaloo&display=swap");
 
 body {
-  background: black url(static/img/wallpaper.jpg) no-repeat;
+  background: black url(../static/img/wallpaper.jpg) no-repeat;
   background-size: cover;
   margin: 0;
   font-family: "Boogaloo", cursive, -apple-system, BlinkMacSystemFont,

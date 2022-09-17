@@ -1,22 +1,20 @@
 {
+  "name": "draft",
+  "type": "module",
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build && rm -rf docs && mkdir docs && cp -r build/* docs && cp public/_config.yml docs",
-    "publish": "yarn run build && git add -A && git commit -m 'Build site' && git push",
-    "test": "jest",
-    "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx,css}\""
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@babel/plugin-syntax-class-properties": "^7.12.13",
-    "react": "^17.0.2",
-    "react-beautiful-dnd": "^13.1.0",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@snowpack/app-scripts-react": "^2.0.1",
-    "prettier": "^2.4.1",
-    "snowpack": "^3.8.8"
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "vite": "^3.1.0"
   }
 }

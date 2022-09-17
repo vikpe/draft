@@ -1,6 +1,3 @@
-.build/
 .idea/
-build/
-web_modules/
-!docs/web_modules/
+dist/
 node_modules/

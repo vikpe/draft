@@ -204,29 +204,29 @@
 }
 
 .app-team-theme-Rotfish .app-team-title {
-  background-image: url(static/img/Getquad_squad1.png);
+  background-image: url(../static/img/Getquad_squad1.png);
 }
 
 .app-team-theme-Spawn .app-team-title {
-  background-image: url(static/img/Getquad_squad2.png);
+  background-image: url(../static/img/Getquad_squad2.png);
 }
 
 .app-team-theme-Enforcer .app-team-title {
-  background-image: url(static/img/Getquad_squad3.png);
+  background-image: url(../static/img/Getquad_squad3.png);
 }
 
 .app-team-theme-Shambler .app-team-title {
-  background-image: url(static/img/Getquad_squad4.png);
+  background-image: url(../static/img/Getquad_squad4.png);
 }
 
 .app-team-theme-Fiend .app-team-title {
-  background-image: url(static/img/Getquad_squad5.png);
+  background-image: url(../static/img/Getquad_squad5.png);
 }
 
 .app-team-theme-Zombie .app-team-title {
-  background-image: url(static/img/Getquad_squad6.png);
+  background-image: url(../static/img/Getquad_squad6.png);
 }
 
 .app-team-theme-Ogre .app-team-title {
-  background-image: url(static/img/Getquad_squad7.png);
+  background-image: url(../static/img/Getquad_squad7.png);
 }
