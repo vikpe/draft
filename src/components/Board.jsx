@@ -117,7 +117,7 @@ class Board extends React.Component {
           {this.stateHistory.length > 0 && (
             <span>
               &nbsp;&nbsp;&nbsp;
-              <a href="src/components/SampleBoard.jsx#" onClick={this.handleUndoClick}>
+              <a href="#" onClick={this.handleUndoClick}>
                 Undo last action
               </a>
             </span>
