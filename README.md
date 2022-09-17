@@ -1,26 +1,27 @@
 # draft
+
 > Single page web app for drafting
 
 ## Install/getting started
+
 1. Clone repo
 2. `yarn install`
-3. `yarn start --reload` - will serve app @ `http://localhost:8080`
-
+3. `yarn dev` - will serve app @ `http://localhost:5173`
 
 ## Editing players and teams
+
 Edit `src/data.js`
 
 **Example**
+
 ```js
 export const teams = {
   red: {
     id: "red",
-    name: "Team Red",
     playerNames: [],
   },
   blue: {
     id: "blue",
-    name: "Team Blue",
     playerNames: [],
   },
 };
@@ -34,17 +35,17 @@ export const players = {
 ```
 
 ## Development
+
 Start development server at `http://localhost:8080`, live-reloading changes.
+
 ```bash
-yarn start --reload
+yarn dev
 ```
 
 ## Production
-Bundle and output build to `build/`.
+
+Bundle and output build to `dist/`.
+
 ```bash
 yarn build
 ```
-
-
-## Todo
-* **Nice gfx**:  https://github.com/tengbao/vanta
