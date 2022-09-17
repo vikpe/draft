@@ -19,37 +19,31 @@ export const pickOrder = [
 export const teams = {
   Milton: {
     id: "Milton",
-    name: "Milton",
     playerNames: ["Milton"],
     sortOrder: 6,
   },
   bps: {
     id: "bps",
-    name: "bps",
     playerNames: ["bps"],
     sortOrder: 5,
   },
   ParadokS: {
     id: "ParadokS",
-    name: "ParadokS",
     playerNames: ["ParadokS"],
     sortOrder: 4,
   },
   zero: {
     id: "zero",
-    name: "zero",
     playerNames: ["zero"],
     sortOrder: 3,
   },
   razor: {
     id: "razor",
-    name: "razor",
     playerNames: ["razor"],
     sortOrder: 2,
   },
   Gamer: {
     id: "Gamer",
-    name: "Gamer",
     playerNames: ["Gamer"],
     sortOrder: 1,
   },
