@@ -11,35 +11,40 @@ index team
 
 export const pickOrder = [
   // div 1 players
-  0, 1, 2, 3, 4, 5,
-  0, 1, 2, 3, 4, 5,
-  5, 4, 3, 2, 1, 0,
+  0, 1, 2, 3, 4, 5, 6,
+  0, 1, 2, 3, 4, 5, 6,
+  6, 5, 4, 3, 2, 1, 0,
 ];
 
 export const teams = {
   Milton: {
     id: "Milton",
     playerNames: ["Milton"],
-    sortOrder: 6,
+    sortOrder: 7,
   },
   bps: {
     id: "bps",
     playerNames: ["bps"],
-    sortOrder: 5,
+    sortOrder: 6,
   },
   ParadokS: {
     id: "ParadokS",
     playerNames: ["ParadokS"],
-    sortOrder: 4,
+    sortOrder: 5,
   },
   zero: {
     id: "zero",
     playerNames: ["zero"],
-    sortOrder: 3,
+    sortOrder: 4,
   },
   razor: {
     id: "razor",
     playerNames: ["razor"],
+    sortOrder: 3,
+  },
+  Diki: {
+    id: "Diki",
+    playerNames: ["Diki"],
     sortOrder: 2,
   },
   Gamer: {
