@@ -23,7 +23,9 @@ const dndDroppableClasses = (snapshot) => {
 };
 
 export const DroppablePlayerList = props => {
-  const { id, players } = props;
+  const { id, players, highlight } = props;
+
+  const classNames = highlight ? "app-highlight" : "";
 
   return (
     <Droppable droppableId={id}>
@@ -32,7 +34,7 @@ export const DroppablePlayerList = props => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className={dndDroppableClasses(snapshot)}
+          className={`${classNames} ${dndDroppableClasses(snapshot)}`}
         >
           {players.map((player, index) => (
             <DraggablePlayer key={player.name} index={index} player={player} />

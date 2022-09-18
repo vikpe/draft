@@ -136,6 +136,7 @@ class Board extends React.Component {
                   key={team.id}
                   id={team.id}
                   players={playersByNames(team.playerNames)}
+                  highlight={indexOfTeamToPick === index}
                 />
               ))}
             </div>

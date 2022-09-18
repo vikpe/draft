@@ -17,6 +17,10 @@
     &.dnd-isDraggingOver {
       @apply bg-cyan-600/30;
     }
+
+    &.app-highlight {
+      @apply border-cyan-500;
+    }
   }
 
   .dnd-draggable {
