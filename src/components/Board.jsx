@@ -22,6 +22,13 @@ function appendPlayerPoolTeams() {
 
 appendPlayerPoolTeams()
 
+// confetti
+import JSConfetti from 'js-confetti'
+
+const jsConfetti = new JSConfetti()
+let hasUsedConfetti = false;
+
+// data
 const getDefaultData = () => deepCopy({ teams, players, pickIndex: 0 });
 
 const getInitialData = () => {
@@ -100,7 +107,12 @@ class Board extends React.Component {
 
     const pickLimit = captainTeams.length * 4;
     const draftStatus =
-      pickCount === pickLimit ? "completed" : "in-progress";
+      pickCount >= pickLimit ? "completed" : "in-progress";
+
+    if (!hasUsedConfetti && "completed" === draftStatus) {
+      jsConfetti.addConfetti()
+      hasUsedConfetti = true;
+    }
 
     let indexOfTeamToPick = -1;
 
