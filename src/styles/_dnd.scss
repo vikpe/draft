@@ -3,7 +3,7 @@
 }
 
 .dnd-draggable {
-  @apply rounded-md;
+  @apply rounded-md max-w-[160px];
 
   &.dnd-isDragging {
     @apply rounded-md shadow;
@@ -19,7 +19,7 @@
     }
 
     &.app-highlight {
-      @apply border-cyan-500;
+      @apply border-cyan-400;
     }
   }
 
@@ -32,15 +32,15 @@
   .dnd-draggable {
     @apply text-white;
   }
-
-  .dnd-droppable {
-
-  }
 }
 
 #app-playerpool, #app-teams {
   .dnd-draggable:hover,
   .dnd-draggable.dnd-isDragging {
-    @apply bg-gradient-to-b from-yellow-100 to-yellow-300 max-w-[160px] shadow text-black;
+    @apply bg-gradient-to-b from-white to-yellow-100 shadow text-black;
+  }
+
+  .dnd-draggable.dnd-isDragging {
+    @apply to-yellow-400 ;
   }
 }
