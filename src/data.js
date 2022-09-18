@@ -125,6 +125,7 @@ export const players = {
   "pooll": Player("pooll", "pl"),
   "PreMorteM": Player("PreMorteM", "no"),
   "raket": Player("raket", "se"),
+  "rat": Player("rat", "fi"),
   "razor": Player("razor", "se"),
   "rghst": Player("rghst", "de"),
   "Riki": Player("Riki", "pl"),
