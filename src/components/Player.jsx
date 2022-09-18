@@ -1,17 +1,6 @@
 import React from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
-export const PlayerDetails = (props) => {
-  const { player } = props;
-
-  return (
-    <div className="flex items-center space-x-2 p-1.5 text-xl">
-      <img src={`assets/img/flags/32/${player.country_code}.png`} width={32} />
-      <span>{player.name}</span>
-    </div>
-  )
-}
-
 const dndDroppableClasses = (snapshot) => {
   const classNames = ["dnd-droppable"];
 
@@ -71,7 +60,10 @@ export const DraggablePlayer = (props) => {
           {...provided.dragHandleProps}
           className={dndDraggableClasses(snapshot)}
         >
-          <PlayerDetails player={player} />
+          <div className="app-player flex items-center space-x-2 p-1.5 text-xl">
+            <img src={`assets/img/flags/32/${player.country_code}.png`} width={32} />
+            <span>{player.name}</span>
+          </div>
         </div>
       )}
     </Draggable>

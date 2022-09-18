@@ -12,14 +12,24 @@
 
 #app-teams {
   .dnd-droppable {
-    @apply min-h-[250px] bg-black/50 rounded-xl px-4 py-2 border-4 border-black;
+    @apply min-h-[250px] bg-black/50 rounded-xl px-4 py-2 border-4 border-black opacity-80;
+
+    div:first-child .app-player::after {
+      @apply text-xl text-amber-800 ml-auto;
+      content: "★"
+    }
 
     &.dnd-isDraggingOver {
       @apply bg-cyan-600/30;
     }
 
     &.app-highlight {
-      @apply border-cyan-400;
+      @apply border-cyan-400 opacity-100;
+
+      div:first-child .app-player::after {
+        @apply animate-spin text-2xl text-amber-600;
+        animation-duration: 4000ms !important;
+      }
     }
   }
 
@@ -42,5 +52,43 @@
 
   .dnd-draggable.dnd-isDragging {
     @apply to-yellow-400 ;
+  }
+}
+
+.app-draft-status-completed {
+  #app-teams .dnd-droppable {
+    @apply opacity-100;
+
+    &:nth-child(1) {
+      @apply bg-red-500/50;
+    }
+
+    &:nth-child(2) {
+      @apply bg-green-500/50;
+    }
+
+    &:nth-child(3) {
+      @apply bg-purple-500/50;
+    }
+
+     &:nth-child(4) {
+      @apply bg-white/50;
+    }
+
+    &:nth-child(5) {
+      @apply bg-blue-500/50;
+    }
+
+    &:nth-child(6) {
+      @apply bg-yellow-500/50;
+    }
+
+    &:nth-child(7) {
+      @apply bg-teal-500/50;
+    }
+  }
+
+  #app-playerpool {
+    @apply grayscale;
   }
 }
