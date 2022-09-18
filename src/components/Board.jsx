@@ -122,26 +122,19 @@ class Board extends React.Component {
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <ul className="text-white hidden">
-          <li>this.state.pickIndex: {this.state.pickIndex}</li>
-          <li>indexOfTeamToPick: {indexOfTeamToPick}</li>
-          <li>pickCount: {pickCount}</li>
-        </ul>
-        <div className="app-controls text-white text-2xl mb-4">
-          Round <span className="text-cyan-300">{pickRound}</span>, pick{" "}
-          <span className="text-cyan-300">{pickNumber}</span>
-          {this.stateHistory.length > 0 && (
-            <span className="ml-4">
+        <div className={`app-draft app-draft-status-${draftStatus}`}>
+          <div className="app-controls text-white text-2xl mb-4">
+            Round <span className="text-cyan-300">{pickRound}</span>, pick{" "}
+            <span className="text-cyan-300">{pickNumber}</span>
+            {this.stateHistory.length > 0 && (
+              <span className="ml-4">
               <a href="#" onClick={this.handleUndoClick} className="text-fuchsia-600 hover:text-fuchsia-400">
                 Undo last action
               </a>
             </span>
-          )}
-        </div>
-        <div>
-          <div
-            className={`app-draft app-draft-status-${draftStatus}`}
-          >
+            )}
+          </div>
+          <div>
             <div id="app-teams" className={`grid gap-4 grid-cols-7 mb-6`}>
               {captainTeams.map((team, index) => (
                 <DroppablePlayerList
@@ -163,7 +156,8 @@ class Board extends React.Component {
           </div>
         </div>
       </DragDropContext>
-    );
+    )
+      ;
   }
 }
 

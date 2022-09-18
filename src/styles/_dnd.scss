@@ -56,39 +56,24 @@
 }
 
 .app-draft-status-completed {
+  .app-controls {
+    @apply opacity-0;
+  }
+
   #app-teams .dnd-droppable {
     @apply opacity-100;
 
-    &:nth-child(1) {
-      @apply bg-red-500/50;
-    }
+    $colors: "rose", "cyan", "purple", "gray", "blue", "amber", "green";
 
-    &:nth-child(2) {
-      @apply bg-green-500/50;
-    }
-
-    &:nth-child(3) {
-      @apply bg-purple-500/50;
-    }
-
-     &:nth-child(4) {
-      @apply bg-white/50;
-    }
-
-    &:nth-child(5) {
-      @apply bg-blue-500/50;
-    }
-
-    &:nth-child(6) {
-      @apply bg-yellow-500/50;
-    }
-
-    &:nth-child(7) {
-      @apply bg-teal-500/50;
+    @for $i from 1 through length($colors) {
+      $color: nth($colors, $i);
+      &:nth-child(#{$i}) {
+        @apply bg-#{$color}-600/50;
+      }
     }
   }
 
-  #app-playerpool {
-    @apply grayscale;
+  #app-playerpool .app-player {
+    @apply grayscale opacity-60;
   }
 }
