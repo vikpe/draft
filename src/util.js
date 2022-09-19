@@ -38,9 +38,9 @@ export function deepCopy(o) {
 }
 
 export const sortTeams = (a, b) => {
-  if (a.sortOrder < b.sortOrder) {
+  if (a.index < b.index) {
     return -1;
-  } else if (a.sortOrder > b.sortOrder) {
+  } else if (a.index > b.index) {
     return 1;
   } else {
     return 0;
