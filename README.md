@@ -1,4 +1,4 @@
-# draft
+# draft [![Deploy](https://github.com/vikpe/draft/actions/workflows/deploy.yml/badge.svg)](https://github.com/vikpe/draft/actions/workflows/deploy.yml)
 
 > Single page web app for drafting
 
@@ -18,19 +18,21 @@ Edit `src/data.js`
 export const teams = {
   red: {
     id: "red",
-    playerNames: [],
+    playerNames: ["bps"],
+    sortOrder: 1,
   },
   blue: {
     id: "blue",
-    playerNames: [],
+    playerNames: ["Milton"],
+    sortOrder: 2,
   },
 };
 
 export const players = {
-  XantoM: { name: "XantoM", country_code: "se" },
-  bps: { name: "bps", country_code: "se" },
-  Milton: { name: "Milton", country_code: "fi" },
-  henu: { name: "henu", country_code: "fi" },
+  AiRman": Player("AiRman", "pl"),
+  "Andeh": Player("Andeh", "se"),
+  "anni": Player("anni", "de"),
+  "badsebi": Player("badsebi", "pl"),
 };
 ```
 
