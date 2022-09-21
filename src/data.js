@@ -1,3 +1,5 @@
+// NOTE: team keys, ids and player names are case sensitive
+
 export const pickOrder = [
   // indexes, see below
   0, 1, 2, 3, 4, 5, 6,
