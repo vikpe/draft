@@ -11,9 +11,9 @@ export const teams = {
     playerNames: ["Baresi"],
     index: 6,
   },
-  Timmi: {
-    id: "Timmi",
-    playerNames: ["Timmi"],
+  TiMMi: {
+    id: "TiMMi",
+    playerNames: ["TiMMi"],
     index: 5,
   },
   Thunder: {
@@ -21,14 +21,14 @@ export const teams = {
     playerNames: ["Thunder"],
     index: 4,
   },
-  Paniagua: {
-    id: "Paniagua",
-    playerNames: ["Paniagua"],
+  paniagua: {
+    id: "paniagua",
+    playerNames: ["paniagua"],
     index: 3,
   },
-  Coj: {
-    id: "Coj",
-    playerNames: ["Coj"],
+  coj: {
+    id: "coj",
+    playerNames: ["coj"],
     index: 2,
   },
   Flamer: {
