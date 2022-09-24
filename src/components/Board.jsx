@@ -14,7 +14,7 @@ function appendPlayerPoolTeams() {
     .reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
   const playerPoolPlayerNames = Object.keys(players).filter((p) => !playersInTeams.includes(p));
 
-  _chunk(playerPoolPlayerNames, 6).map((playerNames, index) => {
+  _chunk(playerPoolPlayerNames, 4).map((playerNames, index) => {
     const id = `playerpool-${index}`;
     teams[id] = { id, playerNames }
   });
