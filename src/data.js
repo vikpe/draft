@@ -29,19 +29,19 @@ export const teams = {
     playerNames: ["Nico"],
     index: 3,
   },
+  Zalon: {
+    id: "Zalon",
+    playerNames: ["Zalon"],
+    index: 2,
+  },
   floc: {
     id: "floc",
     playerNames: ["floc"],
-    index: 2,
+    index: 1,
   },
   nexus: {
     id: "nexus",
     playerNames: ["nexus"],
-    index: 1,
-  },
-  Zalon: {
-    id: "Zalon",
-    playerNames: ["Zalon"],
     index: 0,
   },
 };
