@@ -105,7 +105,7 @@ class Board extends React.Component {
     const pickRound = Math.floor(pickCount / captainTeams.length);
     const pickNumber = 1 + (pickCount % captainTeams.length);
 
-    const pickLimit = captainTeams.length * 4;
+    const pickLimit = captainTeams.length * 5;
     const draftStatus =
       pickCount >= pickLimit ? "completed" : "in-progress";
 
