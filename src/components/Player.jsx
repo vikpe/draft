@@ -60,7 +60,7 @@ export const DraggablePlayer = (props) => {
           {...provided.dragHandleProps}
           className={dndDraggableClasses(snapshot)}
         >
-          <div className="app-player flex items-center space-x-2 p-1.5 text-xl">
+          <div className="app-player flex items-center space-x-2 px-2 py-1 text-xl">
             <img src={`assets/img/flags/32/${player.country_code}.png`} width={32} />
             <span>{player.name}</span>
           </div>

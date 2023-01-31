@@ -105,7 +105,7 @@ class Board extends React.Component {
     const pickRound = Math.floor(pickCount / captainTeams.length);
     const pickNumber = 1 + (pickCount % captainTeams.length);
 
-    const pickLimit = captainTeams.length * 5;
+    const pickLimit = captainTeams.length * 4;
     const draftStatus =
       pickCount >= pickLimit ? "completed" : "in-progress";
 
@@ -123,7 +123,7 @@ class Board extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`app-draft app-draft-status-${draftStatus}`}>
-          <div className="app-controls text-white text-2xl mb-4">
+          <div className="app-controls text-white text-xl mb-2">
             Round <span className="text-cyan-300">{pickRound}</span>, pick{" "}
             <span className="text-cyan-300">{pickNumber}</span>
             {this.stateHistory.length > 0 && (
@@ -135,7 +135,7 @@ class Board extends React.Component {
             )}
           </div>
           <div>
-            <div id="app-teams" className={`grid gap-4 grid-cols-7 mb-6`}>
+            <div id="app-teams" className={`grid gap-4 grid-cols-6 mb-4`}>
               {captainTeams.map((team, index) => (
                 <DroppablePlayerList
                   key={team.id}
@@ -146,7 +146,7 @@ class Board extends React.Component {
               ))}
             </div>
 
-            <div id="app-playerpool" className="p-4 bg-black/80 rounded-xl grid gap-8 grid-cols-7">
+            <div id="app-playerpool" className="p-2 bg-black/80 rounded-xl grid grid-cols-9">
               {
                 playerPoolTeams.map((team, index) => (
                   <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
