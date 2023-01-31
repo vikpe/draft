@@ -81,7 +81,7 @@ export const players = {
   "rusti": Player("rusti", "fi"),
   "K4t": Player("K4t", "pl"),
   "Grc": Player("Grc", "se"),
-  "Sae": Player("Sae", "uk"),
+  "Sae": Player("Sae", "gb"),
   "IRN": Player("IRN", "pl"),
   "gor": Player("gor", "ru"),
   "Macler": Player("Macler", "pl"),
