@@ -123,7 +123,7 @@ class Board extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`app-draft app-draft-status-${draftStatus}`}>
-          <div className="app-controls text-white text-xl mb-2">
+          <div className="app-controls text-white text-2xl mb-4">
             Round <span className="text-cyan-300">{pickRound}</span>, pick{" "}
             <span className="text-cyan-300">{pickNumber}</span>
             {this.stateHistory.length > 0 && (
@@ -146,7 +146,7 @@ class Board extends React.Component {
               ))}
             </div>
 
-            <div id="app-playerpool" className="p-2 bg-black/80 rounded-xl grid grid-cols-9">
+            <div id="app-playerpool" className="p-4 bg-black/80 rounded-xl grid grid-cols-9">
               {
                 playerPoolTeams.map((team, index) => (
                   <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
