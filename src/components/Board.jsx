@@ -105,7 +105,7 @@ class Board extends React.Component {
     const pickRound = Math.floor(pickCount / captainTeams.length);
     const pickNumber = 1 + (pickCount % captainTeams.length);
 
-    const pickLimit = captainTeams.length * 4;
+    const pickLimit = captainTeams.length * 5;
     const draftStatus =
       pickCount >= pickLimit ? "completed" : "in-progress";
 
@@ -146,7 +146,7 @@ class Board extends React.Component {
               ))}
             </div>
 
-            <div id="app-playerpool" className="p-4 bg-black/80 rounded-xl grid grid-cols-5">
+            <div id="app-playerpool" className="p-4 bg-black/80 rounded-xl grid grid-cols-8">
               {
                 playerPoolTeams.map((team, index) => (
                   <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
