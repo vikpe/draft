@@ -55,7 +55,7 @@ export const teams = {
 const Player = (name, country_code) => ({name, country_code});
 
 export const players = {
-    alicesoderlund: Player("alicesoderlund", "se"),
+    alice: Player("alice", "se"),
     andyblub: Player("andyblub", "de"),
     Annihilator: Player("Annihilator", "de"),
     badsebi: Player("badsebi", "pl"),
