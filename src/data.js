@@ -9,7 +9,6 @@ export const pickOrder = [
 ];
 
 export const teams = {
-
     Milton: {
         id: "Milton",
         playerNames: ["Milton"],
@@ -46,8 +45,8 @@ export const teams = {
         index: 1,
     },
     gLAd: {
-        id: "gLAd",
-        playerNames: ["gLAd"],
+        id: "paniagua",
+        playerNames: ["paniagua"],
         index: 0,
     }
 };
@@ -70,7 +69,7 @@ export const players = {
     FinalExit: Player("FinalExit", "se"),
     Flamer: Player("Flamer", "cz"),
     floc: Player("floc", "de"),
-    gLAd: Player("gLAd", "ru"),
+    Viag : Player("Viag ", "ca"),
     gore: Player("gore", "gb"),
     gosciu: Player("gosciu", "pl"),
     HaraldQuake: Player("HaraldQuake", "de"),
