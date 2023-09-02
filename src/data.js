@@ -69,7 +69,6 @@ export const players = {
     FinalExit: Player("FinalExit", "se"),
     Flamer: Player("Flamer", "cz"),
     floc: Player("floc", "de"),
-    Viag : Player("Viag ", "ca"),
     gore: Player("gore", "gb"),
     gosciu: Player("gosciu", "pl"),
     HaraldQuake: Player("HaraldQuake", "de"),
@@ -94,4 +93,5 @@ export const players = {
     Szturm: Player("Szturm", "pl"),
     Tom: Player("Tom", "pl"),
     tuhmapoika: Player("tuhmapoika", "fi"),
+    Viag : Player("Viag ", "ca"),
 }
