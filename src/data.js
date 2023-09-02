@@ -44,7 +44,7 @@ export const teams = {
         playerNames: ["Riki"],
         index: 1,
     },
-    gLAd: {
+    paniagua: {
         id: "paniagua",
         playerNames: ["paniagua"],
         index: 0,
