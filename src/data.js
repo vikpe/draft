@@ -84,7 +84,7 @@ export const players = {
     ocoini: Player("ocoini", "no"),
     ok98: Player("ok98", "se"),
     paniagua: Player("paniagua", "fi"),
-    RaggA: Player("RaggA", "ie"),
+    samon: Player("samon", "pl"),
     rghst: Player("rghst", "de"),
     Riki: Player("Riki", "pl"),
     rob: Player("rob", "no"),
