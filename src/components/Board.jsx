@@ -4,28 +4,33 @@ import { deepCopy, sortTeams } from "../util.js";
 import { pickOrder, players, teams } from "../data.js";
 import { move, reorderList, shouldReorderState } from "../dnd.js";
 
-import _chunk from "lodash.chunk"
+import _chunk from "lodash.chunk";
 import { DroppablePlayerList } from "./Player.jsx";
 
 // add player pools
 function appendPlayerPoolTeams() {
   const playersInTeams = Object.values(teams)
     .map((t) => t.playerNames)
-    .reduce((all, playersInCurrentTeam) => all.concat(playersInCurrentTeam), []);
-  const playerPoolPlayerNames = Object.keys(players).filter((p) => !playersInTeams.includes(p));
+    .reduce(
+      (all, playersInCurrentTeam) => all.concat(playersInCurrentTeam),
+      [],
+    );
+  const playerPoolPlayerNames = Object.keys(players).filter(
+    (p) => !playersInTeams.includes(p),
+  );
 
   _chunk(playerPoolPlayerNames, 4).map((playerNames, index) => {
     const id = `playerpool-${index}`;
-    teams[id] = { id, playerNames }
+    teams[id] = { id, playerNames };
   });
 }
 
-appendPlayerPoolTeams()
+appendPlayerPoolTeams();
 
 // confetti
-import JSConfetti from 'js-confetti'
+import JSConfetti from "js-confetti";
 
-const jsConfetti = new JSConfetti()
+const jsConfetti = new JSConfetti();
 let hasUsedConfetti = false;
 
 // data
@@ -92,11 +97,16 @@ class Board extends React.Component {
   };
 
   render() {
-    const playersByNames = (names) => names.map((name) => this.state.players[name]);
+    const playersByNames = (names) =>
+      names.map((name) => this.state.players[name]);
 
     const sortedTeams = Object.values(this.state.teams).sort(sortTeams);
-    const captainTeams = sortedTeams.filter(t => !t.id.includes("playerpool"))
-    const playerPoolTeams = sortedTeams.filter(t => t.id.includes("playerpool"))
+    const captainTeams = sortedTeams.filter(
+      (t) => !t.id.includes("playerpool"),
+    );
+    const playerPoolTeams = sortedTeams.filter((t) =>
+      t.id.includes("playerpool"),
+    );
 
     const pickCount = captainTeams
       .map((t) => t.playerNames.length)
@@ -105,12 +115,11 @@ class Board extends React.Component {
     const pickRound = Math.floor(pickCount / captainTeams.length);
     const pickNumber = 1 + (pickCount % captainTeams.length);
 
-    const pickLimit = captainTeams.length * 5;
-    const draftStatus =
-      pickCount >= pickLimit ? "completed" : "in-progress";
+    const pickLimit = captainTeams.length * 4;
+    const draftStatus = pickCount >= pickLimit ? "completed" : "in-progress";
 
     if (!hasUsedConfetti && "completed" === draftStatus) {
-      jsConfetti.addConfetti()
+      jsConfetti.addConfetti();
       hasUsedConfetti = true;
     }
 
@@ -128,14 +137,18 @@ class Board extends React.Component {
             <span className="text-cyan-300">{pickNumber}</span>
             {this.stateHistory.length > 0 && (
               <span className="ml-4">
-              <a href="#" onClick={this.handleUndoClick} className="text-fuchsia-600 hover:text-fuchsia-400">
-                Undo last action
-              </a>
-            </span>
+                <a
+                  href="#"
+                  onClick={this.handleUndoClick}
+                  className="text-fuchsia-600 hover:text-fuchsia-400"
+                >
+                  Undo last action
+                </a>
+              </span>
             )}
           </div>
           <div>
-            <div id="app-teams" className={`grid gap-4 grid-cols-4 mb-4`}>
+            <div id="app-teams" className={`grid gap-4 grid-cols-5 mb-4`}>
               {captainTeams.map((team, index) => (
                 <DroppablePlayerList
                   key={team.id}
@@ -146,18 +159,22 @@ class Board extends React.Component {
               ))}
             </div>
 
-            <div id="app-playerpool" className="p-4 bg-black/80 rounded-xl grid grid-cols-8">
-              {
-                playerPoolTeams.map((team, index) => (
-                  <DroppablePlayerList key={team.id} id={team.id} players={playersByNames(team.playerNames)} />
-                ))
-              }
+            <div
+              id="app-playerpool"
+              className="p-4 bg-black/80 rounded-xl grid grid-cols-8"
+            >
+              {playerPoolTeams.map((team, index) => (
+                <DroppablePlayerList
+                  key={team.id}
+                  id={team.id}
+                  players={playersByNames(team.playerNames)}
+                />
+              ))}
             </div>
           </div>
         </div>
       </DragDropContext>
-    )
-      ;
+    );
   }
 }
 
