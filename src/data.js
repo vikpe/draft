@@ -44,9 +44,9 @@ export const teams = {
     playerNames: ["Rat"],
     index: 3,
   },
-  Shamoth: {
-    id: "Shamoth",
-    playerNames: ["Shamoth"],
+  diabolic: {
+    id: "diabolic",
+    playerNames: ["diabolic"],
     index: 2,
   },
   Floc: {
