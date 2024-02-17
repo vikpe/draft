@@ -1,11 +1,9 @@
 // NOTE: team keys, ids and player names are case sensitive
 
 export const pickOrder = [
-  // indexes, see below
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  2, 1, 9, 10, 3, 8, 7, 6, 5, 4,
-  9, 10, 1, 2, 8, 3, 4, 5, 6, 7,
-
+  2, 1, 5, 10, 9, 8, 7, 6, 3, 4,
+  3, 4, 6, 7, 8, 9, 10, 5, 1, 2,
 ].map((n) => n - 1);
 
 export const teams = {
