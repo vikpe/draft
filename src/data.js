@@ -2,8 +2,10 @@
 
 export const pickOrder = [
   // indexes, see below
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 1, 9, 10, 3, 8, 7, 6, 5, 4, 9, 10, 1, 2, 8,
-  3, 4, 5, 6, 7,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+  2, 1, 9, 10, 3, 8, 7, 6, 5, 4,
+  9, 10, 1, 2, 8, 3, 4, 5, 6, 7,
+
 ].map((n) => n - 1);
 
 export const teams = {
@@ -53,8 +55,8 @@ export const teams = {
     index: 1,
   },
   Daux: {
-    id: "Daux",
-    playerNames: ["Daux"],
+    id: "rotker",
+    playerNames: ["rotker"],
     index: 0,
   },
 };
@@ -67,7 +69,7 @@ export const players = {
   Bance: Player("Bance", "us"),
   BTK: Player("BTK", "ru"),
   crp: Player("crp", "se"),
-  Daux: Player("Daux", "de"),
+  rotker: Player("rotker", "de"),
   diabolic: Player("diabolic", "pt"),
   Diki: Player("Diki", "fi"),
   eh: Player("eh", "fi"),
