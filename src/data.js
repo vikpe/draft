@@ -54,7 +54,7 @@ export const teams = {
     playerNames: ["Floc"],
     index: 1,
   },
-  Daux: {
+  rotker: {
     id: "rotker",
     playerNames: ["rotker"],
     index: 0,
@@ -69,7 +69,7 @@ export const players = {
   Bance: Player("Bance", "us"),
   BTK: Player("BTK", "ru"),
   crp: Player("crp", "se"),
-  rotker: Player("rotker", "de"),
+  rotker: Player("rotker", "pl"),
   diabolic: Player("diabolic", "pt"),
   Diki: Player("Diki", "fi"),
   eh: Player("eh", "fi"),
