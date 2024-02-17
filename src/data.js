@@ -90,7 +90,7 @@ export const players = {
   rghst: Player("rghst", "de"),
   robin: Player("robin", "no"),
   rokky: Player("rokky", "se"),
-  rotker: Player("rotker", "p-l"),
+  rotker: Player("rotker", "pl"),
   rusti: Player("rusti", "fi"),
   sae: Player("sae", "gb"),
   samon: Player("samon", "pl"),
