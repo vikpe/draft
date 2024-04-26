@@ -114,7 +114,7 @@ class Board extends React.Component {
     const pickRound = Math.floor(pickCount / captainTeams.length);
     const pickNumber = 1 + (pickCount % captainTeams.length);
 
-    const pickLimit = captainTeams.length * 4;
+    const pickLimit = pickOrder.length;
     const draftStatus = pickCount >= pickLimit ? "completed" : "in-progress";
 
     if (!hasUsedConfetti && "completed" === draftStatus) {
