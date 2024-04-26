@@ -16,7 +16,12 @@ export const reorderList = (list, startIndex, endIndex) => {
   return result;
 };
 
-export const move = (source, destination, droppableSource, droppableDestination) => {
+export const move = (
+  source,
+  destination,
+  droppableSource,
+  droppableDestination,
+) => {
   const sourceClone = Array.from(source);
   const destClone = Array.from(destination);
   const [removed] = sourceClone.splice(droppableSource.index, 1);

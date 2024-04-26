@@ -12,7 +12,7 @@ const getDndClassNames = (snapshot) => {
   return classNames.join(" ");
 };
 
-export const DroppablePlayerList = props => {
+export const DroppablePlayerList = (props) => {
   const { id, players } = props;
 
   return (
@@ -30,5 +30,4 @@ export const DroppablePlayerList = props => {
       )}
     </Droppable>
   );
-}
-
+};

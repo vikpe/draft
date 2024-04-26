@@ -11,7 +11,7 @@ const dndDroppableClasses = (snapshot) => {
   return classNames.join(" ");
 };
 
-export const DroppablePlayerList = props => {
+export const DroppablePlayerList = (props) => {
   const { id, players, highlight } = props;
 
   const classNames = highlight ? "app-highlight" : "";
@@ -33,7 +33,7 @@ export const DroppablePlayerList = props => {
       )}
     </Droppable>
   );
-}
+};
 
 const dndDraggableClasses = (snapshot) => {
   const classNames = ["dnd-draggable"];
@@ -49,10 +49,7 @@ export const DraggablePlayer = (props) => {
   const { player, index } = props;
 
   return (
-    <Draggable
-      draggableId={player.name}
-      index={index}
-    >
+    <Draggable draggableId={player.name} index={index}>
       {(provided, snapshot) => (
         <div
           ref={provided.innerRef}
@@ -61,11 +58,14 @@ export const DraggablePlayer = (props) => {
           className={dndDraggableClasses(snapshot)}
         >
           <div className="app-player flex items-center space-x-2 p-1.5 text-xl">
-            <img src={`assets/img/flags/32/${player.country_code}.png`} width={32} />
+            <img
+              src={`assets/img/flags/32/${player.country_code}.png`}
+              width={32}
+            />
             <span>{player.name}</span>
           </div>
         </div>
       )}
     </Draggable>
   );
-}
+};

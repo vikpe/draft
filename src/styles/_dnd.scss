@@ -16,7 +16,7 @@
 
     div:first-child .app-player::after {
       @apply text-xl text-amber-800 ml-auto;
-      content: "★"
+      content: "★";
     }
 
     &.dnd-isDraggingOver {
@@ -44,14 +44,15 @@
   }
 }
 
-#app-playerpool, #app-teams {
+#app-playerpool,
+#app-teams {
   .dnd-draggable:hover,
   .dnd-draggable.dnd-isDragging {
     @apply bg-gradient-to-b from-white to-yellow-100 shadow text-black;
   }
 
   .dnd-draggable.dnd-isDragging {
-    @apply to-yellow-400 ;
+    @apply to-yellow-400;
   }
 }
 
@@ -63,7 +64,8 @@
   #app-teams .dnd-droppable {
     @apply opacity-100;
 
-    $colors: "rose", "cyan", "purple", "emerald", "blue", "amber", "green", "orange", "lime", "gray", "pink", "violet";
+    $colors: "rose", "cyan", "purple", "emerald", "blue", "amber", "green",
+      "orange", "lime", "gray", "pink", "violet";
 
     @for $i from 1 through length($colors) {
       $color: nth($colors, $i);

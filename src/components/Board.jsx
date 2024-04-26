@@ -6,6 +6,8 @@ import { move, reorderList, shouldReorderState } from "../dnd.js";
 
 import _chunk from "lodash.chunk";
 import { DroppablePlayerList } from "./Player.jsx";
+// confetti
+import JSConfetti from "js-confetti";
 
 // add player pools
 function appendPlayerPoolTeams() {
@@ -26,9 +28,6 @@ function appendPlayerPoolTeams() {
 }
 
 appendPlayerPoolTeams();
-
-// confetti
-import JSConfetti from "js-confetti";
 
 const jsConfetti = new JSConfetti();
 let hasUsedConfetti = false;
@@ -148,7 +147,7 @@ class Board extends React.Component {
             )}
           </div>
           <div>
-            <div id="app-teams" className={`grid gap-4 grid-cols-5 mb-4`}>
+            <div id="app-teams" className={`grid gap-4 grid-cols-6 mb-4`}>
               {captainTeams.map((team, index) => (
                 <DroppablePlayerList
                   key={team.id}
@@ -161,9 +160,9 @@ class Board extends React.Component {
 
             <div
               id="app-playerpool"
-              className="p-4 bg-black/80 rounded-xl grid grid-cols-8"
+              className="p-4 bg-black/80 rounded-xl grid grid-cols-6"
             >
-              {playerPoolTeams.map((team, index) => (
+              {playerPoolTeams.map((team) => (
                 <DroppablePlayerList
                   key={team.id}
                   id={team.id}
