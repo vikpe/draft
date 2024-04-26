@@ -1,4 +1,3 @@
-// NOTE: team keys, ids and player names are case sensitive
 export const pickOrder = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 11, 10, 9, 8, 7, 6, 5, 4, 1, 2, 3,
   7, 6, 2, 3, 1, 4, 5, 10, 11, 12, 9, 8, 1, 2, 9, 8, 12, 11, 10, 3, 4, 5, 7, 6,
@@ -63,6 +62,7 @@ const player_pool = [
   ["paniagua", "FI"],
   ["pixols", "GB"],
   ["plast", "PL"],
+  ["rghst", "DE"],
   ["robin", "NO"],
   ["rokky", "SE"],
   ["rotker", "PL"],
