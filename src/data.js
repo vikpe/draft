@@ -1,105 +1,95 @@
 // NOTE: team keys, ids and player names are case sensitive
-
 export const pickOrder = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  2, 1, 5, 10, 9, 8, 7, 6, 3, 4,
-  3, 4, 6, 7, 8, 9, 10, 5, 1, 2,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 11, 10, 9, 8, 7, 6, 5, 4, 1, 2, 3,
+  7, 6, 2, 3, 1, 4, 5, 10, 11, 12, 9, 8, 1, 2, 9, 8, 12, 11, 10, 3, 4, 5, 7, 6,
 ].map((n) => n - 1);
 
-export const teams = {
-  Milton: {
-    id: "Milton",
-    playerNames: ["Milton"],
-    index: 9,
-  },
-  Macler: {
-    id: "Macler",
-    playerNames: ["Macler"],
-    index: 8,
-  },
-  raket: {
-    id: "raket",
-    playerNames: ["raket"],
-    index: 7,
-  },
-  BTK: {
-    id: "BTK",
-    playerNames: ["BTK"],
-    index: 6,
-  },
-  Gamer: {
-    id: "Gamer",
-    playerNames: ["Gamer"],
-    index: 5,
-  },
-  PreMorteM: {
-    id: "PreMorteM",
-    playerNames: ["PreMorteM"],
-    index: 4,
-  },
-  Rat: {
-    id: "Rat",
-    playerNames: ["Rat"],
-    index: 3,
-  },
-  diabolic: {
-    id: "diabolic",
-    playerNames: ["diabolic"],
-    index: 2,
-  },
-  Floc: {
-    id: "Floc",
-    playerNames: ["Floc"],
-    index: 1,
-  },
-  rotker: {
-    id: "rotker",
-    playerNames: ["rotker"],
-    index: 0,
-  },
-};
+const captains = [
+  ["Maks", "PL"],
+  ["Tom", "PL"],
+  ["sae", "UK"],
+  ["Xunito", "FI"],
+  ["Thunder", "PL"],
+  ["IRN", "PL"],
+  ["TiMMi", "NO"],
+  ["niw", "DK"],
+  ["andeh", "SE"],
+  ["TheChosenOne", "NO"],
+  ["gamer", "FI"],
+  ["Milton", "FI"],
+];
 
-const Player = (name, country_code) => ({ name, country_code });
+const player_pool = [
+  ["AHemlocksLie", "US"],
+  ["Anza", "FI"],
+  ["Dragon", "PL"],
+  ["Ekz", "SE"],
+  ["Flamer", "CZ"],
+  ["Hammer", "PT"],
+  ["HangTime", "UK"],
+  ["Hooraytio", "SE"],
+  ["Link", "NO"],
+  ["MxCraven", "UK"],
+  ["Nexus", "FI"],
+  ["Ocoini", "NO"],
+  ["Peppe", "SE"],
+  ["PreMorteM", "NO"],
+  ["Riki", "PL"],
+  ["SS", "RU"],
+  ["Slaughter", "PL"],
+  ["Tumult", "SE"],
+  ["alice", "SE"],
+  ["anni", "DE"],
+  ["badsebi", "PL"],
+  ["bjarkeSTAR", "DK"],
+  ["coj", "US"],
+  ["cor (lord noob)", "PL"],
+  ["dobeZz", "UK"],
+  ["eh", "FI"],
+  ["fix", "FI"],
+  ["floc", "DE"],
+  ["fluartity", "PL"],
+  ["gLAd", "FU"],
+  ["gore", "UK"],
+  ["gosciu", "PL"],
+  ["grc", "SE"],
+  ["himmu", "FI"],
+  ["jOn", "SE"],
+  ["kane", "CZ"],
+  ["kwon", "DE"],
+  ["lurq", "SE"],
+  ["mushi", "PT"],
+  ["neophyte", "HU"],
+  ["paniagua", "FI"],
+  ["pixols", "UK"],
+  ["plast", "PL"],
+  ["robin", "NO"],
+  ["rokky", "SE"],
+  ["rotker", "PL"],
+  ["rusti", "FI"],
+  ["s4vo", "PL"],
+  ["samon", "PL"],
+  ["sham", "PL"],
+  ["tr0ll", "NO"],
+  ["tuhmapoika", "FI"],
+  ["viag", "CA"],
+];
 
-export const players = {
-  alice: Player("alice", "se"),
-  badsebi: Player("badsebi", "pl"),
-  Bance: Player("Bance", "us"),
-  BTK: Player("BTK", "ru"),
-  crp: Player("crp", "se"),
-  diabolic: Player("diabolic", "pt"),
-  Diki: Player("Diki", "fi"),
-  eh: Player("eh", "fi"),
-  ekz: Player("ekz", "se"),
-  Floc: Player("Floc", "de"),
-  Gamer: Player("Gamer", "fi"),
-  gLAd: Player("gLAd", "ru"),
-  gore: Player("gore", "gb"),
-  Grc: Player("Grc", "se"),
-  IRN: Player("IRN", "pl"),
-  kwon: Player("kwon", "de"),
-  Link: Player("Link", "no"),
-  Macler: Player("Macler", "pl"),
-  Milton: Player("Milton", "fi"),
-  pixols: Player("pixols", "gb"),
-  Plate: Player("Plate", "pl"),
-  PreMorteM: Player("PreMorteM", "no"),
-  Quake: Player("Quake", "ru"),
-  raket: Player("raket", "se"),
-  Rat: Player("Rat", "fi"),
-  rghst: Player("rghst", "de"),
-  robin: Player("robin", "no"),
-  rokky: Player("rokky", "se"),
-  rotker: Player("rotker", "pl"),
-  rusti: Player("rusti", "fi"),
-  sae: Player("sae", "gb"),
-  samon: Player("samon", "pl"),
-  sassa: Player("sassa", "se"),
-  Shamoth: Player("Shamoth", "pl"),
-  ShaZam: Player("ShaZam", "se"),
-  Slaughter: Player("Slaughter", "fi"),
-  Szturm: Player("Szturm", "pl"),
-  Thunder: Player("Thunder", "pl"),
-  Tom: Player("Tom", "pl"),
-  tuhmapoika: Player("tuhmapoika", "fi"),
-};
+// do not edit
+export const teams = captains.reduce((teams, [name, _], index) => {
+  teams[name] = {
+    id: name,
+    index,
+    playerNames: [name],
+  };
+  return teams;
+}, {});
+
+console.log(teams);
+
+export const players = [...player_pool, ...captains]
+  .toSorted((a, b) => a[0].localeCompare(b[0]))
+  .reduce((players, [name, country_code]) => {
+    players[name] = { name, country_code: country_code.toLocaleLowerCase() };
+    return players;
+  }, {});
