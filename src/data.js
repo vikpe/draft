@@ -75,7 +75,7 @@ const player_pool = [
   ["viag", "CA"],
 ];
 
-// do not edit
+// do not edit below
 export const teams = captains.reduce((teams, [name, _], index) => {
   teams[name] = {
     id: name,
@@ -84,8 +84,6 @@ export const teams = captains.reduce((teams, [name, _], index) => {
   };
   return teams;
 }, {});
-
-console.log(teams);
 
 export const players = [...player_pool, ...captains]
   .toSorted((a, b) => a[0].localeCompare(b[0]))
