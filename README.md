@@ -29,7 +29,7 @@ export const teams = {
 };
 
 export const players = {
-  AiRman": Player("AiRman", "pl"),
+  "AiRman": Player("AiRman", "pl"),
   "Andeh": Player("Andeh", "se"),
   "anni": Player("anni", "de"),
   "badsebi": Player("badsebi", "pl"),
@@ -38,7 +38,7 @@ export const players = {
 
 ## Development
 
-Start development server at `http://localhost:8080`, live-reloading changes.
+Start development server at `http://localhost:5173`, live-reloading changes.
 
 ```bash
 yarn dev
