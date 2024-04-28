@@ -64,6 +64,8 @@ const player_pool = [
   ["paniagua", "FI"],
   ["pixols", "GB"],
   ["plast", "PL"],
+  ["pharm ", "US"],
+  ["rat", "FI"],
   ["rghst", "DE"],
   ["robin", "NO"],
   ["rokky", "SE"],
