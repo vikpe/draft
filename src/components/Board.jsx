@@ -147,7 +147,7 @@ class Board extends React.Component {
             )}
           </div>
           <div>
-            <div id="app-teams" className={`grid gap-4 grid-cols-6 mb-4`}>
+            <div id="app-teams" className={`grid gap-4 grid-cols-4 mb-4`}>
               {captainTeams.map((team, index) => (
                 <DroppablePlayerList
                   key={team.id}
@@ -160,7 +160,7 @@ class Board extends React.Component {
 
             <div
               id="app-playerpool"
-              className="p-4 bg-black/80 rounded-xl grid grid-cols-6"
+              className="p-4 bg-black/80 rounded-xl grid grid-cols-7 border border-sky-500"
             >
               {playerPoolTeams.map((team) => (
                 <DroppablePlayerList

@@ -15,7 +15,12 @@
     @apply min-h-[250px] bg-black/50 rounded-xl px-4 py-2 border-4 border-black opacity-80;
 
     div:first-child .app-player::after {
-      @apply text-xl text-amber-800 ml-auto;
+      @apply text-xl text-yellow-700 ml-auto;
+      content: "★";
+    }
+    
+    div:nth-child(5) .app-player::after {
+      @apply text-xl text-slate-400 ml-auto;
       content: "★";
     }
 
