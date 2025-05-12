@@ -160,7 +160,7 @@ class Board extends React.Component {
 
             <div
               id="app-playerpool"
-              className="p-4 bg-black/80 rounded-xl grid grid-cols-7 border border-sky-500"
+              className="p-4 bg-black/80 rounded-xl grid grid-cols-8 border border-sky-500"
             >
               {playerPoolTeams.map((team) => (
                 <DroppablePlayerList
