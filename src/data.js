@@ -19,7 +19,7 @@ const player_pool = [
 	["AHemlocksLie", "US"],
 	["Anza", "FI"],
 	["bass", "SE"],
-	["biggz", "ISL"],
+	["biggz", "IS"],
 	["Calinou", "FR"],
 	["coj", "US"],
 	["darko", "DE"],
