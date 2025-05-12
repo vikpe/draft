@@ -12,7 +12,7 @@
 
 #app-teams {
   .dnd-droppable {
-    @apply min-h-[250px] bg-black/50 rounded-xl px-4 py-2 border-4 border-black opacity-80;
+    @apply min-h-[300px] bg-black/50 rounded-xl px-4 py-2 border-4 border-black opacity-80;
 
     div:first-child .app-player::after {
       @apply text-xl text-yellow-700 ml-auto;
