@@ -5,8 +5,8 @@
 ## Install/getting started
 
 1. Clone repo
-2. `yarn install`
-3. `yarn dev` - will serve app @ `http://localhost:5173`
+2. `pnpm install`
+3. `pnpm dev` - will serve app @ `http://localhost:5173`
 
 ## Editing players and teams
 
@@ -41,7 +41,7 @@ export const players = {
 Start development server at `http://localhost:5173`, live-reloading changes.
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## Production
@@ -49,5 +49,5 @@ yarn dev
 Bundle and output build to `dist/`.
 
 ```bash
-yarn build
+pnpm build
 ```
