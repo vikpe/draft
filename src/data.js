@@ -6,13 +6,13 @@ export const pickOrder = [
 ].map((n) => n - 1);
 
 const captains = [
+	["paniagua", "FI"],
+	["nas", "SE"],
+	["Macisum", "NO"],
+	["HangTime", "GB"],
+	["PreMorteM", "NO"],
 	["Zepp", "RU"],
 	["snapcase", "SE"],
-	["PreMorteM", "NO"],
-	["Macisum", "NO"],
-	["paniagua", "FI"],
-	["HangTime", "GB"],
-	["nas", "SE"],
 ];
 
 const player_pool = [
