@@ -21,7 +21,7 @@ function appendPlayerPoolTeams() {
     (p) => !playersInTeams.includes(p),
   );
 
-  _chunk(playerPoolPlayerNames, 8).map((playerNames, index) => {
+  _chunk(playerPoolPlayerNames, 7).map((playerNames, index) => {
     const id = `playerpool-${index}`;
     teams[id] = { id, playerNames };
   });
@@ -160,7 +160,7 @@ class Board extends React.Component {
 
             <div
               id="app-playerpool"
-              className="p-4 bg-black/80 rounded-xl grid grid-cols-8 border border-sky-500"
+              className="p-4 bg-black/80 rounded-xl grid grid-cols-4 border border-sky-500"
             >
               {playerPoolTeams.map((team) => (
                 <DroppablePlayerList

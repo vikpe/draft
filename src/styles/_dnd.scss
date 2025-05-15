@@ -18,7 +18,7 @@
       @apply text-xl text-yellow-700 ml-auto;
       content: "★";
     }
-    
+
     div:nth-child(5) .app-player::after {
       @apply text-xl text-slate-400 ml-auto;
       content: "★";
@@ -69,8 +69,9 @@
   #app-teams .dnd-droppable {
     @apply opacity-100;
 
-    $colors: "rose", "cyan", "purple", "emerald", "blue", "amber", "green",
-      "orange", "lime", "gray", "pink", "violet";
+    $colors:
+      "rose", "cyan", "purple", "emerald", "blue", "amber", "green", "orange",
+      "lime", "gray", "pink", "violet";
 
     @for $i from 1 through length($colors) {
       $color: nth($colors, $i);
