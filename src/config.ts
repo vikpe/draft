@@ -12,6 +12,8 @@ const captains: Captain[] = [
 
 const captainPickOrder = [
   1, 2, 3, 4, 5, 6, 7, // pick 1
+  7, 6, 5, 4, 3, 2, 1, // pick 2
+  1, 2, 3, 4, 5, 6, 7, // pick 3
 ];
 
 const playerPool: Player[] = [
