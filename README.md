@@ -25,5 +25,5 @@ pnpm dev
 Bundle and output build to `dist/`.
 
 ```bash
-pnpm build
+pnpm build --base=https://draft.quake.world
 ```

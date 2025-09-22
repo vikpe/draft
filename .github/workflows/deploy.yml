@@ -22,6 +22,7 @@ jobs:
         uses: withastro/action@v4
         with:
           package-manager: pnpm@latest
+          build-cmd: pnpm build --base=https://draft.quake.world
 
   deploy:
     timeout-minutes: 2

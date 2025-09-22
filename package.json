@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=https://draft.quake.world/",
+    "build": "vite build",
     "preview": "vite preview",
     "format": "biome check --fix"
   },
