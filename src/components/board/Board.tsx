@@ -138,6 +138,19 @@ export class Board extends React.Component<BoardProps, BoardState> {
         this.pickOrder[this.state.currentPickIndex % this.pickOrder.length];
     }
 
+    const gridCols: Record<number, string> = {
+      1: "grid-cols-1",
+      2: "grid-cols-2",
+      3: "grid-cols-3",
+      4: "grid-cols-4",
+      5: "grid-cols-5",
+      6: "grid-cols-6",
+      7: "grid-cols-7",
+      8: "grid-cols-8",
+      9: "grid-cols-9",
+      10: "grid-cols-10",
+    };
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`dnd-status-${draftStatus}`}>
@@ -161,10 +174,7 @@ export class Board extends React.Component<BoardProps, BoardState> {
             )}
           </div>
           <div>
-            <div
-              id="dnd-teams"
-              className={`grid-cols-${this.config.teamColumns}`}
-            >
+            <div id="dnd-teams" className={gridCols[this.config.teamColumns]}>
               {captainTeams.map((team, index) => (
                 <DroppablePlayerList
                   key={team.id}
@@ -177,7 +187,7 @@ export class Board extends React.Component<BoardProps, BoardState> {
 
             <div
               id="dnd-playerpool"
-              className={`grid-cols-${this.config.playerPoolColumns}`}
+              className={gridCols[this.config.playerPoolColumns]}
             >
               {playerPoolTeams.map((team) => (
                 <DroppablePlayerList
