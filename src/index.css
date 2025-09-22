@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Boogaloo&display=swap");
-@import "tailwind";
-@import "dnd";
+@import "tailwindcss";
 
 body {
-  background: black url(/assets/img/wallpaper.jpg) no-repeat;
-  background-size: cover;
+  @apply bg-black bg-cover bg-center bg-no-repeat;
+  background-image: url(/assets/img/wallpaper.jpg);
   font-family:
     "Boogaloo",
     cursive,

@@ -10,31 +10,7 @@
 
 ## Editing players and teams
 
-Edit `src/data.js`
-
-**Example**
-
-```js
-export const teams = {
-  red: {
-    id: "red",
-    playerNames: ["bps"],
-    sortOrder: 1,
-  },
-  blue: {
-    id: "blue",
-    playerNames: ["Milton"],
-    sortOrder: 2,
-  },
-};
-
-export const players = {
-  "AiRman": Player("AiRman", "pl"),
-  "Andeh": Player("Andeh", "se"),
-  "anni": Player("anni", "de"),
-  "badsebi": Player("badsebi", "pl"),
-};
-```
+Edit `src/config.ts`
 
 ## Development
 
