@@ -154,24 +154,38 @@ export class Board extends React.Component<BoardProps, BoardState> {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className={`dnd-status-${draftStatus}`}>
-          <div className="dnd-controls text-white text-2xl mb-4">
-            {draftStatus !== "completed" && (
-              <>
-                Round <span className="text-cyan-300">{pickRound}</span>, pick{" "}
-                <span className="text-cyan-300">{pickNumber}</span>
-              </>
-            )}
+          <div className="dnd-controls text-white text-2xl mb-2">
+            <div className="flex items-center uppercase">
+              <img
+                src="/assets/img/qhdraft_logo.svg"
+                width={256}
+                className="mr-10"
+              />
 
-            {this.stateHistory.length > 0 && (
-              <span className="ml-4">
-                <button
-                  onClick={this.handleUndoClick}
-                  className="text-fuchsia-600 hover:text-fuchsia-400 cursor-pointer"
-                >
-                  Undo last action
-                </button>
-              </span>
-            )}
+              {draftStatus !== "completed" && (
+                <>
+                  Round{" "}
+                  <span className="text-yellow-300 font-bold ml-1 mr-4">
+                    {pickRound}
+                  </span>
+                  pick{" "}
+                  <span className="text-yellow-300 font-bold ml-1">
+                    {pickNumber}
+                  </span>
+                </>
+              )}
+
+              {this.stateHistory.length > 0 && (
+                <span className="ml-auto opacity-50 text-lg">
+                  <button
+                    onClick={this.handleUndoClick}
+                    className="text-green-400 hover:text-green-200 cursor-pointer"
+                  >
+                    Undo last action
+                  </button>
+                </span>
+              )}
+            </div>
           </div>
           <div>
             <div id="dnd-teams" className={gridCols[this.config.teamColumns]}>

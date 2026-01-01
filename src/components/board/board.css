@@ -2,125 +2,127 @@
 
 /* Player item */
 .dnd-player {
-  @apply flex items-center gap-2 p-1.5 text-xl rounded-md;
+    @apply flex items-center gap-2 p-1.5 text-lg rounded-md;
 }
 
 /* Teams grid */
 #dnd-teams {
-  @apply grid gap-4 mb-4;
+    @apply grid gap-4 mb-4;
 
-  .dnd-player {
-    @apply bg-gradient-to-b from-white to-gray-300;
-  }
-
-  /* add stars next to captain names */
-  .dnd-droppable {
-    div:first-child .dnd-player::after,
-    div:nth-child(5) .dnd-draggable:hover::after {
-      @apply text-xl text-yellow-700 ml-auto;
-      content: "★";
+    .dnd-player {
+        @apply bg-gradient-to-b from-white to-gray-300;
     }
 
-    div:nth-child(5) .dnd-player::after {
-      @apply text-slate-400;
-    }
+    /* add stars next to captain names */
+    .dnd-droppable {
+        @apply bg-white/5;
 
-    &.dnd-isActive {
-      div:first-child .dnd-player::after {
-        @apply animate-spin text-2xl;
-        animation-duration: 4000ms !important;
-      }
+        div:first-child .dnd-player::after,
+        div:nth-child(5) .dnd-draggable:hover::after {
+            @apply text-xl text-yellow-700 ml-auto;
+            content: "★";
+        }
+
+        div:nth-child(5) .dnd-player::after {
+            @apply text-slate-400;
+        }
+
+        &.dnd-isActive {
+            div:first-child .dnd-player::after {
+                @apply animate-spin text-2xl;
+                animation-duration: 4000ms !important;
+            }
+        }
     }
-  }
 }
 
 /* Player pool */
 #dnd-playerpool {
-  @apply min-h-32 grid bg-black rounded-xl;
+    @apply min-h-32 grid bg-black/60 rounded-xl;
 
-  .dnd-draggable {
-    @apply text-white my-0;
-  }
+    .dnd-draggable {
+        @apply text-white my-0;
+    }
 }
 
 /* Droppable containers */
 .dnd-droppable {
-  @apply min-h-[300px] bg-black/30 transition-colors rounded-xl px-4 py-2 border-4 border-black;
+    @apply min-h-[300px] transition-colors rounded-xl px-4 py-2 border-2 border-transparent;
 
-  &.dnd-isActive {
-    @apply border-cyan-400 bg-cyan-900/40;
-  }
+    &.dnd-isActive {
+        @apply border-green-500 bg-green-900/40!;
+    }
 
-  &.dnd-dragOver {
-    @apply bg-cyan-600/40;
-  }
+    &.dnd-dragOver {
+        @apply bg-green-600/40!;
+    }
 }
 
 /* Draggable items */
 .dnd-draggable {
-  @apply my-2 max-w-[160px];
+    @apply my-2 max-w-[220px] overflow-hidden text-ellipsis;
 
-  &.dnd-isDragging {
-    @apply z-auto;
-  }
+    &.dnd-isDragging {
+        @apply z-auto;
+    }
 
-  &.dnd-isDragging .dnd-player {
-    @apply shadow bg-gradient-to-b from-white to-yellow-400 text-black;
-  }
+    &.dnd-isDragging .dnd-player {
+        @apply shadow bg-gradient-to-b from-white to-green-300 text-black;
+    }
 
-  &:hover .dnd-player {
-    @apply bg-gradient-to-b from-white to-yellow-100 shadow text-black;
-  }
+    &:hover .dnd-player {
+        @apply bg-gradient-to-b from-white to-green-100 shadow text-black;
+    }
 }
 
 /* Completed state */
 .dnd-status-completed {
-  #dnd-playerpool {
-    @apply grayscale;
-  }
+    #dnd-playerpool {
+        @apply grayscale;
+    }
 
-  .dnd-controls {
-    @apply opacity-50;
-  }
+    .dnd-controls {
+        /*@apply opacity-50;*/
+    }
 
-  #dnd-teams .dnd-droppable {
-    @apply opacity-100;
+    #dnd-teams .dnd-droppable {
+        @apply opacity-100;
 
-    &:nth-child(1) {
-      @apply bg-rose-600/50;
+        &:nth-child(1) {
+            @apply bg-rose-600/20;
+        }
+        &:nth-child(2) {
+            @apply bg-cyan-600/20;
+        }
+        &:nth-child(3) {
+            @apply bg-purple-600/20;
+        }
+        &:nth-child(4) {
+            @apply bg-emerald-600/20;
+        }
+        &:nth-child(5) {
+            @apply bg-blue-600/20;
+        }
+        &:nth-child(6) {
+            @apply bg-amber-600/20;
+        }
+        &:nth-child(7) {
+            @apply bg-green-600/20;
+        }
+        &:nth-child(8) {
+            @apply bg-orange-600/20;
+        }
+        &:nth-child(9) {
+            @apply bg-lime-600/20;
+        }
+        &:nth-child(10) {
+            @apply bg-gray-600/20;
+        }
+        &:nth-child(11) {
+            @apply bg-pink-600/20;
+        }
+        &:nth-child(12) {
+            @apply bg-violet-600/20;
+        }
     }
-    &:nth-child(2) {
-      @apply bg-cyan-600/50;
-    }
-    &:nth-child(3) {
-      @apply bg-purple-600/50;
-    }
-    &:nth-child(4) {
-      @apply bg-emerald-600/50;
-    }
-    &:nth-child(5) {
-      @apply bg-blue-600/50;
-    }
-    &:nth-child(6) {
-      @apply bg-amber-600/50;
-    }
-    &:nth-child(7) {
-      @apply bg-green-600/50;
-    }
-    &:nth-child(8) {
-      @apply bg-orange-600/50;
-    }
-    &:nth-child(9) {
-      @apply bg-lime-600/50;
-    }
-    &:nth-child(10) {
-      @apply bg-gray-600/50;
-    }
-    &:nth-child(11) {
-      @apply bg-pink-600/50;
-    }
-    &:nth-child(12) {
-      @apply bg-violet-600/50;
-    }
-  }
 }
