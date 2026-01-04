@@ -4,7 +4,7 @@ import config from "./config";
 
 export function App(): ReactNode {
   return (
-    <div className="p-6 min-h-screen max-w-screen-2xl mx-auto select-none max-h-screen overflow-hidden">
+    <div className="p-4 min-h-screen max-w-480 mx-auto select-none max-h-screen overflow-hidden">
       <Board config={config} />
     </div>
   );

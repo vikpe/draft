@@ -158,7 +158,7 @@ export class Board extends React.Component<BoardProps, BoardState> {
             <div className="flex items-center uppercase">
               <img
                 src="/assets/img/qhdraft_logo.svg"
-                width={256}
+                width={240}
                 className="mr-10"
               />
 

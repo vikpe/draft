@@ -2,7 +2,7 @@
 
 /* Player item */
 .dnd-player {
-    @apply flex items-center gap-2 p-1.5 text-lg rounded-md;
+    @apply flex items-center gap-2 py-0.5 px-1.5 rounded;
 }
 
 /* Teams grid */
@@ -10,7 +10,7 @@
     @apply grid gap-4 mb-4;
 
     .dnd-player {
-        @apply bg-gradient-to-b from-white to-gray-300;
+        @apply bg-linear-to-b from-white to-gray-300;
     }
 
     /* add stars next to captain names */
@@ -30,7 +30,7 @@
         &.dnd-isActive {
             div:first-child .dnd-player::after {
                 @apply animate-spin text-2xl;
-                animation-duration: 4000ms !important;
+                animation-duration: 6s !important;
             }
         }
     }
@@ -47,7 +47,7 @@
 
 /* Droppable containers */
 .dnd-droppable {
-    @apply min-h-[300px] transition-colors rounded-xl px-4 py-2 border-2 border-transparent;
+    @apply min-h-[200px] transition-colors rounded-xl px-4 py-2 border-2 border-transparent;
 
     &.dnd-isActive {
         @apply border-green-500 bg-green-900/40!;
@@ -67,11 +67,11 @@
     }
 
     &.dnd-isDragging .dnd-player {
-        @apply shadow bg-gradient-to-b from-white to-green-300 text-black;
+        @apply shadow bg-linear-to-b from-white to-green-300 text-black;
     }
 
     &:hover .dnd-player {
-        @apply bg-gradient-to-b from-white to-green-100 shadow text-black;
+        @apply bg-linear-to-b from-white to-green-100 shadow text-black;
     }
 }
 

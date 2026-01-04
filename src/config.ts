@@ -1,13 +1,22 @@
 import { BoardConfig, Captain, Player } from "./components/board";
 
 const captains: Captain[] = [
-  {id: 1, name: "spokz", cc: "PL"},
-  {id: 2, name: "Link", cc: "NO"},
-  {id: 3, name: "Nexus", cc: "FI"},
-  {id: 4, name: "Nico", cc: "US"},
-  {id: 5, name: "tuhmapoika", cc: "FI"},
-  {id: 6, name: "myca", cc: "PL"},
-  {id: 7, name: "neophyte", cc: "HU"},
+  {id: 1, name: "Captain 1", cc: "SE"},
+  {id: 2, name: "Captain 2", cc: "SE"},
+  {id: 3, name: "Captain 3", cc: "SE"},
+  {id: 4, name: "Captain 4", cc: "SE"},
+  {id: 5, name: "Captain 5", cc: "SE"},
+  {id: 6, name: "Captain 6", cc: "SE"},
+  {id: 7, name: "Captain 7", cc: "SE"},
+  {id: 8, name: "Captain 8", cc: "SE"},
+  {id: 9, name: "Captain 9", cc: "SE"},
+  {id: 10, name: "Captain 10", cc: "SE"},
+  {id: 11, name: "Captain 11", cc: "SE"},
+  {id: 12, name: "Captain 12", cc: "SE"},
+  {id: 13, name: "Captain 13", cc: "SE"},
+  {id: 14, name: "Captain 14", cc: "SE"},
+  {id: 15, name: "Captain 15", cc: "SE"},
+  {id: 16, name: "Captain 16", cc: "SE"},
 ];
 
 const captainPickOrder = [
@@ -16,34 +25,8 @@ const captainPickOrder = [
   1, 2, 3, 4, 5, 6, 7, // pick 3
 ];
 
-const playerPool: Player[] = [
-  {name: "AHemlocksLie", cc: "US"},
-  {name: "alice", cc: "SE"},
-  {name: "badsebi", cc: "PL"},
-  {name: "biggz", cc: "IS"},
-  {name: "Calinou", cc: "FR"},
-  {name: "diehuman", cc: "PT"},
-  {name: "Dobezz", cc: "GB"},
-  {name: "doomie", cc: "PL"},
-  {name: "duce", cc: "DE"},
-  {name: "Evil", cc: "UA"},
-  {name: "Flash", cc: "CA"},
-  {name: "HaraldQuake", cc: "DE"},
-  {name: "kwon", cc: "DE"},
-  {name: "milamber", cc: "HU"},
-  {name: "musi", cc: "HU"},
-  {name: "NinJaA", cc: "HU"},
-  {name: "nlk", cc: "RU"},
-  {name: "Pamppu", cc: "FI"},
-  {name: "PhenomenA", cc: "SE"},
-  {name: "RaggA", cc: "IE"},
-  {name: "ratatat", cc: "SE"},
-  {name: "rotker", cc: "PL"},
-  {name: "sailorman", cc: "SE"},
-  {name: "Veggie", cc: "US"},
-  {name: "XuMuK", cc: "RU"},
-  {name: "ztranger", cc: "PT"},
-];
+const playerPool: Player[] = Array.from({ length: 48 }, (_, i) => i + 1).map(n => ({name: `Player ${n}`, cc: "SE"}));
+  // {name: "AHemlocksLie", cc: "US"},
 
 export default {
   // data
@@ -52,6 +35,6 @@ export default {
   captainPickOrder,
 
   // interface
-  teamColumns: 4,
-  playerPoolColumns: 5,
+  teamColumns: 6,
+  playerPoolColumns: 6,
 } as BoardConfig;
