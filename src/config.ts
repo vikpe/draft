@@ -25,7 +25,7 @@ const captainPickOrder = [
   1, 2, 3, 4, 5, 6, 7, // pick 3
 ];
 
-const playerPool: Player[
+const playerPool: Player = [
   { "name": "AHemlocksLie", "cc": "US" },
   { "name": "andeh", "cc": "SE" },
   { "name": "Baresi", "cc": "NO" },
